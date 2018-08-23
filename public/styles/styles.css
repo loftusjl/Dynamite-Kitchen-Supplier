@@ -1,3 +1,22 @@
 .list-group-item {
   line-height: 2.5;
 }
+h2 {
+  margin-top: 0px;
+  padding-top: 15px;
+}
+
+.jumbo{
+  min-height: 15vh;
+}
+.background{
+  margin-top: -20px;
+  min-height: 80vh;
+  border-radius: 0% 0% 10% 10%;
+}
+.padIt {
+  margin: 10px;
+}
+label {
+  color: rgb(54, 54, 54);
+}

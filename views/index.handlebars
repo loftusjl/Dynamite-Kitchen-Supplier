@@ -1,16 +1,20 @@
+
 <div id='home'>
+  <div class='jumbo light-blue lighten-1 center'>
+    <h2 class='black-text'>Order Master</h2>
+  </div>
   <div class='container'>
-    <div class='row'>
+    <div class='background  blue-grey lighten-4'>
+    <div class='row padIt'>
       <div class='col-8 offset-2'>
-        <h1>Order Master</h1>
-        <form class='mb-4' action='POST'>
+        <form class='mb-4' action='GET'>
           <div class='form-group flow-text'>
-            <label for='products-text'>Products Search</label>
+            <label for='products-text'><h5>Products Search</h5></label>
             <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
           </div>
-          <button id='submit' class='btn btn-primary float-right'>Submit</button>
+          <button id='submit' class='btn btn-primary float-right light-blue lighten-1'>Submit</button>
         </form>
-        <h3>Products:</h3>
+        <h4>Products:</h4>
         <ul id='product-list' class='list-group'>
           {{#each product}}
           <li data-id='{{this.id}}' class='list-group-item'>
@@ -22,7 +26,8 @@
       </div>
     </div>
   </div>
+  </div>
 </div>
- <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='/js/index.js'></script>
