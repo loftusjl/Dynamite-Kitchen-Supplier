@@ -5,16 +5,15 @@ module.exports = function(app) {
 	app.get('/', function(req, res) {
 		db.Product.findAll({}).then(function(dbProduct) {
 			res.render('index', {
-				msg: 'Welcome!',
 				product: dbProduct
 			});
 		});
 	});
 
-	// Load example page and pass in an example by id
-	app.get('/example/:id', function(req, res) {
-		db.Product.findOne({ where: { id: req.params.id } }).then(function(dbProduct) {
-			res.render('example', {
+	// Load product page and pass in an product by id
+	app.get('/products/:id', function(req, res) {
+		db.Product.findOne({ where: { prodName: req.params.prodName } }).then(function(dbProduct) {
+			res.render('products', {
 				product: dbProduct
 			});
 		});

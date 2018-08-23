@@ -8,7 +8,7 @@
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "",
     "database": "restaurantTestDB",
     "host": "localhost",
     "dialect": "mysql",

@@ -1,7 +1,14 @@
 module.exports = function (sequelize, DataTypes) {
 	const Product = sequelize.define('Product', {
-		prodCategory: DataTypes.STRING,
-		prodName: DataTypes.STRING,
+		prodCategory: {
+			type: DataTypes.STRING,
+			validate: {
+				allowNull: false
+			}
+		},
+		prodName: {
+			type:  DataTypes.STRING
+		},
 		prodOnHand: DataTypes.INTEGER,
 		prodPAR: DataTypes.INTEGER,
 		prodPrice: {

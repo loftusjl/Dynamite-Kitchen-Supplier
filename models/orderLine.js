@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 	const OrderLine = sequelize.define('OrderLine', {
 		olQuantity: DataTypes.INTEGER,
+		olUnitofIssue: DataTypes.STRING,
 		prodID: DataTypes.INTEGER
 	});
 	OrderLine.associate = function(models) {
