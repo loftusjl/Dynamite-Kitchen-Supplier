@@ -8,8 +8,18 @@ module.exports = function(app) {
 		});
 	});
 	// search a product by category
-	app.get('/api/products/:category', function(req, res) {
+	app.get('/api/products/category/:category', function(req, res) {
 		db.Product.findAll({ where: { prodCategory: req.params.category } }).then(function(dbProduct) {
+			res.json(dbProduct);
+		});
+	});
+	// search a product by name
+	app.get('/api/products/search/:name', function(req, res) {
+		db.Product.findAll({ 
+			where: { 
+				prodName: { $like: `%${req.params.name}%`}
+			}
+		}).then(function(dbProduct) {
 			res.json(dbProduct);
 		});
 	});
