@@ -1,10 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "mysql",
+    "password": "",
     "database": "restaurantDB",
     "host": "localhost",
-    "dialect": ""
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
