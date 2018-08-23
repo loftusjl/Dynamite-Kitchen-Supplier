@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
 			type: DataTypes.DECIMAL,
 			precision: 2
 		},
-		prPhoto: DataTypes.TEXT
+		prodPhoto: DataTypes.TEXT
 	});
 	return Product;
 };
