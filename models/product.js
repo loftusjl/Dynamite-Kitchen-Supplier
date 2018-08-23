@@ -12,10 +12,7 @@ module.exports = function (sequelize, DataTypes) {
 		},
 		prodOnHand: DataTypes.INTEGER,
 		prodPAR: DataTypes.INTEGER,
-		prodPrice: {
-			type: DataTypes.DECIMAL,
-			precision: 2
-		},
+		prodPrice: DataTypes.DECIMAL(10,2),
 		prodPhoto: DataTypes.TEXT
 	});
 	return Product;
