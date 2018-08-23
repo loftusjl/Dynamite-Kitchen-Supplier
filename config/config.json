@@ -4,7 +4,7 @@
     "password": "mysql",
     "database": "restaurantDB",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": ""
   },
   "test": {
     "username": "root",
