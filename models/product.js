@@ -7,7 +7,8 @@ module.exports = function (sequelize, DataTypes) {
 			}
 		},
 		prodName: {
-			type:  DataTypes.STRING
+			type:  DataTypes.STRING,
+			allowNull: false
 		},
 		prodOnHand: DataTypes.INTEGER,
 		prodPAR: DataTypes.INTEGER,
