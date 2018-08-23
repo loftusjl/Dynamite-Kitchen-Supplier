@@ -11,9 +11,9 @@ module.exports = function(app) {
 	});
 
 	// Load product page and pass in an product by id
-	app.get('/products/:name', function(req, res) {
-		db.Product.findAll({ where: { name: req.params.prodName } }).then(function(dbProduct) {
-			res.render('products', {
+	app.get('/products/:prodCategory', function(req, res) {
+		db.Product.findAll({ where: { prodCategory: req.params.prodCategory } }).then(function(dbProduct) {
+			res.render('product', {
 				product: dbProduct
 			});
 		});

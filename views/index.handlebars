@@ -17,10 +17,11 @@
         <h4>Products:</h4>
         <ul id='product-list' class='list-group'>
           {{#each product}}
-          <li data-id='{{this.id}}' class='list-group-item'>
-            <a href='product/{{this.id}}'>{{this.text}}</a>
+          <li data-id='{{this.id}}' class='list-group-item grey lighten-3'>
+            <a href='products/{{this.id}}'>{{this.prodName}} | {{this.prodCategory}} | {{this.prodOnHand}} | {{this.prodPAR}}</a>
             <button class='btn btn-danger float-right delete'>ｘ</button>
           </li>
+          <div class='divider'></div>
           {{/each}}
         </ul>
       </div>
