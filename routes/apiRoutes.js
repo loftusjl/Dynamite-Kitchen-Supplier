@@ -7,6 +7,22 @@ module.exports = function(app) {
 			res.json(dbProduct);
 		});
 	});
+	// search a product by category
+	app.get('/api/products/category/:category', function(req, res) {
+		db.Product.findAll({ where: { prodCategory: req.params.category } }).then(function(dbProduct) {
+			res.json(dbProduct);
+		});
+	});
+	// search a product by name
+	app.get('/api/products/search/:name', function(req, res) {
+		db.Product.findAll({ 
+			where: { 
+				prodName: { $like: `%${req.params.name}%`}
+			}
+		}).then(function(dbProduct) {
+			res.json(dbProduct);
+		});
+	});
 
 	// Create a new product
 	app.post('/api/products', function(req, res) {
