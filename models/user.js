@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
 			type: DataTypes.INTEGER,
 			len: [5]
 		},
-		usRole: DataTypes.STRING
+		usRole: DataTypes.INTEGER
 	});
 	return User;
 };
