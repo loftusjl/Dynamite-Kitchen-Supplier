@@ -9,28 +9,38 @@ var config = require(__dirname + '/../config/config.json')[env];
 var db = {};
 
 if (config.use_env_variable) {
-	var sequelize = new Sequelize(process.env[config.use_env_variable]);
+	var sequelize = new Sequelize(process.env[config.use_env_variable], {
+		define: {
+			charset: 'utf8',
+			collate: 'utf8_general_ci'
+		}
+	});
 } else {
 	var sequelize = new Sequelize(
 		process.env.DB_DATABASE,
 		process.env.DB_USER,
 		process.env.DB_PASS,
-		config
+		config, {
+			define: {
+				charset: 'utf8',
+				collate: 'utf8_general_ci'
+			}
+		}
 	);
 }
 
 fs.readdirSync(__dirname)
-	.filter(function(file) {
+	.filter(function (file) {
 		return (
 			file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
 		);
 	})
-	.forEach(function(file) {
+	.forEach(function (file) {
 		var model = sequelize.import(path.join(__dirname, file));
 		db[model.name] = model;
 	});
 
-Object.keys(db).forEach(function(modelName) {
+Object.keys(db).forEach(function (modelName) {
 	if (db[modelName].associate) {
 		db[modelName].associate(db);
 	}
