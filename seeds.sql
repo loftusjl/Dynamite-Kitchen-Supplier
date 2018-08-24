@@ -1,4 +1,5 @@
 USE restaurantdb;
+-- products table
 insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodPrice, createdAt, updatedAt) values ('Grocery', 'Cookie Dough - Double', 1, 5, 20.4, '2018-04-04 09:13:40', '2018-07-11 19:23:09');
 insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodPrice, createdAt, updatedAt) values ('Grocery', 'Potatoes - Idaho 100 Count', 2, 9, 48.53, '2018-04-05 11:58:43', '2018-02-22 09:58:52');
 insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodPrice, createdAt, updatedAt) values ('Meat', 'Beef Wellington', 2, 11, 82.17, '2018-08-17 13:45:37', '2017-11-15 11:49:58');
@@ -29,3 +30,14 @@ insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodPrice, cr
 insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodPrice, createdAt, updatedAt) values ('Produce', 'Cabbage - Green', 1, 22, 6.86, '2017-11-30 00:29:27', '2018-02-06 00:07:51');
 insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodPrice, createdAt, updatedAt) values ('Grocery', 'Chips Potato Reg 43g', 5, 15, 33.41, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodPrice, createdAt, updatedAt) values ('Grocery', 'Flour - Corn, Fine', 2, 16, 53.71, '2017-09-16 02:07:30', '2018-03-22 10:47:05');
+
+-- role table
+insert into roles (rlTitle, createdAt, updatedAt) values ('0', '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into roles (rlTitle, createdAt, updatedAt) values ('1', '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+
+-- users table
+insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, createdAt, updatedAt) values ('John Doe', '123-456-7890', '1234 Five St', 'Funner', 'California', 91945, 0, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, createdAt, updatedAt) values ('Jane Doe', '987-654-3210', '6789 Ten St', 'Funner', 'California', 91945, 0, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, createdAt, updatedAt) values ('Jessica Rabbit', '123-452-8589', '2020 Dateline Rd', 'Funner', 'California', 91945, 1, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, createdAt, updatedAt) values ('John Wick', '987-365-4562', '5242 Dynamite Ln', 'Funner', 'California', 91945, 1, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+
