@@ -1,10 +1,10 @@
 
 <div id='home'>
-  <div class='jumbo light-blue lighten-1 center'>
-    <h2 class='black-text'>Order Master</h2>
+  <div class='jumbo'>
+    <h2 class='white-text center header'>Name Here</h2>
   </div>
   <div class='container'>
-    <div class='background  blue-grey lighten-4'>
+    <div class='background z-depth-3'>
     <div class='row padIt'>
       <div class='col-8 offset-2'>
         <form class='mb-4' action='GET'>
@@ -12,16 +12,16 @@
             <label for='products-text'><h5>Products Search</h5></label>
             <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
           </div>
-          <button id='submit' class='btn btn-primary float-right light-blue lighten-1'>Submit</button>
+          <button id='submit' class='btn btn-primary right'>Submit</button>
         </form>
         <h4>Products:</h4>
         <ul id='product-list' class='list-group'>
           {{#each product}}
-          <li data-id='{{this.id}}' class='list-group-item grey lighten-3'>
+          <li data-id='{{this.id}}' class='list-group-item'>
             <a href='products/{{this.id}}'>{{this.prodName}} | {{this.prodCategory}} | {{this.prodOnHand}} | {{this.prodPAR}}</a>
-            <button class='btn btn-danger float-right delete'>ｘ</button>
+            <button class='btn right  add'>ｘ</button>
           </li>
-          <div class='divider'></div>
+          <hr>
           {{/each}}
         </ul>
       </div>
