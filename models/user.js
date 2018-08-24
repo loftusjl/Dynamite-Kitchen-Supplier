@@ -4,12 +4,7 @@ module.exports = function (sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		usPhone: {
-			type: DataTypes.SMALLINT,
-			validate: {
-				len: [10,15]
-			}
-		},
+		usPhone: DataTypes.STRING,
 		usStreet: DataTypes.STRING,
 		usCity: DataTypes.STRING,
 		usState: DataTypes.STRING,
