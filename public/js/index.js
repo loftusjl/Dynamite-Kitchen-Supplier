@@ -4,6 +4,7 @@ var $exampleDescription = $('#example-description');
 var $submitBtn = $('#submit');
 var $exampleList = $('#product-list');
 
+
 // The API object contains methods for each kind of request we'll make
 var API = {
 	saveExample: function(example) {
@@ -91,6 +92,7 @@ var handleDeleteBtnClick = function() {
 		location.reload();
 	});
 };
+
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on('click', handleFormSubmit);
