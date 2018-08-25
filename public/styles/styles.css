@@ -61,6 +61,12 @@ label {
 
   margin-bottom: 10px;
 }
+.top-back {
+  margin-top: 10px;
+}
+#back {
+  margin-right: 10px;
+}
 /* login page styles */
 .login-form {
   padding-top: 20px;
