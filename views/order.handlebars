@@ -8,16 +8,16 @@
         <div class='col-8 offset-2'>
           <form class='mb-4' action='GET'>
             <div class='form-group flow-text'>
-              <label for='products-text'><h5>Products Search</h5></label>
-              <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
+              <label for='orders-text'><h5>Order Search</h5></label>
+              <input type='text' id='order-text' class='form-control' aria-describedby='order-text' placeholder='Enter order Text'>
             </div>
             <button id='submit' class='btn btn-primary right'>Submit</button>
           </form>
-          <h4>Products:</h4>
-          <ul id='product-list' class='list-group'>
-            {{#each product}}
+          <h4>Orders:</h4>
+          <ul id='order-list' class='list-group'>
+            {{#each order}}
             <li data-id='{{this.id}}' class='list-group-item'>
-              <a href='products/{{this.id}}'>{{this.prodName}} | {{this.prodCategory}} | {{this.prodOnHand}}</a>
+              <a href='orders/{{this.id}}'>{{this.prodName}} | {{this.prodCategory}} | {{this.prodOnHand}}</a>
               {{> addOne}}
             </li>
             <hr> {{/each}}

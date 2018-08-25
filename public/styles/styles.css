@@ -57,6 +57,10 @@ label {
 .active {
   background-color: rgb(62, 62, 255) !important;
 }
+#logOut {
+
+  margin-bottom: 10px;
+}
 /* login page styles */
 .login-form {
   padding-top: 20px;
@@ -69,4 +73,8 @@ label {
 
 .login-submit {
  margin-bottom: 20px;
+}
+
+.login-bg {
+  background-color: rgba(226, 226, 229, 0.712);
 }
