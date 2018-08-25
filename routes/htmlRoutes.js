@@ -9,9 +9,28 @@ module.exports = function(app) {
 			});
 		});
 	});
+	// Load user page
+	app.get('/user', function(req, res) {
+		//! change to only rendering. Reference API routes for actual data query
+		db.Product.findAll({}).then(function(dbProduct) { 
+			res.render('user', {
+				product: dbProduct
+			});
+		});
+	});
+	// Load supervisor page
+	app.get('/supervisor', function(req, res) {
+		//! change to only rendering. Reference API routes for actual data query
+		db.Product.findAll({}).then(function(dbProduct) {
+			res.render('supervisor', {
+				product: dbProduct
+			});
+		});
+	});
 
 	// Load product page and pass in an product by id
 	app.get('/products/:prodCategory', function(req, res) {
+		//! change to only rendering. Reference API routes for actual data query
 		db.Product.findAll({ where: { prodCategory: req.params.prodCategory } }).then(function(dbProduct) {
 			res.render('product', {
 				product: dbProduct

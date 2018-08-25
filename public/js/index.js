@@ -2,7 +2,7 @@
 var $exampleText = $('#example-text');
 var $exampleDescription = $('#example-description');
 var $submitBtn = $('#submit');
-var $exampleList = $('#example-list');
+var $exampleList = $('#product-list');
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -85,12 +85,10 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
-	var idToDelete = $(this)
-		.parent()
-		.attr('data-id');
-
+	var idToDelete = $(this).data('id')
+	console.log(idToDelete)
 	API.deleteExample(idToDelete).then(function() {
-		refreshExamples();
+		location.reload()
 	});
 };
 
