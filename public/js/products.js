@@ -1,28 +1,9 @@
-<<<<<<< HEAD
-// starting passport.js for login authentication
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-
-passport.use(new LocalStrategy(function(username, password, done) {
-	User.findOne({ username: username }, function(err, user) {
-		if (err) { return done(err); }
-		if (!user) {
-			return done(null, false, { message: 'Incorrect username.' });
-		}
-		if (!user.validPassword(password)) {
-			return done(null, false, { message: 'Incorrect password.' });
-		}
-		return done(null, user);
-	});
-}
-));
-=======
+// NEEDS TO BE UPDATED
 // Get references to page elements
 var $exampleText = $('#example-text');
 var $exampleDescription = $('#example-description');
 var $submitBtn = $('#submit');
 var $exampleList = $('#product-list');
-
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -112,8 +93,6 @@ var handleDeleteBtnClick = function() {
 	});
 };
 
-
 // Add event listeners to the submit and delete buttons
 $submitBtn.on('click', handleFormSubmit);
 $exampleList.on('click', '.delete', handleDeleteBtnClick);
->>>>>>> 6d6ea256593251e2b85cc46a5334339a08e3ecec

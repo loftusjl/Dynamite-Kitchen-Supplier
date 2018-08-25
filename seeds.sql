@@ -41,3 +41,25 @@ insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, cr
 insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, createdAt, updatedAt) values ('Jessica Rabbit', '123-452-8589', '2020 Dateline Rd', 'Funner', 'California', 91945, 1, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, createdAt, updatedAt) values ('John Wick', '987-365-4562', '5242 Dynamite Ln', 'Funner', 'California', 91945, 1, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 
+-- orderLine table
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (13, 'TUB', 27, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (4, 'BOX', 4, 2, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (17, 'CS', 22, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (13, 'CS', 2, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (20, 'TUB', 29, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (7, 'TUB', 7, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (17, 'BOX', 25, 3, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (11, 'Each', 14, 1, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (7, 'BOX', 29, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (10, 'CS', 5, 3, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (14, 'Each', 24, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (22, 'Each', 10, 2, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (23, 'TUB', 13, 3, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (24, 'TUB', 8, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (24, 'CS', 16, 2, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (18, 'CS', 2, 3, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (11, 'CS', 29, 3, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (1, 'BOX', 12, 2, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (18, 'CS', 20, 1, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (6, 'Each', 25, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
+
