@@ -11,7 +11,8 @@ module.exports = function(app) {
 	});
 	// Load user page
 	app.get('/user', function(req, res) {
-		db.Product.findAll({}).then(function(dbProduct) {
+		//! change to only rendering. Reference API routes for actual data query
+		db.Product.findAll({}).then(function(dbProduct) { 
 			res.render('user', {
 				product: dbProduct
 			});
@@ -27,6 +28,7 @@ module.exports = function(app) {
 	});
 	// Load supervisor page
 	app.get('/supervisor', function(req, res) {
+		//! change to only rendering. Reference API routes for actual data query
 		db.Product.findAll({}).then(function(dbProduct) {
 			res.render('supervisor', {
 				product: dbProduct
