@@ -1,3 +1,4 @@
+/* universal */
 body {
   background: rgba(245, 244, 244, 0.89);
 }
@@ -55,4 +56,17 @@ label {
 
 .active {
   background-color: rgb(62, 62, 255) !important;
+}
+/* login page styles */
+.login-form {
+  padding-top: 20px;
+}
+
+.login {
+  background: rgba(139, 139, 160, 0.486);
+  border-radius: 0px 0px 10px 10px;
+}
+
+.login-submit {
+ margin-bottom: 20px;
 }

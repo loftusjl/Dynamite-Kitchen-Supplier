@@ -3,34 +3,22 @@
     <h2 class='white-text center header'>Name Here</h2>
   </div>
   <div class='container'>
-    <div class='background z-depth-3'>
+    <div class='login z-depth-3'>
       <div class='row padIt'>
         <div class='col-8 offset-2'>
-          <form class='mb-4' action='GET'>
-            <div class='form-group flow-text'>
-              <label for='products-text'><h5>Products Search</h5></label>
-              <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
+          <form class='mb-4 login-form' action='GET'>
+            <div class="input-field">
+              <input id="first_name" type="text" class="validate">
+              <label for="first_name">User Name</label>
             </div>
-            <button id='submit' class='btn btn-primary right'>Submit</button>
+            <div class="row">
+              <div class="input-field">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <button id='submit' class='btn btn-primary right login-submit'>Submit</button>
           </form>
-          <h4>Products:</h4>
-          <ul id='product-list' class='list-group'>
-            {{#each product}}
-            <li data-id='{{this.id}}' class='list-group-item'>
-              <a href='products/{{this.id}}'>{{this.prodName}} | {{this.prodCategory}} | {{this.prodOnHand}}</a>
-              {{> addOne}}
-            </li>
-            <hr> {{/each}}
-          </ul>
-          <ul class="pagination">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active page"><a href="#!">1</a></li>
-            <li class="waves-effect page"><a href="#!">2</a></li>
-            <li class="waves-effect page"><a href="#!">3</a></li>
-            <li class="waves-effect page"><a href="#!">4</a></li>
-            <li class="waves-effect page"><a href="#!">5</a></li>
-            <li class="waves-effect page"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-          </ul>
         </div>
       </div>
     </div>
