@@ -18,7 +18,7 @@
             {{#each product}}
             <li data-id='{{this.id}}' class='list-group-item'>
               <a href='products/{{this.id}}'>{{this.prodName}} | {{this.prodCategory}} | {{this.prodOnHand}}</a>
-              {{> addOne}}
+              {{> addOne}} {{> delete}}
             </li>
             <hr> {{/each}}
           </ul>
