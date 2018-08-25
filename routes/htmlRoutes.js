@@ -22,7 +22,7 @@ module.exports = function(app) {
 	app.get('/superUser', function(req, res) {
 		db.Product.findAll({}).then(function(dbProduct) {
 			res.render('superUser', {
-			
+				product: dbProduct
 			});
 		});
 	});
@@ -38,16 +38,16 @@ module.exports = function(app) {
 
 	// Load product page and pass in an product by id
 	app.get('/order', function(req, res) {
-		db.Order.findAll({ where: { id: req.params.id } }).then(function(dbProduct) {
+		db.Product.findAll({ where: { id: req.params.id } }).then(function(dbProduct) {
 			res.render('order', {
-			
+				product: dbProduct
 			});
 		});
 	});
 	app.get('/user', function(req, res) {
-		db.User.findAll({ where: { id: req.params.id } }).then(function(dbProduct) {
+		db.Product.findAll({ where: { id: req.params.id } }).then(function(dbProduct) {
 			res.render('user', {
-				
+				product: dbProduct
 			});
 		});
 	});
