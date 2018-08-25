@@ -3,18 +3,19 @@
     <div class="col-8 offset-2">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">Products</h5>
+          <h5 class="card-title">Products:</h5>
+          {{#each product}}
           <p>
-            <strong>ID</strong>: {{product.id}}</p>
-          <p>
+            <strong>ID</strong>: {{this.id}}</p>
             <p>
-              <strong>Name</strong>: {{product.prodName}}</p>
+              <strong>Name</strong>: {{this.prodName}}</p>
             <p>
-              <strong>Catagory:</strong> {{product.prodCategory}}
+              <strong>Catagory:</strong> {{this.prodCategory}}
             </p>
             <p>
-              <strong>On Hand:</strong> {{product.prodOnHand}}
+              <strong>On Hand:</strong> {{this.prodOnHand}}
             </p>
+            {{/each}}
             <a href="/">← Back To Home</a>
         </div>
       </div>
