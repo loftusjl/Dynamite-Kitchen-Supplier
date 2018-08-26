@@ -26,12 +26,22 @@
                             </tr>
                     </thead>
                     <tbody data-id='{{this.id}}' class='list-group-item'>
-                         {{#each user}}
-                        <tr><a href='user/{{this.id}}'>
-                                <td>{{this.usName}} </td>
-                                <td>{{this.usRole}}</td>
-                                <td>{{this.usPhone}}</td>
-                                <td>{{> addOne}}</td>
+                        {{#each user}}
+                        <tr>
+                            <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.usName}}</a><div class="modal"
+                                    id="modal{{this.id}}">
+                                    <div class="modal-content">
+                                        <h4>{{this.usName}}</h4>
+                                        <p>{{this.usPhone}}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{this.usRole}}</td>
+                            <td>{{this.usPhone}}</td>
+                            <td>{{> addOne}}</td>
                             </a></tr>
                         {{/each}}
                     </tbody>
@@ -50,6 +60,7 @@
         </div>
     </div>
 </div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
+<script src='/js/products.js'></script>

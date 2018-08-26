@@ -26,13 +26,22 @@
           </thead>
           <tbody data-id='{{this.id}}' class='list-group-item'>
             {{#each orderline}}
-            <tr><a href='orders/{{this.olID}}'>
-              <td>{{this.prodID}}</td>
+            <tr>
+              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodID}}</a><div class="modal" id="modal{{this.id}}">
+                  <div class="modal-content">
+                    <h4>{{this.olID}}</h4>
+                    <p>{{this.olUnitofIssue}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                  </div>
+                </div>
+              </td>
               <td>{{this.olUnitofIssue}}</td>
               <td>{{this.olQuantity}}</td>
               <td>{{> addOne}}</td>
-           </a></tr>
-          {{/each}}
+              </a></tr>
+            {{/each}}
           </tbody>
           </table>
           <ul class="pagination">
@@ -48,6 +57,7 @@
     </div>
   </div>
 </div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
+<script src='/js/products.js'></script>
