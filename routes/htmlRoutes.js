@@ -38,16 +38,16 @@ module.exports = function(app) {
 
 	// Load product page and pass in an product by id
 	app.get('/order', function(req, res) {
-		db.Product.findAll({ where: { id: req.params.id } }).then(function(dbProduct) {
+		db.OrderLine.findAll({}).then(function(dbOrderLine) {
 			res.render('order', {
-				product: dbProduct
+				orderline: dbOrderLine
 			});
 		});
 	});
 	app.get('/user', function(req, res) {
-		db.Product.findAll({ where: { id: req.params.id } }).then(function(dbProduct) {
+		db.User.findAll({}).then(function(dbUser) {
 			res.render('user', {
-				product: dbProduct
+				user: dbUser
 			});
 		});
 	});
