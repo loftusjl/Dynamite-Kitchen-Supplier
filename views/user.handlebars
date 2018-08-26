@@ -9,23 +9,41 @@
                     <form class='mb-4' action='GET'>
                         <div class='form-group flow-text'>
                             <button id='back' class='btn btn-primary right top-back'><a href='/superUser'>Back</a></button>
-                            <label for='orders-text'><h5>Users</h5></label>
-                            <input type='text' id='order-text' class='form-control' aria-describedby='order-text' placeholder='Enter order Text'>
+                            <label for='users-text'><h5>Users</h5></label>
+                            <input type='text' id='user-text' class='form-control' aria-describedby='user-text' placeholder='Enter user'>
+
                         </div>
                         <button id='submit' class='btn btn-primary right'>Submit</button>
                     </form>
                     <h4>Users:</h4>
+                    <thead id='user-list' class='list-group'>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Access</th>
+                                <th>Phone</th>
+                                <th>Add</th>
+                            </tr>
+                    </thead>
+                    <tbody data-id='{{this.id}}' class='list-group-item'>
+                         {{#each user}}
+                        <tr><a href='user/{{this.id}}'>
+                                <td>{{this.usName}} </td>
+                                <td>{{this.usRole}}</td>
+                                <td>{{this.usPhone}}</td>
+                                <td>{{> addOne}}</td>
+                            </a></tr>
+                        {{/each}}
+                    </tbody>
+                    </table>
                     <ul class="pagination">
                         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                         <li class="active page"><a href="#!">1</a></li>
                         <li class="waves-effect page"><a href="#!">2</a></li>
                         <li class="waves-effect page"><a href="#!">3</a></li>
-                        <li class="waves-effect page"><a href="#!">4</a></li>
-                        <li class="waves-effect page"><a href="#!">5</a></li>
                         <li class="waves-effect page"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
 
                         <button id='logOut' class='btn btn-primary right'>Log out</button>
-                        <button id='back' class='btn btn-primary right'><a href='/superUser'>Back</a></button>
                     </ul>
                 </div>
             </div>
