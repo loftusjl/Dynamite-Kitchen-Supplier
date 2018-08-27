@@ -1,12 +1,13 @@
-@function set-btn-text-color($color) {
+//function to change color of text based on color of background
+@function set-text-color($color) {
     @if (lightness($color) > 50) {
         @return #000000; //lighter background, return dark color
     } @else {
         @return #f3f3f3d7; //darker background, return light color
     }
 }
-
-$btn: rgb(17, 0, 253); //red
+//all button styles
+$btn: rgb(0, 38, 255); //btn background color
 
 .btn {
     @extend %btn !optional;
@@ -14,9 +15,29 @@ $btn: rgb(17, 0, 253); //red
 
 .btn {
     background: $btn;
-    color: set-btn-text-color($btn);
+    color: set-text-color($btn);
+}
+// main background
+$background: rgba(204, 204, 204, 0.575); // background color
+
+.background {
+    @extend %background !optional;
 }
 
+.background {
+    background: $background;
+    color: set-text-color($background);
+}
+
+// modal style
+.modal {
+    border: rgb(174, 174, 247) solid 5px;
+    border-radius: 5px;
+}
+
+// .modal-content {
+
+// }
 /* universal */
 body {
     background: rgba(245, 244, 244, 0.89);
@@ -33,12 +54,7 @@ body {
   
   h5 {
     margin-top: 10px;
-    color: rgb(73, 73, 73);
   }
-  
-//   .btn {
-//     background-color: rgba(58, 58, 255, 0.842);
-//   }
   
   .jumbo {
     background: url('../../images/market-601580_1280.jpg') no-repeat center fixed;
@@ -50,18 +66,8 @@ body {
     min-height: 15vh;
   }
   
-  .background {
-    background: rgba(139, 139, 160, 0.486);
-    min-height: 80vh;
-    border-radius: 0px 0px 10px 10px;
-  }
-  
   .padIt {
     margin: 10px;
-  }
-  
-  label {
-    color: rgba(54, 54, 54, 0.678);
   }
   
   .list-group-item {
@@ -89,11 +95,6 @@ body {
   /* login page styles */
   .login-form {
     padding-top: 20px;
-  }
-  
-  .login {
-    background: rgba(139, 139, 160, 0.486);
-    border-radius: 0px 0px 10px 10px;
   }
   
   .login-submit {
