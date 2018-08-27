@@ -71,7 +71,17 @@ module.exports = function (app) {
 		db.Product.create(req.body)
 			.then(dbProduct => res.json(dbProduct));
 	});
+	// create order
+	app.post('/api/supervisor/order', (req,res) => {
+		sequelize.query('INSERT INTO orders(usSupervisorID, olTotal, createdAt, updatedAt) SELECT ? AS usSupervisorID, SUM(orderlines.olQuantity*products.prodPrice) AS olTotal, NOW() AS createdAt, NOW() AS updatedAt FROM products, orderlines WHERE products.id = orderlines.prodID AND OrderId IS NULL;', {replacements: [req.body.UserId]})
+			.then(dbOrder => {
+				sequelize.query('UPDATE orderlines SET orderlines.OrderId=? WHERE OrderId IS NULL;', {
+					replacements: [dbOrder[0]]
+				});
+				res.json(dbOrder);
+			});
 
+	});
 	// create order line
 	app.post('/api/order/lineitem', (req,res) => {
 		db.OrderLine.create(req.body)
