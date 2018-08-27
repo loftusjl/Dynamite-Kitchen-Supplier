@@ -1,0 +1,73 @@
+.btn {
+  background: #1100fd;
+  color: #f3f3f3d7; }
+
+/* universal */
+body {
+  background: rgba(245, 244, 244, 0.89); }
+
+.list-group-item {
+  line-height: 2.5; }
+
+h2 {
+  margin-top: 0px;
+  padding-top: 15px; }
+
+h5 {
+  margin-top: 10px;
+  color: #494949; }
+
+.jumbo {
+  background: url("../../images/market-601580_1280.jpg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 5;
+  min-height: 15vh; }
+
+.background {
+  background: rgba(139, 139, 160, 0.486);
+  min-height: 80vh;
+  border-radius: 0px 0px 10px 10px; }
+
+.padIt {
+  margin: 10px; }
+
+label {
+  color: rgba(54, 54, 54, 0.678); }
+
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.808);
+  border-radius: 4px; }
+
+.page {
+  background-color: rgba(58, 58, 255, 0.281); }
+
+.active {
+  background-color: #3e3eff !important; }
+
+#logOut {
+  margin-bottom: 10px; }
+
+.top-back {
+  margin-top: 10px; }
+
+#back {
+  margin-right: 10px; }
+
+/* login page styles */
+.login-form {
+  padding-top: 20px; }
+
+.login {
+  background: rgba(139, 139, 160, 0.486);
+  border-radius: 0px 0px 10px 10px; }
+
+.login-submit {
+  margin-bottom: 20px; }
+
+.login-bg {
+  background-color: rgba(226, 226, 229, 0.712); }
+
+/*# sourceMappingURL=styles.css.map */
