@@ -63,12 +63,12 @@ module.exports = function (app) {
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// Create a new product
-	app.post('/api/products', function (req, res) {
+	app.post('/api/supervisor/products', function (req, res) {
 		db.Product.create(req.body).then(dbProduct => res.json(dbProduct));
 	});
 
 	// Delete an product by id
-	app.delete('/api/products/:id', function (req, res) {
+	app.delete('/api/supervisor/products/:id', function (req, res) {
 		db.Product.destroy({
 			where: {
 				id: req.params.id
