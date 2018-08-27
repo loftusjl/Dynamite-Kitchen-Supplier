@@ -1,0 +1,106 @@
+//function to change color of text based on color of background
+@function set-text-color($color) {
+    @if (lightness($color) > 50) {
+        @return #000000; //lighter background, return dark color
+    } @else {
+        @return #f3f3f3d7; //darker background, return light color
+    }
+}
+//all button styles
+$btn: rgb(0, 38, 255); //btn background color
+
+.btn {
+    @extend %btn !optional;
+}
+
+.btn {
+    background: $btn;
+    color: set-text-color($btn);
+}
+// main background
+$background: rgba(204, 204, 204, 0.575); // background color
+
+.background {
+    @extend %background !optional;
+}
+
+.background {
+    background: $background;
+    color: set-text-color($background);
+}
+
+// modal style
+.modal {
+    border: rgb(174, 174, 247) solid 5px;
+    border-radius: 5px;
+}
+
+// .modal-content {
+
+// }
+/* universal */
+body {
+    background: rgba(245, 244, 244, 0.89);
+  }
+  
+  .list-group-item {
+    line-height: 2.5;
+  }
+  
+  h2 {
+    margin-top: 0px;
+    padding-top: 15px;
+  }
+  
+  h5 {
+    margin-top: 10px;
+  }
+  
+  .jumbo {
+    background: url('../../images/market-601580_1280.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 5;
+    min-height: 15vh;
+  }
+  
+  .padIt {
+    margin: 10px;
+  }
+  
+  .list-group-item {
+    background-color: rgba(255, 255, 255, 0.808);
+    border-radius: 4px;
+  }
+  
+  .page {
+    background-color: rgba(58, 58, 255, 0.281);
+  }
+  
+  .active {
+    background-color: rgb(62, 62, 255) !important;
+  }
+  #logOut {
+  
+    margin-bottom: 10px;
+  }
+  .top-back {
+    margin-top: 10px;
+  }
+  #back {
+    margin-right: 10px;
+  }
+  /* login page styles */
+  .login-form {
+    padding-top: 20px;
+  }
+  
+  .login-submit {
+   margin-bottom: 20px;
+  }
+  
+  .login-bg {
+    background-color: rgba(226, 226, 229, 0.712);
+  }

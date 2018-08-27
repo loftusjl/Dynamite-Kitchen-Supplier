@@ -9,8 +9,7 @@
           <form class='mb-4' action='GET'>
             <div class='form-group flow-text'>
               <button id='back' class='btn btn-primary right top-back'><a href='/superUser'>Back</a></button>
-              <label for='products-text'>
-                <h5>Products Search</h5></label>
+                <h5>Products Search</h5>
               <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
             </div>
             <button id='submit' class='btn btn-primary right'>Submit</button>
@@ -28,15 +27,8 @@
           <tbody data-id='{{this.id}}' class='list-group-item'>
             {{#each product}}
             <tr>
-              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodName}}</a><div class="modal" id="modal{{this.id}}">
-              <div class="modal-content">
-                <h4>{{this.prodName}}</h4>
-                <p>{{this.prodCategory}}</p>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-              </div>
-            </div></td>
+              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodName}}</a><div>{{> modal}}</div>
+              </td>
               <td>{{this.prodCategory}}</td>
               <td>{{this.prodOnHand}}</td>
               <td>{{> addOne}}</td>
