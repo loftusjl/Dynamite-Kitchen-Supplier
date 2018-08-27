@@ -77,6 +77,11 @@ module.exports = function (app) {
 		db.OrderLine.create(req.body)
 			.then(dbOrder => res.json(dbOrder));
 	});
+	// update order line
+	app.put('/api/order/lineitem/:id', (req,res) => {
+		sequelize.query('UPDATE orderlines SET olQuantity=?, UserId=? WHERE id=?', {replacements: [req.body.olQuantity, req.body.UserId, req.params.id]})
+			.then(dbOrderLine => res.json(dbOrderLine));
+	});
 
 	// Delete an product by id
 	app.delete('/api/supervisor/products/:id', function (req, res) {
