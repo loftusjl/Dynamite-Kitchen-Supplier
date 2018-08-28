@@ -16,7 +16,7 @@
           </form>
           <h4>Products:</h4>
           <thead id='product-list' class='list-group'>
-            <table>
+            <table class='highlight'>
               <tr>
                 <th>Name</th>
                 <th>Category</th>
@@ -27,7 +27,10 @@
           <tbody data-id='{{this.id}}' class='list-group-item'>
             {{#each product}}
             <tr>
-              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodName}}</a><div>{{> modal}}</div>
+              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodName}}</a>
+              <div>
+                {{> modal}}
+                </div>
               </td>
               <td>{{this.prodCategory}}</td>
               <td>{{this.prodOnHand}}</td>

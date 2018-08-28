@@ -16,7 +16,7 @@
           </form>
           <h4>Orders:</h4>
           <thead id='order-list' class='list-group'>
-            <table>
+            <table class='highlight'>
               <tr>
                 <th>Name</th>
                 <th>Unit of Issue</th>
@@ -27,15 +27,9 @@
           <tbody data-id='{{this.id}}' class='list-group-item'>
             {{#each orderline}}
             <tr>
-              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodID}}</a><div class="modal" id="modal{{this.id}}">
-                  <div class="modal-content">
-                    <h4>{{this.olID}}</h4>
-                    <p>{{this.olUnitofIssue}}</p>
-                  </div>
-                  <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                  </div>
-                </div>
+              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodID}}</a><div>
+                {{> modalOrder}}
+              </div>
               </td>
               <td>{{this.olUnitofIssue}}</td>
               <td>{{this.olQuantity}}</td>
