@@ -71,7 +71,7 @@ module.exports = function (app) {
 		db.Product.create(req.body)
 			.then(dbProduct => res.json(dbProduct));
 	});
-	// create order
+	// create order. must post UserId in request body.
 	app.post('/api/supervisor/order', (req,res) => {
 		sequelize.query('INSERT INTO orders(usSupervisorID, olTotal, createdAt, updatedAt) SELECT ? AS usSupervisorID, SUM(orderlines.olQuantity*products.prodPrice) AS olTotal, NOW() AS createdAt, NOW() AS updatedAt FROM products, orderlines WHERE products.id = orderlines.prodID AND OrderId IS NULL;', {replacements: [req.body.UserId]})
 			.then(dbOrder => {
