@@ -38,7 +38,7 @@ module.exports = function(app) {
 
 	// Load product page and pass in an product by id
 	app.get('/order', function(req, res) {
-		db.OrderLine.findAll({}).then(function(dbOrderLine) {
+		db.Order.findAll({}).then(function(dbOrderLine) {
 			res.render('order', {
 				orderline: dbOrderLine
 			});
