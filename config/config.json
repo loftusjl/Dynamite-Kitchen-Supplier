@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": null,
     "database": "restaurantdb",
     "host": "localhost",
     "dialect": "mysql"

@@ -58,12 +58,12 @@ module.exports = function (app) {
 	});
 	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/employee/picklist', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL')
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// supervisor pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/supervisor/picklist', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL')
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// Create a new product
@@ -71,12 +71,12 @@ module.exports = function (app) {
 		db.Product.create(req.body)
 			.then(dbProduct => res.json(dbProduct));
 	});
-	// create order
+	// create order. must post UserId in request body.
 	app.post('/api/supervisor/order', (req,res) => {
 		sequelize.query('INSERT INTO orders(usSupervisorID, olTotal, createdAt, updatedAt) SELECT ? AS usSupervisorID, SUM(orderlines.olQuantity*products.prodPrice) AS olTotal, NOW() AS createdAt, NOW() AS updatedAt FROM products, orderlines WHERE products.id = orderlines.prodID AND OrderId IS NULL;', {replacements: [req.body.UserId]})
 			.then(dbOrder => {
 				sequelize.query('UPDATE orderlines SET orderlines.OrderId=? WHERE OrderId IS NULL;', {
-					replacements: [dbOrder[0]]
+					replacements: [dbOrder[0]] // set OrderId to the new orderID generated
 				});
 				res.json(dbOrder);
 			});
