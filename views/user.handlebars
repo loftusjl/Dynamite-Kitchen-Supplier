@@ -39,7 +39,11 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>{{this.usRole}}</td>
+                            {{#if this.usRole}}
+                            <td>Supervisor</td>
+                            {{else}}
+                            <td>Employee</td>
+                            {{/if}}
                             <td>{{this.usPhone}}</td>
                             <td>{{> addOne}}</td>
                             </a></tr>
