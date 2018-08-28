@@ -20,7 +20,8 @@ if (config.use_env_variable) {
 		process.env.DB_DATABASE,
 		process.env.DB_USER,
 		process.env.DB_PASS,
-		config, {
+		config, 
+		{
 			define: {
 				charset: 'utf8',
 				collate: 'utf8_general_ci'
