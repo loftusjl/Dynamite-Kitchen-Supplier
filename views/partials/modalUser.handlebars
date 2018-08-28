@@ -1,0 +1,27 @@
+<div class="modal" id="modal{{this.id}}">
+    <div class="modal-content">
+        <div class='container'>
+            <h5>{{this.usName}}</h5>
+            <table class='highlight'>
+
+                <tbody>
+                    <tr>
+                        <th>Role: </th>
+                        <td>{{this.usRole}}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone Number: </th>
+                        <td>{{this.usPhone}}</td>
+                    </tr>
+                    <tr>
+                        <th>Add</th>
+                        <td>{{> addOne}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
