@@ -1,8 +1,25 @@
 <div class="modal" id="modal{{this.id}}">
     <div class="modal-content">
-        <h5>{{this.prodName}}</h5>
-        <p>{{this.prodCategory}}</p>
-        <div>{{> addOne}}</div>
+        <div class='container'>
+            <h5>{{this.prodName}}</h5>
+            <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Add</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{this.prod.Category}}</td>
+                    <td>{{this.prodOnHand}}</td>
+                    <td>{{> addOne}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
