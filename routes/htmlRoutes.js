@@ -18,6 +18,8 @@ module.exports = function(app) {
 			});
 		});
 	});
+<<<<<<< HEAD
+=======
 	// Load superUser page
 	app.get('/superUser', function(req, res) {
 		db.Product.findAll({}).then(function(dbProduct) {
@@ -34,6 +36,7 @@ module.exports = function(app) {
 				product: dbProduct
 			}));
 	});
+>>>>>>> 40c436f97e33efb9f214f334e777a8c597839c41
 
 	// Load product page and pass in an product by id
 	//! change to raw query. add username. sum(qty), format total currency, date ordered
