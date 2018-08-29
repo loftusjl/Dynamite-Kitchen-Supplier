@@ -29,11 +29,10 @@ module.exports = function(app) {
 	// Load supervisor page
 	app.get('/supervisor', function(req, res) {
 		//! change to only rendering. Reference API routes for actual data query
-		db.Product.findAll({}).then(function(dbProduct) {
-			res.render('supervisor', {
+		db.Product.findAll({})
+			.then(dbProduct => res.render('supervisor', {
 				product: dbProduct
-			});
-		});
+			}));
 	});
 
 	// Load product page and pass in an product by id
