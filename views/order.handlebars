@@ -10,11 +10,11 @@
             <div class='form-group flow-text'>
               <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
               <div>
-              <button id='back' class='btn btn-primary right top-back'><a href='#myModal{{this.user}}' class='modal-trigger'>History</a></button>
+              <button id='back' class='btn btn-primary right top-back'><a href='#modalOrderHistory{{this.user}}' class='modal-trigger'>History</a></button>
               {{> modalOldOrder}}
               </div>
               <div>
-              <button id='back' class='btn btn-primary right top-back'><a href='#modal{{this.id}}' class='modal-trigger'>Pending
+              <button id='back' class='btn btn-primary right top-back'><a href='#modalOrder{{this.id}}' class='modal-trigger'>Pending
                   Order</a></button>
               {{> modalOrder}}
               </div>
@@ -43,9 +43,9 @@
 <script src='/js/index.js'></script>
 <script src='/js/products.js'></script>
 <script>
-$(document).on('hidden.bs.modal', function (e) {
+$(document).on('hidden.modal', function (e) {
     var target = $(e.target);
-    target.removeData('bs.modal')
-    .find(".modal-body").html('');
+    target.removeData('.modal')
+    .find(".list-group-item").html('');
 });
 </script>

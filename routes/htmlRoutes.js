@@ -13,9 +13,7 @@ module.exports = function(app) {
 	app.get('/basicuser', function(req, res) {
 		//! change to only rendering. Reference API routes for actual data query
 	
-			res.render('basicuser', {
-				
-			});
+			res.render('basicuser');
 		
 	});
 

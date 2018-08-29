@@ -6,18 +6,47 @@
     <div class='background z-depth-3'>
       <div class='row padIt'>
         <div class='col-8 offset-2'>
+          {{#if this.usRole}}
+          <table class='highlight'>
+            <thead id='product-order-list' class='list-group'>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Add</th>
+              </tr>
+            </thead>
+            <tbody data-id='{{this.id}}' class='list-group-item'>
+              <tr>
+                {{#each order}}
+                <td><a href='#modalOrder{{this.id}}' class='modal-trigger'>{{this.prodID}}</a></td>
+                {{> modalOrder}}
+                <td>{{this.olUnitofIssue}}</td>
+                <td>{{this.olQuantity}}</td>
+                {{/each}} {{#each product}}
+                <td>{{this.prodName}}</td>
+                <td>{{this.prodCategory}}</td>
+                <td>{{this.prodOnHand}}</td>
+                <td>{{> delete}}</td>
+                <td>{{> addOne}}</td>
+                {{/each}}
+              </tr>
+            </tbody>
+          </table>
+          {{/if}}
           <form class='mb-4' action='GET' id='searchForm'>
             <div class='form-group flow-text'>
               <h5>Products Search</h5>
               <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
             </div>
-            <button id='submit-search' class='btn btn-primary right'><a href='#modal{{this.id}}' class='modal-trigger'>Submit</a></button>
+            <button id='submit-search' class='btn btn-primary right'><a href='#modalProducts{{this.id}}' class='modal-trigger'>Submit</a></button>
           </form>
-          </div>
-          <div>
-          {{> modal}}
-          </div>
-          <div class='row'>
+        </div>
+        <div>
+          {{> modalProducts}}
+        </div>
+
+        <div class='row'>
           <ul class="pagination">
             <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
             <li class="active page"><a href="#!">1</a></li>
@@ -26,8 +55,8 @@
             <li class="waves-effect page"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
             <button id='logOut' class='btn btn-primary right'>Log out</button>
           </ul>
-          </div>
-          <div class='row'>
+        </div>
+        <div class='row'>
           {{#if this.usRole}}
           <ul id='product-list' class='list-group'>
             <li>
@@ -37,9 +66,9 @@
             </li>
           </ul>
           {{/if}}
-          </div>
         </div>
-      
+      </div>
+
     </div>
   </div>
 </div>
@@ -47,3 +76,10 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
 <script src='/js/products.js'></script>
+<script>
+  $(document).on('.modal', function (e) {
+    var target = $(e.target);
+    target.removeData('.modal')
+      .find(".list-group-item").html('');
+  });
+</script>
