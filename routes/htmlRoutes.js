@@ -37,10 +37,11 @@ module.exports = function(app) {
 	});
 
 	// Load product page and pass in an product by id
+	//! change to raw query. add username. sum(qty), format total currency, date ordered
 	app.get('/order', function(req, res) {
-		db.Order.findAll({}).then(function(dbOrderLine) {
+		db.Order.findAll({}).then(function(dbOrder) {
 			res.render('order', {
-				orderline: dbOrderLine
+				order: dbOrder
 			});
 		});
 	});

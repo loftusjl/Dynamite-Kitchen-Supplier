@@ -25,15 +25,14 @@
               </tr>
           </thead>
           <tbody data-id='{{this.id}}' class='list-group-item'>
-            {{#each orderline}}
+            {{#each order}}
             <tr>
-              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodID}}</a><div>
+              <td><a href='#modal{{this.user}}' class='modal-trigger'>{{this.qty}}</a><div>
                 {{> modalOrder}}
               </div>
               </td>
-              <td>{{this.olUnitofIssue}}</td>
-              <td>{{this.olQuantity}}</td>
-              <td>{{> addOne}}</td>
+              <td>{{this.total}}</td>
+              <td>{{this.date}}</td>
               </a></tr>
             {{/each}}
           </tbody>
