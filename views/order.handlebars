@@ -9,12 +9,20 @@
           <form class='mb-4' action='GET'>
             <div class='form-group flow-text'>
               <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
+              <button id='back' class='btn btn-primary right top-back'><a href='#modal{{this.user}}' class='modal-trigger'>History</a></button>
+              <div>
+              {{> modalOrder}}
+              {{> modalOldOrder}}
+              </div>
+              <button id='back' class='btn btn-primary right top-back'><a href='#modal{{this.user}}' class='modal-trigger'>Pending
+                  Order</a></button>
+              <div>
+              </div>
               <h5>Order Search</h5>
               <input type='text' id='order-text' class='form-control' aria-describedby='order-text' placeholder='Enter order Text'>
             </div>
-            <button id='submit' class='btn btn-primary right'><a href='#modal{{this.user}}' class='modal-trigger'>Submit</a></button>
+            <button id='submit' class='btn btn-primary right'>Submit</a></button>
           </form>
-            {{> modalOrder}}
           <div>
           </div>
           <ul class="pagination">
