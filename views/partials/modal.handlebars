@@ -1,22 +1,25 @@
 <div class="modal" id="modal{{this.id}}">
     <div class="modal-content">
         <div class='container'>
-            <h5>{{this.prodName}}</h5>
             <table class='highlight'>
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Quantity</th>
-                    <th>Add</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{this.prod.Category}}</td>
-                    <td>{{this.prodOnHand}}</td>
-                    <td>{{> addOne}}</td>
-                </tr>
-            </tbody>
+                <thead id='product-list' class='list-group'>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Add</th>
+                    </tr>
+                </thead>
+                <tbody data-id='{{this.id}}' class='list-group-item'>
+                    {{#each product}}
+                    <tr>
+                        <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodName}}</a></td>
+                        <td>{{this.prodCategory}}</td>
+                        <td>{{this.prodOnHand}}</td>
+                        <td>{{> addOne}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
             </table>
         </div>
 
