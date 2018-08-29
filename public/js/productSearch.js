@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	searchForm.addEventListener('submit-search', function(event) {
 		event.preventDefault();
 		// get search text value
-		console.log(searchForm)
 		let search = document.getElementById('product-text').value;
 		// run the search api
 		window.location.replace('/api/products/search/' + search);
