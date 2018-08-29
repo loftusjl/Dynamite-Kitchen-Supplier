@@ -13,11 +13,6 @@ if (config.use_env_variable) {
 var db = require('../models');
 
 module.exports = function (app) {
-	// Get all products
-	app.get('/api/products', (req, res) => {
-		db.Product.findAll({})
-			.then(dbProduct => res.json(dbProduct));
-	});
 	// Get all products under PAR
 	app.get('/api/products/up', (req, res) => {
 		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
