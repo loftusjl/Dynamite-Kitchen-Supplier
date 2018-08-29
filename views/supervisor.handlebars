@@ -6,34 +6,37 @@
     <div class='background z-depth-3'>
       <div class='row padIt'>
         <div class='col-8 offset-2'>
-          <form class='mb-4' action='GET'>
+          <form class='mb-4' action='GET' id="searchForm">
             <div class='form-group flow-text'>
               <button id='back' class='btn btn-primary right top-back'><a href='/superUser'>Back</a></button>
-              <h5>Order Search</h5>
-              <input type='text' id='order-text' class='form-control' aria-describedby='order-text' placeholder='Enter order Text'>
+                <h5>Products Search</h5>
+              <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
             </div>
             <button id='submit' class='btn btn-primary right'>Submit</button>
+            <button id='clear' class='btn btn-primary right'>Clear</button>
           </form>
-          <h4>Orders:</h4>
-          <thead id='order-list' class='list-group'>
+          <h4>Products:</h4>
+          <thead id='product-list' class='list-group'>
             <table class='highlight'>
               <tr>
                 <th>Name</th>
-                <th>Unit of Issue</th>
-                <th>Item QTY</th>
+                <th>Category</th>
+                <th>On Hand</th>
                 <th>Add</th>
               </tr>
           </thead>
           <tbody data-id='{{this.id}}' class='list-group-item'>
-            {{#each order}}
+            {{#each product}}
             <tr>
-              <td><a href='#modal{{this.user}}' class='modal-trigger'>{{this.qty}}</a><div>
-                {{> modalOrder}}
-              </div>
+              <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.prodName}}</a>
+              <div>
+                {{> modal}}
+                </div>
               </td>
-              <td>{{this.total}}</td>
-              <td>{{this.date}}</td>
-              </a></tr>
+              <td>{{this.prodCategory}}</td>
+              <td>{{this.prodOnHand}}</td>
+              <td>{{> addOne}}</td>
+            </tr>
             {{/each}}
           </tbody>
           </table>
@@ -50,7 +53,9 @@
     </div>
   </div>
 </div>
+
+
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
-<script src='/js/products.js'></script>
+<script src='/js/productSearch.js'></script>

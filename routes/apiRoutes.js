@@ -5,23 +5,10 @@ var db = {};
 
 if (config.use_env_variable) {
 	var sequelize = new Sequelize(process.env[config.use_env_variable], {
-		define: {
-			charset: 'utf8',
-			collate: 'utf8_general_ci'
-		}
+		define: {charset: 'utf8',collate: 'utf8_general_ci'}
 	});
 } else {
-	var sequelize = new Sequelize(
-		process.env.DB_DATABASE,
-		process.env.DB_USER,
-		process.env.DB_PASS,
-		config, {
-			define: {
-				charset: 'utf8',
-				collate: 'utf8_general_ci'
-			}
-		}
-	);
+	var sequelize = new Sequelize(process.env.DB_DATABASE,process.env.DB_USER,process.env.DB_PASS,config, {define: {charset: 'utf8',collate: 'utf8_general_ci'}});
 }
 var db = require('../models');
 
@@ -38,23 +25,20 @@ module.exports = function (app) {
 	});
 	// search a product by category
 	app.get('/api/products/category/:category', (req, res) => {
-		db.Product.findAll({
-			where: {
-				prodCategory: req.params.category
-			}
-		})
+		db.Product.findAll({where: {prodCategory: req.params.category}})
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// search a product by name
 	app.get('/api/products/search/:name', (req, res) => {
 		db.Product.findAll({
-			where: {
-				prodName: {
-					$like: `%${req.params.name}%`
-				}
-			}
+			where: {prodName: {$like: `%${req.params.name}%`}}
 		})
-			.then(dbProduct => res.json(dbProduct));
+			.then(dbProduct => {
+				// res.json(dbProduct);
+				res.render('supervisor', {
+					product: dbProduct
+				});
+			});
 	});
 	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/employee/picklist', function (req, res) {
@@ -80,7 +64,6 @@ module.exports = function (app) {
 				});
 				res.json(dbOrder);
 			});
-
 	});
 	// create order line
 	app.post('/api/order/lineitem', (req,res) => {
@@ -92,7 +75,6 @@ module.exports = function (app) {
 		sequelize.query('UPDATE orderlines SET olQuantity=?, UserId=? WHERE id=?', {replacements: [req.body.olQuantity, req.body.UserId, req.params.id]})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
-
 	// Delete an product by id
 	app.delete('/api/supervisor/products/:id', function (req, res) {
 		db.Product.destroy({
