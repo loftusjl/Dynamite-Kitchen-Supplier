@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() { 
 	// listen for form submission
 	let searchForm = document.getElementById('searchForm');
-	searchForm.addEventListener('submit', function(event) {
+	searchForm.addEventListener('submit-search', function(event) {
 		event.preventDefault();
 		// get search text value
 		let search = document.getElementById('product-text').value;
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	clearSearch.addEventListener('click', function(event) {
 		event.preventDefault();
 		// reset products page
-		window.location.replace('/supervisor');
+		window.location.replace('/basicuser');
 	});
 
 });
