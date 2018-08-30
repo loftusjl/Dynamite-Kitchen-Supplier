@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 var env = process.env.NODE_ENV || 'development';
 var config = require(__dirname + '/../config/config.json')[env];
 var db = {};
+var passport = require('passport');
 
 if (config.use_env_variable) {
 	var sequelize = new Sequelize(process.env[config.use_env_variable], {
@@ -26,6 +27,7 @@ if (config.use_env_variable) {
 var db = require('../models');
 
 module.exports = function (app) {
+
 	// Get all products
 	app.get('/api/products', function (req, res) {
 		db.Product.findAll({}).then(dbProduct => res.json(dbProduct));
@@ -66,6 +68,12 @@ module.exports = function (app) {
 	app.post('/api/products', function (req, res) {
 		db.Product.create(req.body).then(dbProduct => res.json(dbProduct));
 	});
+	// Create new "user"
+	app.post('/login',
+		passport.authenticate('local', { failureRedirect: '/error' }),
+		function(req, res) {
+			res.redirect('/success?username='+req.user.username);
+		});
 
 	// Delete an product by id
 	app.delete('/api/products/:id', function (req, res) {
