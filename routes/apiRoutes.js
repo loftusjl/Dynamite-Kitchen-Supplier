@@ -26,7 +26,7 @@ module.exports = function (app) {
 			}
 		})
 			.then(dbProduct => res.json(dbProduct));
-	})
+	});
 	// Get all products under PAR
 	app.get('/api/products/up', (req, res) => {
 		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
