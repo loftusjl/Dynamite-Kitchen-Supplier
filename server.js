@@ -6,6 +6,7 @@ var exphbs = require('express-handlebars');
 var passport = require('passport');
 var session = require('express-session');
 var cors = require('cors');
+// var flash = require('flash');
 
 
 var db = require('./models');
@@ -22,6 +23,8 @@ app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}))
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
+// app.use(flash()); // use connect-flash for flash messages stored in session
+
 
 // Handlebars
 app.engine(

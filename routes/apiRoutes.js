@@ -72,18 +72,31 @@ module.exports = function (app) {
 		db.OrderLine.create(req.body)
 			.then(dbOrder => res.json(dbOrder));
 	});
+	// process the login form
+	app.post('/api/login', passport.authenticate('local-login', {
+		successRedirect : '/profile', // redirect to the secure profile section
+		failureRedirect : '/login', // redirect back to the signup page if there is an error
+	}),
+	function(req, res) {
+		console.log('hello');
+
+		if (req.body.remember) {
+		  req.session.cookie.maxAge = 1000 * 60 * 3;
+		} else {
+		  req.session.cookie.expires = false;
+		}
+		res.redirect('/');
+	});
+	// process the signup form
+	app.post('/api/signup', passport.authenticate('local-signup', {
+		successRedirect : '/profile', // redirect to the secure profile section
+		failureRedirect : '/signup', // redirect back to the signup page if there is an error
+	}));
 	// update order line
 	app.put('/api/order/lineitem/:id', (req,res) => {
 		sequelize.query('UPDATE orderlines SET olQuantity=?, UserId=? WHERE id=?', {replacements: [req.body.olQuantity, req.body.UserId, req.params.id]})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
-	// Create new "user"
-	app.post('/login',
-		passport.authenticate('local', { failureRedirect: '/error' }),
-		function(req, res) {
-			res.redirect('/success?username='+req.user.username);
-		});
-
 	// Delete an product by id
 	app.delete('/api/supervisor/products/:id', function (req, res) {
 		db.Product.destroy({
