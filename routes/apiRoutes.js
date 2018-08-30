@@ -14,7 +14,26 @@ var db = require('../models');
 
 module.exports = function (app) {
 	// Get all products under PAR
+	app.get('/api/products/', (req, res) => {
+		db.Product.findAll({})
+			.then(dbProduct => res.json(dbProduct));
+	});
+	// Get all products under PAR
 	app.get('/api/products/up', (req, res) => {
+		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
+			.then(dbProduct => res.json(dbProduct));
+	});
+	// get historical order summary
+	app.get('/api/orders/:id', (req, res) => {
+		sequelize.query('SELECT orders.id, usName, orders.updatedAt, olTotal FROM orders, users WHERE usSupervisorID = users.id AND orders.id=?', {replacements: [req.params.id]})
+			.then(dbOrder => res.json(dbOrder));
+	});
+	app.get('/api/orders/summary/:id', (req, res) => {
+		sequelize.query('SELECT * FROM orderlines, orders WHERE orders.id=OrderId AND orders.id=?', {replacements:[req.params.id]})
+			.then(dbOrder => res.json(dbOrder));
+	});
+
+	app.get('/api/order/:id', (req, res) => {
 		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
 			.then(dbProduct => res.json(dbProduct));
 	});
