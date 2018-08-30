@@ -1,4 +1,4 @@
-var db = require('../models');
+const db = require('../models');
 
 module.exports = function(app) {
 	
@@ -27,36 +27,20 @@ module.exports = function(app) {
 			});
 		});
 	});
-	// Load superUser page
-	app.get('/superUser', function(req, res) {
-		db.Product.findAll({}).then(function(dbProduct) {
-			res.render('superUser', {
-				product: dbProduct
-			});
-		});
-	});
-	// Load supervisor page
-	app.get('/supervisor', function(req, res) {
-		//! change to only rendering. Reference API routes for actual data query
-		db.Product.findAll({}).then(function(dbProduct) {
-			res.render('supervisor', {
-				product: dbProduct
-			});
-		});
-	});
 
 	// Load product page and pass in an product by id
+	//! change to raw query. add username. sum(qty), format total currency, date ordered
 	app.get('/order', function(req, res) {
-		db.Product.findAll({ where: { id: req.params.id } }).then(function(dbProduct) {
+		db.Order.findAll({}).then(function(dbOrder) {
 			res.render('order', {
-				product: dbProduct
+				order: dbOrder
 			});
 		});
 	});
 	app.get('/user', function(req, res) {
-		db.Product.findAll({ where: { id: req.params.id } }).then(function(dbProduct) {
+		db.User.findAll({}).then(function(dbUser) {
 			res.render('user', {
-				product: dbProduct
+				user: dbUser
 			});
 		});
 	});

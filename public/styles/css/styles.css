@@ -1,0 +1,68 @@
+.btn {
+  background: #0026ff;
+  color: #f3f3f3d7; }
+
+.background {
+  background: rgba(204, 204, 204, 0.575);
+  color: #000000; }
+
+.modal {
+  border: #aeaef7 solid 5px;
+  border-radius: 5px; }
+
+/* universal */
+body {
+  background: rgba(245, 244, 244, 0.89); }
+
+.list-group-item {
+  line-height: 2.5; }
+
+h2 {
+  margin-top: 0px;
+  padding-top: 15px; }
+
+h5 {
+  margin-top: 10px; }
+
+.jumbo {
+  background: url("../../images/market-601580_1280.jpg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 5;
+  min-height: 15vh; }
+
+.padIt {
+  margin: 10px; }
+
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.808);
+  border-radius: 4px; }
+
+.page {
+  background-color: rgba(58, 58, 255, 0.281); }
+
+.active {
+  background-color: #3e3eff !important; }
+
+#logOut {
+  margin-bottom: 10px; }
+
+.top-back {
+  margin-top: 10px; }
+
+#back {
+  margin-right: 10px; }
+
+/* login page styles */
+.login-form {
+  padding-top: 20px; }
+
+.login-submit {
+  margin-bottom: 20px; }
+
+.login-bg {
+  background-color: rgba(226, 226, 229, 0.712); }
+
+/*# sourceMappingURL=styles.css.map */
