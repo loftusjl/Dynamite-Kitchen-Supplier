@@ -77,7 +77,6 @@ module.exports = function (app) {
 		sequelize.query('UPDATE orderlines SET olQuantity=?, UserId=? WHERE id=?', {replacements: [req.body.olQuantity, req.body.UserId, req.params.id]})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
-<<<<<<< HEAD
 	// Create new "user"
 	app.post('/login',
 		passport.authenticate('local', { failureRedirect: '/error' }),
@@ -85,8 +84,6 @@ module.exports = function (app) {
 			res.redirect('/success?username='+req.user.username);
 		});
 
-=======
->>>>>>> e8e5643b8006ad8f8291383ec5b7e5735d8da509
 	// Delete an product by id
 	app.delete('/api/supervisor/products/:id', function (req, res) {
 		db.Product.destroy({
