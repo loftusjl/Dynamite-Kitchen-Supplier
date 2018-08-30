@@ -36,7 +36,12 @@ module.exports = function (app) {
 	// search a product by category
 	app.get('/api/products/category/:category', (req, res) => {
 		db.Product.findAll({where: {prodCategory: req.params.category}})
-			.then(dbProduct => res.json(dbProduct));
+			.then(dbProduct => {
+				// res.json(dbProduct);
+				res.render('basicuser', {
+					product: dbProduct
+				});
+			});
 	});
 	// search a product by name
 	app.get('/api/products/search/:name', (req, res) => {
