@@ -1,24 +1,20 @@
-<div class="modal" id="modalOrder{{this.id}}">
+<div class="modal" id="modalOrderHistory{{this.id}}">
     <div class="modal-content">
         <div class='container'>
             <table class='highlight'>
                 <thead id='order-list' class='list-group'>
                     <tr>
-                        <th>Unit of Issue</th>
-                        <th>Quantity</th>
-                        <th> Delete </th>
-                        <th> Add </th>
+                        <th>Order #</th>
+                        <th>Submitted</th>
+                        <th>Employee</th>
                     </tr>
                 </thead>
                 <tbody data-id='{{this.id}}' class='list-group-item'>
                     {{#each order}}
                     <tr>
                         <td>{{this.prodID}}</td>
-                        <td>{{this.olUnitofIssue}}</td>
-                        <td>{{this.olQuantity}}</td>
-                        <td>{{this.rlTitle}}</td>
-                        <td>{{> delete}}</td>
-                        <td>{{> addOne}}</td>
+                        <td>{{this.updatedAt}}</td>
+                        <td>{{this.usSupervisorID}}</td>
                     </tr>
                     {{/each}}
                 </tbody>

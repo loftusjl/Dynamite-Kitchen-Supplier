@@ -35,7 +35,7 @@ module.exports = function (app) {
 		})
 			.then(dbProduct => {
 				// res.json(dbProduct);
-				res.render('supervisor', {
+				res.render('basicuser', {
 					product: dbProduct
 				});
 			});

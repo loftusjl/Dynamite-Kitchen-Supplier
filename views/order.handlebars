@@ -9,12 +9,20 @@
           <form class='mb-4' action='GET'>
             <div class='form-group flow-text'>
               <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
+              <div>
+              <button id='back' class='btn btn-primary right top-back'><a href='#modalOrderHistory{{this.user}}' class='modal-trigger'>History</a></button>
+              {{> modalOldOrder}}
+              </div>
+              <div>
+              <button id='back' class='btn btn-primary right top-back'><a href='#modalOrder{{this.id}}' class='modal-trigger'>Pending
+                  Order</a></button>
+              {{> modalOrder}}
+              </div>
               <h5>Order Search</h5>
               <input type='text' id='order-text' class='form-control' aria-describedby='order-text' placeholder='Enter order Text'>
             </div>
-            <button id='submit' class='btn btn-primary right'><a href='#modal{{this.user}}' class='modal-trigger'>Submit</a></button>
+            <button id='submit' class='btn btn-primary right'>Submit</a></button>
           </form>
-            {{> modalOrder}}
           <div>
           </div>
           <ul class="pagination">
@@ -34,3 +42,4 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
 <script src='/js/products.js'></script>
+
