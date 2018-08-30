@@ -34,12 +34,12 @@
             </tbody>
           </table>
           {{/if}}
-          <form class='mb-4' action='GET' id='searchForm'>
+          <form class='mb-4' id='searchForm'>
             <div class='form-group flow-text'>
               <h5>Products Search</h5>
               <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
             </div>
-            <button id='submit-search' class='btn btn-primary right'><a href='#modalProducts{{this.id}}' class='modal-trigger'>Submit</a></button>
+            <button data-target="modalProducts{{this.id}}" class="btn modal-trigger btn btn-primary right">Submit</button>
           </form>
         </div>
         <div>
@@ -76,10 +76,4 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
 <script src='/js/products.js'></script>
-<script>
-  $(document).on('.modal', function (e) {
-    var target = $(e.target);
-    target.removeData('.modal')
-      .find(".list-group-item").html('');
-  });
-</script>
+<script src='/js/productSearch.js'></script>
