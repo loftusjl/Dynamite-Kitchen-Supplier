@@ -12,26 +12,9 @@ module.exports = function(app) {
 	// Load user page
 	app.get('/basicuser', function(req, res) {
 		//! change to only rendering. Reference API routes for actual data query
-		db.Product.findAll({}).then(function(dbProduct) { 
-			res.render('basicuser', {
-				product: dbProduct
-			});
-		});
-	});
-	// Load superUser page
-	app.get('/superUser', function(req, res) {
-		db.Product.findAll({}).then(function(dbProduct) {
-			res.render('superUser', {
-				product: dbProduct
-			});
-		});
-	});
-	// Load supervisor page
-	app.get('/supervisor', function(req, res) {
-		db.Product.findAll({})
-			.then(dbProduct => res.render('supervisor', {
-				product: dbProduct
-			}));
+	
+		res.render('basicuser');
+		
 	});
 
 	// Load product page and pass in an product by id

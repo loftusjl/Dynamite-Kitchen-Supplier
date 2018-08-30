@@ -8,41 +8,14 @@
                 <div class='col-8 offset-2'>
                     <form class='mb-4' action='GET'>
                         <div class='form-group flow-text'>
-                            <button id='back' class='btn btn-primary right top-back'><a href='/superUser'>Back</a></button>
+                            <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
                             <h5>Users</h5>
                             <input type='text' id='user-text' class='form-control' aria-describedby='user-text' placeholder='Enter user'>
 
                         </div>
-                        <button id='submit' class='btn btn-primary right'>Submit</button>
+                        <button id='submit' class='btn btn-primary right'><a href='#modalUserList{{this.id}}' class='modal-trigger'>Submit</a></button>
                     </form>
-                    <h4>Users:</h4>
-                    <thead id='user-list' class='list-group'>
-                        <table class='highlight'>
-                            <tr>
-                                <th>Name</th>
-                                <th>Access</th>
-                                <th>Phone</th>
-                                <th>Add</th>
-                            </tr>
-                    </thead>
-                    <tbody data-id='{{this.id}}' class='list-group-item'>
-                        {{#each user}}
-                        <tr>
-                            <td><a href='#modal{{this.id}}' class='modal-trigger'>{{this.usName}}</a><div>
-                                {{> modalUser}}
-                            </div>
-                            </td>
-                            {{#if this.usRole}}
-                            <td>Supervisor</td>
-                            {{else}}
-                            <td>Employee</td>
-                            {{/if}}
-                            <td>{{this.usPhone}}</td>
-                            <td>{{> addOne}}</td>
-                            </a></tr>
-                        {{/each}}
-                    </tbody>
-                    </table>
+                    {{> modalUser}}
                     <ul class="pagination">
                         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                         <li class="active page"><a href="#!">1</a></li>

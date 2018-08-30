@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		window.location.replace('/api/products/search/' + search);
 		return false;
 	}, false);
-	let clearSearch = document.getElementById('clear');
-	clearSearch.addEventListener('click', function(event) {
-		event.preventDefault();
-		// reset products page
-		window.location.replace('/supervisor');
-	});
+	// let clearSearch = document.getElementById('clear');
+	// clearSearch.addEventListener('click', function(event) {
+	// 	event.preventDefault();
+	// 	// reset products page
+	// 	window.location.replace('/basicuser');
+	// });
 
 });

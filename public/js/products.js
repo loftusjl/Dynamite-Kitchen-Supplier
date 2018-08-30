@@ -93,11 +93,8 @@ var handleDeleteBtnClick = function() {
 		location.reload();
 	});
 };
-$(document).ready(function() {
-	$('.modal').modal();
-	$('#modal').modal('open');
-	$('.model-trigger').modal();
-})
+
+M.AutoInit();
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on('click', handleFormSubmit);

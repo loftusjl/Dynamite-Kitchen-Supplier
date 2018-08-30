@@ -1,13 +1,21 @@
-<div class="modal" id="modal{{this.id}}">
+<div class="modal" id="modalUserList{{this.id}}">
     <div class="modal-content">
         <div class='container'>
-            <h5>{{this.usName}}</h5>
             <table class='highlight'>
-
-                <tbody>
+               
+                <tbody data-id='{{this.id}}' class='list-group-item'>
+                    {{#each user}}
+                    <tr>
+                        <th>Name: </th>
+                        <td>{{this.usName}}</td>
+                    </tr>
                     <tr>
                         <th>Role: </th>
-                        <td>{{this.usRole}}</td>
+                        {{#if this.usRole}}
+                        <td>Supervisor</td>
+                        {{else}}
+                        <td>Employee</td>
+                        {{/if}}
                     </tr>
                     <tr>
                         <th>Phone Number: </th>
@@ -17,8 +25,9 @@
                         <th>Add</th>
                         <td>{{> addOne}}</td>
                     </tr>
+                    {{/each}}
                 </tbody>
-            </table>
+                </table>
         </div>
     </div>
     <div class="modal-footer">
