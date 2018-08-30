@@ -36,11 +36,9 @@ module.exports = function(app) {
 	// Load user page
 	app.get('/basicuser', function(req, res) {
 		//! change to only rendering. Reference API routes for actual data query
-		db.Product.findAll({}).then(function(dbProduct) { 
-			res.render('basicuser', {
-				product: dbProduct
-			});
-		});
+	
+		res.render('basicuser');
+		
 	});
 
 	// Load product page and pass in an product by id

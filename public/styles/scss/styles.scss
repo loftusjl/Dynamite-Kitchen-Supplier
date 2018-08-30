@@ -31,13 +31,13 @@ $background: rgba(204, 204, 204, 0.575); // background color
 
 // modal style
 .modal {
+    min-width: 85vw;
     border: rgb(174, 174, 247) solid 5px;
     border-radius: 5px;
+    font-size: 15px;
 }
 
-// .modal-content {
 
-// }
 /* universal */
 body {
     background: rgba(245, 244, 244, 0.89);
@@ -92,6 +92,10 @@ body {
   #back {
     margin-right: 10px;
   }
+
+  .pagination {
+    margin-top: 60px;
+  }
   /* login page styles */
   .login-form {
     padding-top: 20px;
@@ -104,3 +108,5 @@ body {
   .login-bg {
     background-color: rgba(226, 226, 229, 0.712);
   }
+  // modal style
+
