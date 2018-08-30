@@ -29,7 +29,7 @@ module.exports = function (app) {
 			.then(dbOrder => res.json(dbOrder));
 	});
 	app.get('/api/orders/summary/:id', (req, res) => {
-		sequelize.query('SELECT * FROM orderlines, orders WHERE orders.id=OrderId AND orders.id=?', {replacements:[req.params.id]})
+		sequelize.query('SELECT prodName, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {replacements:[req.params.id]})
 			.then(dbOrder => res.json(dbOrder));
 	});
 
