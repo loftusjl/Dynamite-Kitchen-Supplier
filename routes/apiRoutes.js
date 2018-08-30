@@ -18,6 +18,15 @@ module.exports = function (app) {
 		db.Product.findAll({})
 			.then(dbProduct => res.json(dbProduct));
 	});
+	// get product by id
+	app.get('api/products/:id', (req, res) => {
+		db.Product.findOne({
+			where: {
+				id: req.params.id
+			}
+		})
+			.then(dbProduct => res.json(dbProduct));
+	});
 	// Get all products under PAR
 	app.get('/api/products/up', (req, res) => {
 		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
