@@ -39,7 +39,7 @@
               <h5>Products Search</h5>
               <input type='text' id='product-text' class='form-control' aria-describedby='product-text' placeholder='Enter Product Text'>
             </div>
-            <button data-target="modalProducts{{this.id}}" class="btn modal-trigger btn btn-primary right">Submit</button>
+            <button class="btn btn btn-primary right">Submit</button>
           </form>
         </div>
         <div>
@@ -55,7 +55,7 @@
                 <tbody data-id='{{this.id}}' class='list-group-item'>
                     {{#each product}}
                     <tr>
-                        <td>{{this.prodName}}</td> 
+                        <td><a href='#modalProducts{{this.user}}' class='modal-trigger'>{{this.prodName}}</a></td> 
                         <td>{{this.prodCategory}}</td>
                         <td>{{this.prodOnHand}}</td>
                         <td>{{> addOne}}</td>
@@ -63,6 +63,7 @@
                     {{/each}}
                 </tbody>
             </table>  
+            {{> modalProducts}}
         </div>
                
         <div class='row'>
