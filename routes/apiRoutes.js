@@ -24,8 +24,8 @@ module.exports = function (app) {
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// get historical order summary
-	app.get('/api/orders/:id', (req, res) => {
-		sequelize.query('SELECT orders.id, usName, orders.updatedAt, olTotal FROM orders, users WHERE usSupervisorID = users.id AND orders.id=?', {replacements: [req.params.id]})
+	app.get('/api/orders', (req, res) => {
+		sequelize.query('SELECT orders.id, usName, orders.updatedAt, olTotal FROM orders, users WHERE usSupervisorID = users.id')
 			.then(dbOrder => res.json(dbOrder));
 	});
 	app.get('/api/orders/summary/:id', (req, res) => {
