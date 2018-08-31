@@ -23,7 +23,6 @@ function renderChoices() {
         a.attr("data-name", catBtn[i]);
         a.text(catBtn[i]);
         $("#dropdown1").append(a);
-        console.log(a)
     }
 }
 
