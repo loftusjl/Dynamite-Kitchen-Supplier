@@ -21,8 +21,17 @@ module.exports = function (app) {
 			.then(dbUser => res.json(dbUser));
 	});
 	// Get all products
-	app.get('/api/products', (req, res) => {
+	app.get('/api/products/', (req, res) => {
 		db.Product.findAll({})
+			.then(dbProduct => res.json(dbProduct));
+	});
+	// get product by id
+	app.get('api/products/:id', (req, res) => {
+		db.Product.findOne({
+			where: {
+				id: req.params.id
+			}
+		})
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// Get all products under PAR
@@ -30,10 +39,25 @@ module.exports = function (app) {
 		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
 			.then(dbProduct => res.json(dbProduct));
 	});
+	// get historical order summary
+	app.get('/api/orders', (req, res) => {
+		sequelize.query('SELECT orders.id, usName, orders.updatedAt, olTotal FROM orders, users WHERE usSupervisorID = users.id')
+			.then(dbOrder => res.json(dbOrder));
+	});
+	// get order breakdown
+	app.get('/api/orders/summary/:id', (req, res) => {
+		sequelize.query('SELECT prodName, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {replacements:[req.params.id]})
+			.then(dbOrder => res.json(dbOrder));
+	});
 	// search a product by category
 	app.get('/api/products/category/:category', (req, res) => {
 		db.Product.findAll({where: {prodCategory: req.params.category}})
-			.then(dbProduct => res.json(dbProduct));
+			.then(dbProduct => {
+				// res.json(dbProduct);
+				res.render('basicuser', {
+					product: dbProduct
+				});
+			});
 	});
 	// search a product by name
 	app.get('/api/products/search/:name', (req, res) => {

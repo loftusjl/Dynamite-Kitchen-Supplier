@@ -69,3 +69,6 @@ insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, up
 insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (18, 'CS', 20, 1, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 insert into orderLines (olQuantity, olUnitofIssue, prodID, userID, createdAt, updatedAt) values (6, 'EA', 25, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 
+-- Add placeholder to product photo
+use restaurantdb;
+update products set prodPhoto="/images/ingredients.svg";
