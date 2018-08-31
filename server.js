@@ -1,5 +1,4 @@
 require('dotenv').config();
-// require('./config/passport/passport.js');
 var express = require('express');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
@@ -38,7 +37,7 @@ app.set('view engine', 'handlebars');
 // Routes
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
-// require('./routes/auth.js')(app, passport);
+// require('./routes/auth')(app, passport);
 
 //load passport strategies
 require('./config/passport/passport.js')(passport, db.User);

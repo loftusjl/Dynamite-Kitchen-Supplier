@@ -15,6 +15,11 @@ var db = require('../models');
 
 module.exports = function (app) {
 
+	// Get all users
+	app.get('/api/users', (req, res) => {
+		db.User.findAll({})
+			.then(dbUser => res.json(dbUser));
+	});
 	// Get all products
 	app.get('/api/products', (req, res) => {
 		db.Product.findAll({})
@@ -73,23 +78,25 @@ module.exports = function (app) {
 			.then(dbOrder => res.json(dbOrder));
 	});
 	// process the login form
-	app.post('/api/login', passport.authenticate('local-login', {
-		successRedirect : '/profile', // redirect to the secure profile section
-		failureRedirect : '/login', // redirect back to the signup page if there is an error
-	}),
-	function(req, res) {
-		console.log('hello');
+	app.post('/api/login',
+		passport.authenticate('local-login', { successRedirect: '/basicuser',
+			failureRedirect: '/login',
+			// failureFlash: true 
+		})
+	);
+	// function(req, res) {
+	// 	console.log('hello');
 
-		if (req.body.remember) {
-		  req.session.cookie.maxAge = 1000 * 60 * 3;
-		} else {
-		  req.session.cookie.expires = false;
-		}
-		res.redirect('/');
-	});
+	// 	if (req.body.remember) {
+	// 	  req.session.cookie.maxAge = 1000 * 60 * 3;
+	// 	} else {
+	// 	  req.session.cookie.expires = false;
+	// 	}
+	// 	res.redirect('/basicuser');
+	// });
 	// process the signup form
-	app.post('/api/signup', passport.authenticate('local-signup', {
-		successRedirect : '/profile', // redirect to the secure profile section
+	app.post('/api/users', passport.authenticate('local-signup', {
+		successRedirect : '/basicuser', // redirect to the secure profile section
 		failureRedirect : '/signup', // redirect back to the signup page if there is an error
 	}));
 	// update order line
