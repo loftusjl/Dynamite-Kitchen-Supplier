@@ -1,19 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() { 
-	// listen for form submission
-	let searchForm = document.getElementById('searchForm');
-	searchForm.addEventListener('submit', function(event) {
-		event.preventDefault();
-		// get search text value
-		let search = document.getElementById('product-text').value;
-		// run the search api
-		window.location.replace('/api/products/category/' + search);
-		return false;
-	}, false);
-	// let clearSearch = document.getElementById('clear');
-	// clearSearch.addEventListener('click', function(event) {
-	// 	event.preventDefault();
-	// 	// reset products page
-	// 	window.location.replace('/basicuser');
-	// });
 
+$(document).ready(function () {
+    // small array of category ids to use for search
+catBtn = [
+    'Produce',
+    'Meat',
+    'Grocery',
+    'Seafood',
+    'Dairy',
+    'Beverage',
+    'Alcohol',
+    'Equipment'
+]
+    // function to render dropdown categories
+function renderChoices() {
+
+    $("#dropdown1").empty();
+
+    for (let i = 0; i < catBtn.length; i++) {
+        let a = $("<li>");
+        a.attr('id', `${catBtn[i]}`)
+        a.addClass(`left category`);
+        a.attr("data-name", catBtn[i]);
+        a.text(catBtn[i]);
+        $("#dropdown1").append(a);
+        console.log(a)
+    }
+}
+
+renderChoices();
+// jquery event listener to call search based on category selected
+$('.category').on('click', function (event) {
+    event.preventDefault();
+
+    let search = $(this).attr('id');
+
+    window.location.replace('/api/products/category/' + search);
+})
 });
