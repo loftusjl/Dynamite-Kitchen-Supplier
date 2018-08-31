@@ -47,9 +47,6 @@ module.exports = function (app) {
 		db.Product.findAll({where: {prodCategory: req.params.category}})
 			.then(dbProduct => {
 				// res.json(dbProduct);
-				//! you shouldn't be rendering in the api. If you want to render,
-				//! call the route from your front facing js file with an ajax call
-				//! and then render with the response
 				res.render('basicuser', {
 					product: dbProduct
 				});
