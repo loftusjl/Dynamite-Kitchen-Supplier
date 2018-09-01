@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-const db = require('../models');
-// Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require('../config/middleware/isAuthenticated');
-=======
 const Sequelize = require('sequelize');
 var env = process.env.NODE_ENV || 'development';
 var config = require(__dirname + '/../config/config.json')[env];
 var db = {};
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require('../config/middleware/isAuthenticated');
 
 if (config.use_env_variable) {
 	var sequelize = new Sequelize(process.env[config.use_env_variable], {
@@ -16,7 +13,6 @@ if (config.use_env_variable) {
 	var sequelize = new Sequelize(process.env.DB_DATABASE,process.env.DB_USER,process.env.DB_PASS,config, {define: {charset: 'utf8',collate: 'utf8_general_ci'}});
 }
 var db = require('../models');
->>>>>>> 13f2073e770bc73f6714bd7336cf0a40aea20ab7
 
 module.exports = function(app) {	
 	app.get('/', function(req, res) {

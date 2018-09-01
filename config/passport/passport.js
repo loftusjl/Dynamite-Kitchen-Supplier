@@ -32,7 +32,7 @@ module.exports = function (passport) {
 					// create the user
 					var newUserMysql = {
 						username: username,
-						password: bCrypt.hashSync(password, null, null)  // use the generateHash function in our user model
+						password: bCrypt.hashSync(password, null, null) // use the generateHash function in our user model
 					};
 
 					// var insertQuery = 'INSERT INTO users ( username, password ) values (?,?)';
@@ -65,7 +65,7 @@ module.exports = function (passport) {
 			passwordField : 'password',
 			passReqToCallback : true // allows us to pass back the entire request to the callback
 		},
-		function(req, username, password, next) { // callback with username and password from our form
+		function(username, password, next) { // callback with username and password from our form
 			db.User.findAll({where: {username: username}})
 				.then(function(dbUser, err) {
 					console.log('DB RESPONSE', dbUser[0]);
