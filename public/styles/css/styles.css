@@ -61,6 +61,12 @@ h5 {
 .pagination {
   margin-top: 60px; }
 
+.top-back {
+  margin-bottom: 20px; }
+
+.fixed-action-button {
+  position: relative; }
+
 /* login page styles */
 .login-form {
   padding-top: 20px; }
