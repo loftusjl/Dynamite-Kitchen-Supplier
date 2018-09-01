@@ -97,11 +97,11 @@ var handleDeleteBtnClick = function() {
 M.AutoInit();
 
 document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.fixed-action-btn');
-    var instances = M.FloatingActionButton.init(elems, {
-      direction: 'left'
-    });
-  });
+	var elems = document.querySelectorAll('.fixed-action-btn');
+	var instances = M.FloatingActionButton.init(elems, {
+		direction: 'left'
+	});
+});
 // Add event listeners to the submit and delete buttons
 $submitBtn.on('click', handleFormSubmit);
 $exampleList.on('click', '.delete', handleDeleteBtnClick);
