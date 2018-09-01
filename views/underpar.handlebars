@@ -1,0 +1,44 @@
+<div>
+	{{> header}}
+</div>
+<div class="container">
+	<div class="background z-depth-3">
+		<div class="row padIt">
+			<table class='highlight'>
+				<thead id='product-list' class='list-group'>
+					<tr>
+						<th>Name</th>
+						<th>Category</th>
+						<th>On Hand</th>
+						<th>PAR</th>
+						<th>QTY to Order</th>
+						<th>Add</th>
+					</tr>
+				</thead>
+				<tbody data-id='{{this.id}}' class='list-group-item'>
+					{{#each par}}
+					<tr>
+						<td>{{this.prodName}}</td>
+						<td>{{this.prodCategory}}</td>
+						<td>{{this.prodOnHand}}</td>
+						<td>{{this.prodPAR}}</td>
+						<td>
+							<input id="qty_order" type="text" class="input-field">
+						</td>
+						<td>{{> addOne}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<div>
+			<a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
+			{{> navbuttons}}
+		</div>
+	</div>
+</div>
+
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
+<script src='/js/index.js'></script>

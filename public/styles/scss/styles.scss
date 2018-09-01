@@ -3,7 +3,7 @@
     @if (lightness($color) > 50) {
         @return #000000; //lighter background, return dark color
     } @else {
-        @return #f3f3f3d7; //darker background, return light color
+        @return #e9e7e7d7; //darker background, return light color
     }
 }
 //all button styles
@@ -83,7 +83,7 @@ body {
     background-color: rgb(62, 62, 255) !important;
   }
   #logOut {
-  
+    margin-top: 60px;
     margin-bottom: 10px;
   }
   .top-back {
@@ -96,6 +96,13 @@ body {
   .pagination {
     margin-top: 60px;
   }
+  .top-back {
+    margin-bottom: 20px;
+  }
+  .fixed-action-button {
+    position: relative;
+  }
+  
   /* login page styles */
   .login-form {
     padding-top: 20px;
@@ -109,4 +116,5 @@ body {
     background-color: rgba(226, 226, 229, 0.712);
   }
   // modal style
+ 
 

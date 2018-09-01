@@ -1,6 +1,6 @@
 .btn {
   background: #0026ff;
-  color: #f3f3f3d7; }
+  color: #e9e7e7d7; }
 
 .background {
   background: rgba(204, 204, 204, 0.575);
@@ -49,6 +49,7 @@ h5 {
   background-color: #3e3eff !important; }
 
 #logOut {
+  margin-top: 60px;
   margin-bottom: 10px; }
 
 .top-back {
@@ -59,6 +60,12 @@ h5 {
 
 .pagination {
   margin-top: 60px; }
+
+.top-back {
+  margin-bottom: 20px; }
+
+.fixed-action-button {
+  position: relative; }
 
 /* login page styles */
 .login-form {
