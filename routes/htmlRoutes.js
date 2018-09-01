@@ -11,7 +11,6 @@ module.exports = function(app) {
 	});
 	// Load user page
 	app.get('/basicuser', function(req, res) {
-		//! change to only rendering. Reference API routes for actual data query
 		db.Product.findAll({}).then(function(dbProduct) {
 			res.render('basicuser', {
 				product: dbProduct
@@ -21,7 +20,6 @@ module.exports = function(app) {
 	});
 
 	// Load product page and pass in an product by id
-	//! change to raw query. add username. sum(qty), format total currency, date ordered
 	app.get('/order', function(req, res) {
 		db.Order.findAll({}).then(function(dbOrder) {
 			res.render('order', {

@@ -39,7 +39,12 @@ module.exports = function (app) {
 	// get historical order summary
 	app.get('/api/orders', (req, res) => {
 		sequelize.query('SELECT orders.id, usName, orders.updatedAt, olTotal FROM orders, users WHERE usSupervisorID = users.id')
-			.then(dbOrder => res.json(dbOrder));
+			.then(dbOrder => {
+				// res.json(dbProduct);
+				res.render('order', {
+					order: dbOrder
+				});
+			});
 	});
 	// get order breakdown
 	app.get('/api/orders/summary/:id', (req, res) => {
