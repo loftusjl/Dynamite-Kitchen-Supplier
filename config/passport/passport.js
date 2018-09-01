@@ -66,7 +66,8 @@ module.exports = function (passport) {
 			passReqToCallback : true // allows us to pass back the entire request to the callback
 		},
 		function(username, password, next) { // callback with username and password from our form
-			db.User.findAll({where: {username: username}})
+			db.User.findOne({where: [{usName: username}, {usPassword: password}]})
+				.then()
 				.then(function(dbUser, err) {
 					console.log('DB RESPONSE', dbUser[0]);
 					if (err) { return next(err); }
