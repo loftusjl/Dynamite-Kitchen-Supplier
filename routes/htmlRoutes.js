@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 var env = process.env.NODE_ENV || 'development';
 var config = require(__dirname + '/../config/config.json')[env];
 var db = {};
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require('../config/middleware/isAuthenticated');
 
 if (config.use_env_variable) {
 	var sequelize = new Sequelize(process.env[config.use_env_variable], {
@@ -12,15 +14,46 @@ if (config.use_env_variable) {
 }
 var db = require('../models');
 
-module.exports = function(app) {
-	// Load index page
+module.exports = function(app) {	
 	app.get('/', function(req, res) {
-		db.Product.findAll({}).then(function(dbProduct) {
-			res.render('index', {
-				product: dbProduct
+		// If the user already has an account send them to the members page
+		if (req.user) {
+		  res.render('basicuser');
+		}
+		res.render('signup');
+	});
+	//
+	app.get('/login', function(req, res) {
+		// If the user already has an account send them to the members page
+		if (req.user) {
+		  res.render('basicuser');
+		}
+		res.render('index');
+	});
+	app.get('/basicuser', isLoggedIn, function(req, res) {
+		res.render('basicuser', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+	//
+	  // Here we've add our isAuthenticated middleware to this route.
+	  // If a user who is not logged in tries to access this route they will be 
+	  //redirected to the signup page
+	app.get('/basicuser', isAuthenticated, function(req, res) {
+		db.User.findAll({}).then(function(dbUser) {
+			res.render('basicuser', {
+				user: dbUser
 			});
 		});
 	});
+	// // Load index page
+	// app.get('/', function(req, res) {
+	// 	db.Product.findAll({}).then(function(dbProduct) {
+	// 		res.render('index', {
+	// 			product: dbProduct
+	// 		});
+	// 	});
+	// });
 	// Load user page
 	app.get('/basicuser', function(req, res) {
 		db.Product.findAll({}).then(function(dbProduct) {
@@ -60,3 +93,11 @@ module.exports = function(app) {
 		res.render('404');
 	});
 };
+
+function isLoggedIn(req, res, next) {
+	// if user is authenticated in the session, carry on
+	if (req.isAuthenticated())
+	{return next();}
+	// if they aren't redirect them to the home page
+	res.redirect('/');
+}
