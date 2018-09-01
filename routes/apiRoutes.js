@@ -78,6 +78,11 @@ module.exports = function (app) {
 		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
+	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
+	app.get('/api/employee/picklist', function (req, res) {
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+			.then(dbProduct => res.json(dbProduct));
+	});
 	// supervisor pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/supervisor/picklist', function (req, res) {
 		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
