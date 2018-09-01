@@ -1,12 +1,12 @@
 <div id='home'>
   <div>
-    {{> header}}
+    {{!-- call header partial --}} {{> header}}
   </div>
   <div class='container'>
     <div class='background z-depth-3'>
       <div class='row padIt'>
         <div class='col-8 offset-2'>
-          {{#if this.usRole}}
+          {{!-- if user role is supervisor products requested will display may change to any user in future --}} {{#if this.usRole}}
           <table class='highlight'>
             <thead id='product-order-list' class='list-group'>
               <tr>
@@ -41,9 +41,11 @@
             </div>
             <div class='row'>
               <button data-target="modalProducts{{this.id}}" class="btn modal-trigger btn btn-primary right">Submit</button>
-              <a id="clear" class="btn modal-trigger btn btn-primary right">Clear</a>
+              <button id='clear' data-target="modalProducts{{this.id}}" class="btn modal-trigger btn btn-primary right">Clear</button>
+              {{!-- submit button for product search --}}
               <div>
-                <a id='category-btn' class='dropdown-trigger btn' href='#' data-target='dropdown1'>Category</a>
+                <a id='category-btn' class='dropdown-trigger btn' href='#' data-target='dropdown1'>Category</a> {{!-- category
+                search dropdown --}}
                 <ul id='dropdown1' class='dropdown-content'>
                   {{!-- category search list is rendered here --}}
                 </ul>
@@ -52,6 +54,7 @@
           </form>
         </div>
         <div>
+          {{!-- table for search to render --}}
           <table class='highlight'>
             <thead id='product-list' class='list-group'>
               <tr>
@@ -61,7 +64,7 @@
                 <th>Add</th>
               </tr>
             </thead>
-            <tbody data-id='{{this.id}}' class='list-group-item'>
+            <tbody id='listingTable' data-id='{{this.id}}' class='list-group-item'>
               {{#each product}}
               <tr>
                 <td>{{this.prodName}}</td>
@@ -73,17 +76,8 @@
             </tbody>
           </table>
         </div>
-
-        <div class='row'>
-          <ul class="pagination">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active page"><a href="#!">1</a></li>
-            <li class="waves-effect page"><a href="#!">2</a></li>
-            <li class="waves-effect page"><a href="#!">3</a></li>
-            <li class="waves-effect page"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            <button id='logOut' class='btn btn-primary right'>Log out</button>
-          </ul>
-        </div>
+        <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
+        {{!-- if user is a supervisor these buttons will render for navigation --}}
         <div class='row'>
           {{#if this.usRole}}
           <ul id='product-list' class='list-group'>
