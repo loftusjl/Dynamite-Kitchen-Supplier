@@ -8,7 +8,27 @@
                 <div class='col-8 offset-2'>
                     <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
                     <h5>Users</h5>
-                    {{> modalUser}}
+                    <table class='highlight'>
+                        <tbody data-id='{{this.id}}' class='list-group-item'>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Phone Number</th>
+                                <th>Change Role</th>
+                            </tr>
+                            {{#each user}}
+                            <tr>
+                                <td>{{this.usName}}</td>
+                                {{#if this.usRole}}
+                                <td>Supervisor</td>
+                                {{else}}
+                                <td>Employee</td>
+                                {{/if}}
+                                <td>{{this.usPhone}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
                     <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
                 </div>
             </div>
