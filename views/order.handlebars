@@ -16,18 +16,52 @@
               <button id='submit' class='btn btn-primary right'>Submit</a></button>
           </form>
           <div>
-            {{> modalOrder}}
-            <br> {{> modalOldOrder}}
+            <table class='highlight'>
+              <thead id='order-list' class='list-group'>
+                <tr>
+                  <th>Unit of Issue</th>
+                  <th>Quantity</th>
+                  <th> Delete </th>
+                  <th> Add </th>
+                </tr>
+              </thead>
+              <tbody data-id='{{this.id}}' class='list-group-item'>
+                {{#each order}}
+                <tr>
+                  <td>{{this.prodID}}</td>
+                  <td>{{this.olUnitofIssue}}</td>
+                  <td>{{this.olQuantity}}</td>
+                  <td>{{this.rlTitle}}</td>
+                  <td>{{> delete}}</td>
+                  <td>{{> addOne}}</td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+            <br>
+            <table class='highlight'>
+              <thead id='order-list' class='list-group'>
+                <tr>
+                  <th>Order #</th>
+                  <th>Submitted</th>
+                  <th>Employee</th>
+                </tr>
+              </thead>
+              <tbody data-id='{{this.id}}' class='list-group-item'>
+                {{#each order}}
+                <tr>
+                  <td>{{this.prodID}}</td>
+                  <td>{{this.usSupervisorID}}</td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
           </div>
-
-          <ul class="pagination">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active page"><a href="#!">1</a></li>
-            <li class="waves-effect page"><a href="#!">2</a></li>
-            <li class="waves-effect page"><a href="#!">3</a></li>
-            <li class="waves-effect page"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            <button id='logOut' class='btn btn-primary right'>Log out</button>
-          </ul>
+          <br>
+          <div>
+            <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
+            {{> navbuttons}}
+          </div>
           </div>
         </div>
       </div>
@@ -37,3 +71,4 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
   <script src='/js/index.js'></script>
   <script src='/js/products.js'></script>
+  <script src='/js/orderSearch.js'></script>

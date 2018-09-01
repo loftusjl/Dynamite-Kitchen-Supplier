@@ -45,7 +45,11 @@ module.exports = function (app) {
 	// Get all products
 	app.get('/api/products/', (req, res) => {
 		db.Product.findAll({})
-			.then(dbProduct => res.json(dbProduct));
+			.then(dbProduct => {
+				res.render('basicuser', {
+					product: dbProduct
+				});
+			});
 	});
 	// get product by id
 	app.get('api/products/:id', (req, res) => {
@@ -64,7 +68,12 @@ module.exports = function (app) {
 	// get historical order summary
 	app.get('/api/orders', (req, res) => {
 		sequelize.query('SELECT orders.id, usName, orders.updatedAt, olTotal FROM orders, users WHERE usSupervisorID = users.id')
-			.then(dbOrder => res.json(dbOrder));
+			.then(dbOrder => {
+				// res.json(dbProduct);
+				res.render('order', {
+					order: dbOrder
+				});
+			});
 	});
 	// get order breakdown
 	app.get('/api/orders/summary/:id', (req, res) => {
@@ -92,6 +101,13 @@ module.exports = function (app) {
 					product: dbProduct
 				});
 			});
+	});
+	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
+	app.get('/api/order/lineitem/:id', function (req, res) {
+		db.OrderLine.findOne({
+			where: {id: req.params.id}
+		})
+			.then(dbOrderLine => res.json(dbOrderLine));
 	});
 	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/employee/picklist', function (req, res) {

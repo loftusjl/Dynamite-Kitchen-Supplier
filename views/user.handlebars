@@ -6,25 +6,37 @@
         <div class='background z-depth-3'>
             <div class='row padIt'>
                 <div class='col-8 offset-2'>
-                    <form class='mb-4' action='GET'>
-                        <div class='form-group flow-text'>
-                            <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
-                            <h5>Users</h5>
-                            <input type='text' id='user-text' class='form-control' aria-describedby='user-text' placeholder='Enter user'>
-
-                        </div>
-                        <button id='submit' class='btn btn-primary right'><a href='#modalUserList{{this.id}}' class='modal-trigger'>Submit</a></button>
-                    </form>
-                    {{> modalUser}}
-                    <ul class="pagination">
-                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class="active page"><a href="#!">1</a></li>
-                        <li class="waves-effect page"><a href="#!">2</a></li>
-                        <li class="waves-effect page"><a href="#!">3</a></li>
-                        <li class="waves-effect page"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-
-                        <button id='logOut' class='btn btn-primary right'>Log out</button>
-                    </ul>
+                    <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
+                    <h5>Users</h5>
+                    <table class='highlight'>
+                        <tbody data-id='{{this.id}}' class='list-group-item'>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Phone Number</th>
+                                <th>Change Role</th>
+                            </tr>
+                            {{#each user}}
+                            <tr>
+                                <td>{{this.usName}}</td>
+                                {{#if this.usRole}}
+                                <td>Supervisor</td>
+                                {{else}}
+                                <td>Employee</td>
+                                {{/if}}
+                                <td>{{this.usPhone}}</td>
+                                <td>
+                                    {{!-- edit info --}}
+                                    <a class="btn-floating btn-med red">
+                                        <i class="large material-icons">mode_edit</i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
+                    {{> navbuttons}}
                 </div>
             </div>
         </div>
