@@ -60,6 +60,13 @@ module.exports = function (app) {
 			});
 	});
 	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
+	app.get('/api/order/lineitem/:id', function (req, res) {
+		db.OrderLine.findOne({
+			where: {id: req.params.id}
+		})
+			.then(dbOrderLine => res.json(dbOrderLine));
+	});
+	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/employee/picklist', function (req, res) {
 		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
 			.then(dbProduct => res.json(dbProduct));
