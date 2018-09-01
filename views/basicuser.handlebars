@@ -77,18 +77,7 @@
           </table>
         </div>
         <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
-        {{!-- if user is a supervisor these buttons will render for navigation --}}
-        <div class='row'>
-          {{#if this.usRole}}
-          <ul id='product-list' class='list-group'>
-            <li>
-              <button id='super' class='btn btn-primary supervisorPage'><a href='/supervisor'>Supervisor</a></button>
-              <button id='super' class='btn btn-primary ordersPage'><a href='./order'>Orders</a></button>
-              <button id='super' class='btn btn-primary usersPage'><a href='./user'>Users</a></button>
-            </li>
-          </ul>
-          {{/if}}
-        </div>
+        {{> navbuttons}}
       </div>
     </div>
   </div>
