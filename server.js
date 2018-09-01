@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var passport = require('passport');
 var session = require('express-session');
-var cors = require('cors');
+var flash = require('connect-flash');
+// var cors = require('cors');
 // var flash = require('flash');
 
 
@@ -18,11 +19,12 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}));
+app.use(flash()); // use connect-flash for flash messages stored in session
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors());
-// app.use(flash()); // use connect-flash for flash messages stored in session
+// app.use(cors());
+
 
 
 // Handlebars
@@ -40,7 +42,7 @@ require('./routes/htmlRoutes')(app);
 // require('./routes/auth')(app, passport);
 
 //load passport strategies
-require('./config/passport/passport.js')(passport, db.User);
+require('./config/passport/passport.js')(passport);
 
 var syncOptions = { force: false };
 

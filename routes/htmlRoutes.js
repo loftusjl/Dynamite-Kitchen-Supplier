@@ -1,38 +1,47 @@
 const db = require('../models');
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require('../config/middleware/isAuthenticated');
 
 module.exports = function(app) {	
-	// show the signup form
-	app.get('/signup', function(req, res) {
-		// render the page and pass in any flash data if it exists
+	app.get('/', function(req, res) {
+		// If the user already has an account send them to the members page
+		if (req.user) {
+		  res.render('basicuser');
+		}
 		res.render('signup');
 	});
-	// show the login form
+	//
 	app.get('/login', function(req, res) {
-		// render the page and pass in any flash data if it exists
+		// If the user already has an account send them to the members page
+		if (req.user) {
+		  res.render('basicuser');
+		}
 		res.render('index');
-	});	
-	// PROFILE SECTION =========================
-	// we will want this protected so you have to be logged in to visit
-	// we will use route middleware to verify this (the isLoggedIn function)
-	app.get('/profile', isLoggedIn, function(req, res) {
-		res.render('profile', {
+	});
+	app.get('/basicuser', isLoggedIn, function(req, res) {
+		res.render('basicuser', {
 			user : req.user // get the user out of session and pass to template
 		});
 	});
-	// LOGOUT ==============================
-	// =====================================
-	app.get('/logout', function(req, res) {
-		req.logout();
-		res.redirect('/');
-	});
-	// Load index page
-	app.get('/', function(req, res) {
-		db.Product.findAll({}).then(function(dbProduct) {
-			res.render('index', {
-				product: dbProduct
+	//
+	  // Here we've add our isAuthenticated middleware to this route.
+	  // If a user who is not logged in tries to access this route they will be 
+	  //redirected to the signup page
+	app.get('/basicuser', isAuthenticated, function(req, res) {
+		db.User.findAll({}).then(function(dbUser) {
+			res.render('basicuser', {
+				user: dbUser
 			});
 		});
 	});
+	// // Load index page
+	// app.get('/', function(req, res) {
+	// 	db.Product.findAll({}).then(function(dbProduct) {
+	// 		res.render('index', {
+	// 			product: dbProduct
+	// 		});
+	// 	});
+	// });
 	// Load user page
 	app.get('/basicuser', function(req, res) {
 		//! change to only rendering. Reference API routes for actual data query
