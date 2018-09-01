@@ -5,8 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		event.preventDefault();
 		// get search text value
 		let search = document.getElementById('product-text').value;
+		
+		if (!search) {
+			// if search form is empty query search all
+			window.location.replace('/api/products/');
+		} else {
 		// run the search api
 		window.location.replace('/api/products/search/' + search);
+	}
+
 		return false;
 	}, false);
 	let clearSearch = document.getElementById('clear');

@@ -16,7 +16,11 @@ module.exports = function (app) {
 	// Get all products
 	app.get('/api/products/', (req, res) => {
 		db.Product.findAll({})
-			.then(dbProduct => res.json(dbProduct));
+			.then(dbProduct => {
+				res.render('basicuser', {
+					product: dbProduct
+				});
+			});
 	});
 	// get product by id
 	app.get('api/products/:id', (req, res) => {

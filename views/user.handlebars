@@ -6,25 +6,10 @@
         <div class='background z-depth-3'>
             <div class='row padIt'>
                 <div class='col-8 offset-2'>
-                    <form class='mb-4' action='GET'>
-                        <div class='form-group flow-text'>
-                            <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
-                            <h5>Users</h5>
-                            <input type='text' id='user-text' class='form-control' aria-describedby='user-text' placeholder='Enter user'>
-
-                        </div>
-                        <button id='submit' class='btn btn-primary right'><a href='#modalUserList{{this.id}}' class='modal-trigger'>Submit</a></button>
-                    </form>
+                    <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
+                    <h5>Users</h5>
                     {{> modalUser}}
-                    <ul class="pagination">
-                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class="active page"><a href="#!">1</a></li>
-                        <li class="waves-effect page"><a href="#!">2</a></li>
-                        <li class="waves-effect page"><a href="#!">3</a></li>
-                        <li class="waves-effect page"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-
-                        <button id='logOut' class='btn btn-primary right'>Log out</button>
-                    </ul>
+                    <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
                 </div>
             </div>
         </div>
@@ -33,4 +18,3 @@
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
-<script src='/js/products.js'></script>

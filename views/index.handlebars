@@ -1,5 +1,6 @@
 <div id='home'>
   <div>
+    {{!-- call header partial --}}
     {{> header}}
   </div>
   <div class='container'>
@@ -8,6 +9,7 @@
         <div class='col-8 offset-2'>
           <form class='mb-4 login-form' action='GET'>
             <div class="input-field">
+              {{!-- login input --}}
               <input id="first_name" type="text" class="validate">
               <label for="first_name">User Name</label>
             </div>
@@ -17,6 +19,7 @@
                 <label for="password">Password</label>
               </div>
             </div>
+            {{!-- login button --}}
               <a href='/basicuser' class='btn btn-primary right login-submit'>Log In</a>
           </form>
         </div>
