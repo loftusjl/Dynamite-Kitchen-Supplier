@@ -58,7 +58,7 @@ module.exports = function (app) {
 					orderline: dbOrderLine,
 					order: dbOrder,
 				});
-			})
+			});
 		});
 	});
 	app.get('/user', function (req, res) {

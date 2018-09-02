@@ -13,8 +13,8 @@ function submitOrder(data) {
             window.location.replace('/api/orders');
         })
     } else {
-        alert('No items in que!')
+        alert('No items in que!');
     }
 }
 
-$('#submit-order').on('click', submitOrder)
+$('#submit-order').on('click', submitOrder);
