@@ -1,6 +1,5 @@
 function submitOrder(data) {
     if ('#order-list') {
-
         $.ajax({
             headers: {
                 'Content-Type': 'application/json'
@@ -9,8 +8,8 @@ function submitOrder(data) {
             url: '/api/supervisor/order',
             data: JSON.stringify(data)
         }).then(function (event) {
-
-            window.location.replace('/api/orders');
+            console.log(event)
+            window.location.replace('/order');
         })
     } else {
         alert('No items in que!');
