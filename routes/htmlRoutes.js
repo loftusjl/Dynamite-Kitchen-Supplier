@@ -42,9 +42,9 @@ module.exports = function(app) {
 
 	// Load product page and pass in an product by id
 	app.get('/order', function(req, res) {
-		db.Order.findAll({}).then(function(dbOrder) {
+		db.OrderLine.findAll({}).then(function(dbOrderLine) {
 			res.render('order', {
-				order: dbOrder
+				order: dbOrderLine
 			});
 		});
 	});
