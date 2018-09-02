@@ -19,14 +19,14 @@ module.exports = function (passport) {
 			passwordField : 'password',
 			passReqToCallback : true // allows us to pass back the entire request to the callback
 		},
-		function(req, username, password, done) {
+		function(req, username, password, next) {
 			// find a user whose username is the same as the forms username
 			// we are checking to see if the user trying to login already exists
 			db.User.findAll({where: {username: req.params.username}}, function(err, rows) {
 				if (err)
-				{return done(err);}
+				{return next(err);}
 				if (rows.length) {
-					return done(null, false, alert('signupMessage', 'That username is already taken.'));
+					return next(null, false, alert('signupMessage', 'That username is already taken.'));
 				} else {
 					// if there is no user with that username
 					// create the user
@@ -44,7 +44,7 @@ module.exports = function (passport) {
 						
 						newUserMysql.id = rows.insertId;
 
-						return done(null, newUserMysql);
+						return next(null, newUserMysql);
 					});
 				}
 			});
@@ -65,16 +65,15 @@ module.exports = function (passport) {
 			passwordField : 'password',
 			passReqToCallback : true // allows us to pass back the entire request to the callback
 		},
-		function(username, password, next) { // callback with username and password from our form
-			db.User.findAll({where: {username: username}})
+		function(req, username, password, next) { // callback with username and password from our form
+			db.User.findOne({where: {usName: username, usPassword: password}})
 				.then(function(dbUser, err) {
-					console.log('DB RESPONSE', dbUser[0]);
+					// console.log('DB RESPONSE', dbUser);
 					if (err) { return next(err); }
-					console.log('err: ', err);
-					if (!username) { return next(null, false);}
+					// console.log('err: ', err);
+					if (!dbUser) { return next(null, false);}
 					console.log('username: ', username);
-					if (!password) { return next(null, false); }
-					console.log('password: ', password);
+					console.log('password:', password);					
 					return next(null, dbUser);
 				});
 		})
