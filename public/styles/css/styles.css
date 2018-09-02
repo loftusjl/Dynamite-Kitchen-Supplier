@@ -55,17 +55,17 @@ h5 {
 .top-back {
   margin-top: 10px; }
 
+#submit-order {
+  margin-top: 20px; }
+
 #back {
   margin-right: 10px; }
-
-.pagination {
-  margin-top: 60px; }
 
 .top-back {
   margin-bottom: 20px; }
 
-.fixed-action-button {
-  position: relative; }
+tr {
+  font-size: 18px; }
 
 /* login page styles */
 .login-form {
