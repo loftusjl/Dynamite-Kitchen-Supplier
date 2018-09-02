@@ -14,10 +14,10 @@
                                 <th>Name</th>
                                 <th>Role</th>
                                 <th>Phone Number</th>
-                                <th>Change Role</th>
+                                <th></th>
                             </tr>
                             {{#each user}}
-                            <tr>
+                            <tr id='userInfo'>
                                 <td>{{this.usName}}</td>
                                 {{#if this.usRole}}
                                 <td>Supervisor</td>
@@ -27,7 +27,7 @@
                                 <td>{{this.usPhone}}</td>
                                 <td>
                                     {{!-- edit info --}}
-                                    <a class="btn-floating btn-med red">
+                                    <a id='{{this.id}}' class="edit btn-floating btn-small red">
                                         <i class="large material-icons">mode_edit</i>
                                     </a>
                                 </td>
@@ -46,3 +46,4 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
 <script src='/js/products.js'></script>
+<script src='/js/editUser.js'></script>
