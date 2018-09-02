@@ -13,6 +13,7 @@ $(document).ready(function () {
 			url: 'api/users',
 			type: 'GET'
 		}).then(function () {
+			
 			for (let i = 0; i < edits.length; i++) {
 				let a = $('<td>');
 				let b = $('<input>');
