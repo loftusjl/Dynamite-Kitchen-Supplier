@@ -103,6 +103,7 @@ module.exports = function (app) {
 					replacements: [dbOrder[0]] // set OrderId to the new orderID generated
 				});
 				res.json(dbOrder);
+				
 			});
 	});
 	// create order line
