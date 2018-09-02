@@ -10,7 +10,7 @@
            <a href='/basicuser' id='back' class='btn btn-primary right top-back'>Back</a>
           <div>
             <table class='highlight'>
-              <thead id='order-list' class='list-group'>
+              <thead class='list-group'>
                 <tr>
                   <th>I.D.</th>
                   <th>Unit of Issue</th>
@@ -20,7 +20,7 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody data-id='{{this.id}}' class='list-group-item'>
+              <tbody id='order-list' data-id='{{this.id}}' class='list-group-item'>
                 {{#each orderline}}
                 <tr>
                   <td>{{this.prodID}}</td>
@@ -54,9 +54,9 @@
               <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
                 {{#each order}}
                 <tr>
-                  <td>{{this.id}}</td>
+                  <td><a class="waves-effect waves-light modal-trigger" href="#modal{{this.id}}">{{this.id}}{{> orderHistoryModal}}</a></td>
                   <td>{{this.updatedAt}}</td>
-                  <td>{{this.usSupervisorID}}</td>
+                  <td>{{this.usName}}</td>
                 </tr>
                 {{/each}}
               </tbody>
@@ -76,4 +76,4 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
   <script src='/js/index.js'></script>
   <script src='/js/products.js'></script>
-  <script src='/js/orderSearch.js'></script>
+  <script src='/js/orderSubmit.js'></script>
