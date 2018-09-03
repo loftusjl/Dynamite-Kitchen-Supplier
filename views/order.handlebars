@@ -23,6 +23,7 @@
               <tbody id='order-list' data-id='{{this.id}}' class='list-group-item'>
                 {{#each orderline}}
                 <tr>
+                  <td>{{this.prodCategory}}</td>
                   <td>{{this.prodName}}</td>
                   <td>{{this.olUnitofIssue}}</td>
                   <td>{{this.olQuantity}}</td>
