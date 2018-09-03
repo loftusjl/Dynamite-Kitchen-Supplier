@@ -91,7 +91,7 @@ module.exports = function (app) {
 
 	// Load product page and pass in an product by id
 	app.get('/order', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+		sequelize.query('SELECT prodID, prodName, prodPAR, prodOnHand, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
 			.then(dbOrderline => {
 				sequelize.query('SELECT orders.id, orders.updatedAt, olTotal FROM orders')
 					.then(dbOrder => {
