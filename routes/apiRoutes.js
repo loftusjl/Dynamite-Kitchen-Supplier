@@ -211,6 +211,6 @@ module.exports = function (app) {
 		sequelize.query('UPDATE products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {
 			replacements: [req.body.prodCategory, req.body.prodName, req.body.prodOnHand, req.body.prodPAR, req.body.prodPrice, req.body.prodPhoto, req.params.id]
 		})
-			.then(dbProduct => res.json(dbProduct));
+		 .then(dbProduct => res.json(dbProduct));
 	});
 };
