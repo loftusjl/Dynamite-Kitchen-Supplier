@@ -1,6 +1,6 @@
 <div id='home'>
-  <div class='jumbo'>
-    <h2 class='white-text center header'>Name Here</h2>
+  <div>
+    {{> header}}
   </div>
   <div class='container'>
     <div class='login z-depth-3'>
@@ -8,7 +8,7 @@
         <div class='col-8 offset-2'>
           <form class='mb-4 login-form' action='/api/users' method='POST' id='signup' name='signup'>
             <div class="input-field col s12">
-              <input id="usName" type="text" class="validate signup-bg" name='username'/>
+              <input id="usName" type="text" class="validate" name='username'/>
               <label for="username">First Name and Last Name (i.e. John Doe)</label>
             </div>
             <div class="row">
@@ -47,7 +47,7 @@
                     <label for="role">Role</label>
                 </div>
               <div class="input-field col s8">
-                <input id="usPassword" type="password" class="validate signup-bg" name='password'/>
+                <input id="usPassword" type="password" class="validate" name='password'/>
                 <label for="password">Password</label>
               </div>
             </div>
@@ -58,6 +58,6 @@
     </div>
   </div>
 </div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
