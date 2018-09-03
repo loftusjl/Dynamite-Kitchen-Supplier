@@ -93,7 +93,7 @@ module.exports = function (app) {
 	app.get('/order', function (req, res) {
 		sequelize.query('SELECT prodID, prodCategory, prodName, prodPAR, prodOnHand, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total, usName FROM products, orderlines, users WHERE products.id = prodID AND OrderId IS NULL AND UserId=users.id GROUP BY orderlines.id ORDER BY prodCategory ASC, prodName ASC')
 			.then(dbOrderline => {
-				sequelize.query('SELECT orders.id, orders.updatedAt, olTotal FROM orders')
+				sequelize.query('SELECT orders.id, orders.updatedAt, olTotal, usName FROM orders, users')
 					.then(dbOrder => {
 						res.render('order', {
 							orderline: dbOrderline[0],

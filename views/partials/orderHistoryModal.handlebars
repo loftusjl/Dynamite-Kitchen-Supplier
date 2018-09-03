@@ -10,8 +10,13 @@
                     <th>Employee</th>
                 </tr>
             </thead>
-            <tbody id='modal-order-history' data-id='{{this.id}}' class='list-group-item'>
-               
+            <tbody id='{{this.id}}' data-id='{{this.id}}' class='list-group-item'>
+               {{#each orderline}}
+                    <tr>
+                        <td>{{this.prodName}}</td>
+                        <td>{{this.olQuantity}}</td>
+                    </tr>
+               {{/each}}
             </tbody>
         </table>
         <div class="modal-footer">

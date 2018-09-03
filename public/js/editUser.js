@@ -19,6 +19,7 @@ $(document).ready(function () {
 				let b = $('<input>');
 				b.attr('id', `${edit.id}`);
 
+				
 
 			}
 		});

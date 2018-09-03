@@ -17,35 +17,35 @@ function submitOrder(data) {
 	}
 }
 // search for old order line items and display in a modal
-function orderHistoryDetail(data) {
+// function orderHistoryDetail(data) {
 	
-	let id = $(this).attr('id');
+// 	let id = $(this).attr('id');
 
-	if ('#order-history') {
-		$.ajax({
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			type: 'GET',
-			url: '/api/orders/summary/' + id,
-			data: JSON.stringify(data)
-		}).then(function (event) {
-			console.log(event)
-			for (let i = 0; i < event.length; i++) {
-				let a = $('<tr>');
-				let b = $('<td>')
-				b.text(event[i].prodName);
-
-				$(a).append(b)
-				$('#modal-order-history').append(a)
-			}
+// 	if ('#order-history') {
+// 		$.ajax({
+// 			headers: {
+// 				'Content-Type': 'application/json'
+// 			},
+// 			type: 'GET',
+// 			url: '/api/orders/summary/' + id,
+// 			data: JSON.stringify(data)
+// 		}).then(function (event) {
+// 			for (let i = 0; i < event.length; i++) {
+// 				let a = $('<tr>');
+// 				let b = $('<td>')
+// 				b.text(event[i].prodName, event[i].olQunatity);
+				
+// 				$(a).append(b)
+// 				$('#modal-order-history').append(a)
+// 				console.log(event[i])
+// 			}
 			
-		});
-	} else {
-		alert('No items in que!');
-	}
-}
-$('.order-detail').on('click', orderHistoryDetail);
+// 		});
+// 	} else {
+// 		alert('No items in que!');
+// 	}
+// }
+// $('.order-detail').on('click', orderHistoryDetail);
 
 $('#submit-order').on('click', submitOrder);
 
