@@ -210,7 +210,7 @@ module.exports = function (app) {
 	app.delete('/api/supervisor/orderline/:id', function (req, res) {
 		db.OrderLine.destroy({
 			where: {
-				prodID: req.params.id
+				id: req.params.id
 			}
 		})
 			.then(dbOrderLine => res.json(dbOrderLine));
