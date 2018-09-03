@@ -15,7 +15,7 @@ $(document).ready(function () {
 		}).then(function () {
 			
 			for (let i = 0; i < edits.length; i++) {
-				let a = $('<td>');
+				// let a = $('<td>');
 				let b = $('<input>');
 				b.attr('id', `${edit.id}`);
 
