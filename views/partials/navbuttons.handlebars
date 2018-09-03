@@ -1,6 +1,6 @@
  {{!-- if user is a supervisor these buttons will render for navigation --}}
 <div class='row'>
-	{{!-- {{#if this.usRole}} --}}
+	{{#if role}}
 	<ul id='product-list' class='list-group'>
 		<li>
 			<a class='btn btn-primary ordersPage' href='/basicuser'>Products</a>
@@ -9,5 +9,5 @@
 			<a class='btn btn-primary ordersPage' href='/user'>Users</a>
 		</li>
 	</ul>
-	{{!-- {{/if}} --}}
+	{{/if}}
 </div>
