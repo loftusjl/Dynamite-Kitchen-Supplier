@@ -176,9 +176,9 @@ module.exports = function (app) {
 	}));
 	// process the signup form
 	app.post('/api/users', passport.authenticate('local-signup', {
-		successRedirect : '/basicuser', // redirect to the secure profile section
-		failureRedirect : '/', // redirect back to the signup page if there is an error
-		failureFlash : true // allow flash messages
+		successRedirect: '/basicuser', // redirect to the secure profile section
+		failureRedirect: '/', // redirect back to the signup page if there is an error
+		failureFlash: true // allow flash messages
 	}));
 	// update order line
 	app.put('/api/order/lineitem/:id', (req, res) => {
@@ -210,6 +210,6 @@ module.exports = function (app) {
 		sequelize.query('UPDATE products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {
 			replacements: [req.body.prodCategory, req.body.prodName, req.body.prodOnHand, req.body.prodPAR, req.body.prodPrice, req.body.prodPhoto, req.params.id]
 		})
-		 .then(dbProduct => res.json(dbProduct));
+			.then(dbProduct => res.json(dbProduct));
 	});
 };
