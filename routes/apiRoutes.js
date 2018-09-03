@@ -208,7 +208,7 @@ module.exports = function (app) {
 	});
 	// Delete an product by id
 	app.delete('/api/supervisor/orderline/:id', function (req, res) {
-		db.Product.destroy({
+		db.OrderLine.destroy({
 			where: {
 				id: req.params.id
 			}
