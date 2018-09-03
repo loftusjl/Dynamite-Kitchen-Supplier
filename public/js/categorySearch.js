@@ -31,7 +31,7 @@ $(document).ready(function () {
 		event.preventDefault();
 
 		let search = $(this).attr('id');
-
+		
 		window.location.replace('/api/products/category/' + search);
 	});
 });
