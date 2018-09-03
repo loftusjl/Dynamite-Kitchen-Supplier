@@ -15,5 +15,16 @@ function submitOrder(data) {
 		alert('No items in que!');
 	}
 }
-
 $('#submit-order').on('click', submitOrder);
+
+// delete products from order pending
+$('.delete').on('click', function (event) {
+	let id = $(this).attr('id');
+	console.log(id)
+	$.ajax("/api/supervisor/products/" + id, {
+				type: "DELETE"
+		}).then(function () {
+			window.location.replace('/order');
+	});
+});
+
