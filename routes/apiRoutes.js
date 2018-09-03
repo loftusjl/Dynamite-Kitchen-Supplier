@@ -208,8 +208,10 @@ module.exports = function (app) {
 	});
 	// Delete an product by id
 	app.delete('/api/supervisor/orderline/:id', function (req, res) {
-		sequelize.query('DELETE FROM orderlines WHERE prodID=?', {
-			replacements: [req.params.id]
+		db.OrderLine.destroy({
+			where: {
+				prodID: req.params.id
+			}
 		})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
