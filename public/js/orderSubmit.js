@@ -18,12 +18,12 @@ function submitOrder(data) {
 $('#submit-order').on('click', submitOrder);
 
 // delete products from order pending
-$('.delete').on('click', function (event) {
+$('.delete').on('click', function () {
 	let id = $(this).attr('id');
-	$.ajax("/api/supervisor/orderline/" + id, {
-				type: "DELETE"
-		}).then(function () {
-			window.location.replace('/order');
+	$.ajax('/api/supervisor/orderline/' + id, {
+		type: 'DELETE'
+	}).then(function () {
+		window.location.replace('/order');
 	});
 });
 
