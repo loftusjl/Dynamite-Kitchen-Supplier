@@ -35,3 +35,4 @@ $(document).ready(function () {
 		window.location.replace('/api/products/category/' + search);
 	});
 });
+

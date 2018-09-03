@@ -132,6 +132,7 @@ module.exports = function (app) {
 					replacements: [dbOrder[0]] // set OrderId to the new orderID generated
 				});
 				res.json(dbOrder);
+				
 			});
 	});
 	// create order line
@@ -151,8 +152,6 @@ module.exports = function (app) {
 		// Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
 		// So we're sending the user back the route to the members page because the redirect will happen on the front end
 		// They won't get this or even be able to access this page if they aren't authed
-		// db.User.findOne(req.body)
-		// .then(dbUser => res.json(dbUser));
 		res.json('/basicusers');
 	});
 	// Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
