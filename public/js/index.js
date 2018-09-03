@@ -1,1 +1,3 @@
+// initialize Modals
+M.AutoInit();
 

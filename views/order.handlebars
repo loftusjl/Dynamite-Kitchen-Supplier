@@ -12,7 +12,7 @@
             <table class='highlight'>
               <thead class='list-group'>
                 <tr>
-                  <th>I.D.</th>
+                  <th>Product</th>
                   <th>Unit of Issue</th>
                   <th>Quantity</th>
                   <th>Employee</th>
@@ -23,10 +23,10 @@
               <tbody id='order-list' data-id='{{this.id}}' class='list-group-item'>
                 {{#each orderline}}
                 <tr>
-                  <td>{{this.prodID}}</td>
+                  <td>{{this.prodName}}</td>
                   <td>{{this.olUnitofIssue}}</td>
                   <td>{{this.olQuantity}}</td>
-                  <td>{{this.usSupervisorID}}</td>
+                  <td>{{this.usName}}</td>
                   <td>{{> delete}}</td>
                   <td>{{> addOne}}</td>
                 </tr>
