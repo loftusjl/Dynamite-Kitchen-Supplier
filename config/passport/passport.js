@@ -40,7 +40,7 @@ module.exports = function (passport) {
 						usZip: req.body.zip,
 						usRole: req.body.role,
 						usEmail: req.body.email,
-						usPassword: req.body.password
+						usPassword: req.body.password,
 					}).then(function (newUser) {
 
 						return next(null, newUser);
@@ -67,10 +67,10 @@ module.exports = function (passport) {
 			.then(function(dbUser, err) {
 				// console.log('DB RESPONSE', dbUser);
 				if (err) { return next(err); }
-				console.log('err: ', err);
+				// console.log('err: ', err);
 				if (!dbUser) { return next(null, false, { message: req.flash('loginMessage', 'No user found.')});}
-				console.log('username: ', username);
-				console.log('password:', password);					
+				// console.log('username: ', username);
+				// console.log('password:', password);
 				return next(null, dbUser);
 			});
 	})

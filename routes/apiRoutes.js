@@ -205,15 +205,6 @@ module.exports = function (app) {
 		})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
-	// Delete a user by id
-	app.delete('/api/users/:id', function (req, res) {
-		db.User.destroy({
-			where: {
-				id: req.params.id
-			}
-		})
-			.then(dbUser => res.json(dbUser));
-	});
 	// Update product by id
 	app.put('/api/products/:id', function (req, res) {
 		sequelize.query('UPDATE products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {

@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
 		},
 		usRole: {
 			type: DataTypes.INTEGER,
-			defaultValue:0,
+			defaultValue: 0,
 			allowNull: false,
 		},
 		usEmail: {
@@ -30,7 +30,8 @@ module.exports = function (sequelize, DataTypes) {
 			allowNull: false
 		},
 		lastLogin: {
-			type: DataTypes.DATE
+			type: DataTypes.DATE,
+			defaultValue: DataTypes.NOW
 		},
 		usStatus: {
 			type: DataTypes.ENUM('active', 'inactive'),
