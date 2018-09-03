@@ -192,8 +192,8 @@ module.exports = function (app) {
 	});
 	// update order line
 	app.put('/api/order/lineitem/:id', (req, res) => {
-		sequelize.query('UPDATE orderlines SET olQuantity=?, UserId=? WHERE id=?', {
-			replacements: [req.body.olQuantity, req.body.UserId, req.params.id]
+		sequelize.query('UPDATE orderlines SET olQuantity=? WHERE id=?', {
+			replacements: [req.body.olQuantity, req.params.id]
 		})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
