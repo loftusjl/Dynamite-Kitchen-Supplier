@@ -1,6 +1,7 @@
 var bCrypt = require('bcrypt-nodejs');
 var db = require('../../models');
 var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
 
 // expose this function to our app using module.exports
 module.exports = function (passport) {
@@ -22,29 +23,28 @@ module.exports = function (passport) {
 		function(req, username, password, next) {
 			// find a user whose username is the same as the forms username
 			// we are checking to see if the user trying to login already exists
-			db.User.findAll({where: {username: req.params.username}}, function(err, rows) {
-				if (err)
-				{return next(err);}
-				if (rows.length) {
-					return next(null, false, alert('signupMessage', 'That username is already taken.'));
+			db.User.findAll({where: {usName: username}}, function(err, dbUser) {
+				if (err){return next(err);}
+				console.log(err);				
+				if (dbUser) {return next(null, false, alert('signupMessage', 'That username is already taken.'));
 				} else {
 					// if there is no user with that username
 					// create the user
-					var newUserMysql = {
+					var newUser = {
 						username: username,
 						password: bCrypt.hashSync(password, null, null) // use the generateHash function in our user model
 					};
 
-					// var insertQuery = 'INSERT INTO users ( username, password ) values (?,?)';
+					
 
-					db.User.create({ username: newUserMysql.username, password: newUserMysql.password}, { fields: [ 'username', 'password' ] }).then(dbUser => {
+					db.User.create({ username: newUser.username, password: newUser.password}, { fields: [ 'username', 'password' ] }).then(dbUser => {
 						console.log(dbUser.get({
 							plain: true
 						}));
 						
-						newUserMysql.id = rows.insertId;
+						newUser.id = dbUser.insertId;
 
-						return next(null, newUserMysql);
+						return next(null, newUser);
 					});
 				}
 			});
@@ -70,8 +70,8 @@ module.exports = function (passport) {
 				.then(function(dbUser, err) {
 					// console.log('DB RESPONSE', dbUser);
 					if (err) { return next(err); }
-					// console.log('err: ', err);
-					if (!dbUser) { return next(null, false);}
+					console.log('err: ', err);
+					if (!dbUser) { return next(null, false, { message: req.flash('loginMessage', 'No user found.')});}
 					console.log('username: ', username);
 					console.log('password:', password);					
 					return next(null, dbUser);
