@@ -206,11 +206,20 @@ module.exports = function (app) {
 		})
 			.then(dbProduct => res.json(dbProduct));
 	});
+	// Delete an product by id
+	app.delete('/api/supervisor/orderline/:id', function (req, res) {
+		db.OrderLine.destroy({
+			where: {
+				id: req.params.id
+			}
+		})
+			.then(dbOrderLine => res.json(dbOrderLine));
+	});
 	// Update product by id
 	app.put('/api/products/:id', function (req, res) {
 		sequelize.query('UPDATE products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {
 			replacements: [req.body.prodCategory, req.body.prodName, req.body.prodOnHand, req.body.prodPAR, req.body.prodPrice, req.body.prodPhoto, req.params.id]
 		})
-			.then(dbProduct => res.json(dbProduct));
+		 .then(dbProduct => res.json(dbProduct));
 	});
 };
