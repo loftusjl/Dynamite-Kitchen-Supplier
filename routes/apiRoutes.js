@@ -84,7 +84,7 @@ module.exports = function (app) {
 	});
 	// get order breakdown
 	app.get('/api/orders/summary/:id', (req, res) => {
-		sequelize.query('SELECT prodName, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {
+		sequelize.query('SELECT prodName, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total, usName FROM products, orderlines, users WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {
 			replacements: [req.params.id]
 		})
 			.then(dbOrder => res.json(dbOrder));

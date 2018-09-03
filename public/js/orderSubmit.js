@@ -1,3 +1,4 @@
+//submit order, Post to api reload page
 function submitOrder(data) {
 	if ('#order-list') {
 		$.ajax({
@@ -8,13 +9,44 @@ function submitOrder(data) {
 			url: '/api/supervisor/order',
 			data: JSON.stringify(data)
 		}).then(function (event) {
-			console.log(event);
+		
 			window.location.replace('/order');
 		});
 	} else {
 		alert('No items in que!');
 	}
 }
+// search for old order line items and display in a modal
+function orderHistoryDetail(data) {
+	
+	let id = $(this).attr('id');
+
+	if ('#order-history') {
+		$.ajax({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			type: 'GET',
+			url: '/api/orders/summary/' + id,
+			data: JSON.stringify(data)
+		}).then(function (event) {
+			console.log(event)
+			for (let i = 0; i < event.length; i++) {
+				let a = $('<tr>');
+				let b = $('<td>')
+				b.text(event[i].prodName);
+
+				$(a).append(b)
+				$('#modal-order-history').append(a)
+			}
+			
+		});
+	} else {
+		alert('No items in que!');
+	}
+}
+$('.order-detail').on('click', orderHistoryDetail);
+
 $('#submit-order').on('click', submitOrder);
 
 // delete products from order pending
