@@ -42,7 +42,7 @@ module.exports = function (app) {
 		res.render('index');
 	});
 	app.get('/basicuser', isLoggedIn, function (req, res) {
-		roleCookie = cookie.serialize('role', req.user.usRole, {
+		roleCookie = cookie.serialize('role', req.user.usRole, 'UserId', req.user.usName, {
 			httpOnly: true,
 			maxAge: 60 * 60 * 24 * 7 // 1 week
 		});
