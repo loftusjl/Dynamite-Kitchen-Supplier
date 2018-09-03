@@ -7,11 +7,12 @@
       <div class='row padIt'>
         <div class='col-8 offset-2'>
           <h5>Pending Order</h5>
-           <a href='/basicuser' id='back' class='btn btn-primary right top-back'>Back</a>
+          <a href='/basicuser' id='back' class='btn btn-primary right top-back'>Back</a>
           <div>
             <table class='highlight'>
               <thead class='list-group'>
                 <tr>
+                  <th>Category</th>
                   <th>Product</th>
                   <th>Unit of Issue</th>
                   <th>Quantity</th>
@@ -20,13 +21,15 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody id='order-list' data-id='{{this.id}}' class='list-group-item'>
+              <tbody id='order-list' class='list-group-item'>
                 {{#each orderline}}
                 <tr>
                   <td>{{this.prodCategory}}</td>
                   <td>{{this.prodName}}</td>
                   <td>{{this.olUnitofIssue}}</td>
-                  <td>{{this.olQuantity}}</td>
+                  <td>
+                    <input id="{{this.id}}" type="text" class="input-field qtyRequested" value="{{this.olQuantity}}">
+                  </td>
                   <td>{{this.usName}}</td>
                   <td>{{> delete}}</td>
                   <td>{{> addOne}}</td>
@@ -55,7 +58,8 @@
               <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
                 {{#each order}}
                 <tr>
-                  <td id='order-detail{{this.id}}'><a class='waves-effect waves-light modal-trigger' href='#modal{{this.id}}'>{{this.id}}{{> orderHistoryModal}}</a></td>
+                  <td id='order-detail{{this.id}}'><a class='waves-effect waves-light modal-trigger' href='#modal{{this.id}}'>{{this.id}}{{>
+                      orderHistoryModal}}</a></td>
                   <td>{{this.updatedAt}}</td>
                   <td>{{this.usName}}</td>
                 </tr>
