@@ -1,7 +1,10 @@
+var cookie = require('cookie');
 const Sequelize = require('sequelize');
 var env = process.env.NODE_ENV || 'development';
 var config = require(__dirname + '/../config/config.json')[env];
 var db = {};
+let roleCookie;
+let roleVal;
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require('../config/middleware/isAuthenticated');
 
@@ -39,8 +42,14 @@ module.exports = function (app) {
 		res.render('index');
 	});
 	app.get('/basicuser', isLoggedIn, function (req, res) {
+		roleCookie = cookie.serialize('role', req.user.usRole, {
+			httpOnly: true,
+			maxAge: 60 * 60 * 24 * 7 // 1 week
+		});
+		roleVal = cookie.parse(roleCookie);
 		res.render('basicuser', {
-			user: req.user // get the user out of session and pass to template
+			user: req.user, // get the user out of session and pass to template
+			role: parseInt(roleVal.role)
 		});
 	});
 	//
@@ -49,16 +58,20 @@ module.exports = function (app) {
 	//redirected to the signup page
 	app.get('/basicuser', isAuthenticated, function (req, res) {
 		db.User.findAll({}).then(function (dbUser) {
+			
 			res.render('basicuser', {
-				user: dbUser
+				user: dbUser,
+				role: parseInt(roleVal.role)
 			});
+
 		});
 	});
 	// Load user page
 	app.get('/basicuser', function (req, res) {
 		db.Product.findAll({}).then(function (dbProduct) {
 			res.render('basicuser', {
-				product: dbProduct
+				product: dbProduct,
+				role: parseInt(roleVal.role)
 			});
 		});
 
@@ -69,7 +82,8 @@ module.exports = function (app) {
 		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
 			.then(underPAR => {
 				res.render('underpar', {
-					par: underPAR[0]
+					par: underPAR[0],
+					role: parseInt(roleVal.role)
 				});
 			});
 
@@ -83,7 +97,8 @@ module.exports = function (app) {
 					.then(dbOrder => {
 						res.render('order', {
 							orderline: dbOrderline[0],
-							order: dbOrder[0]
+							order: dbOrder[0],
+							role: parseInt(roleVal.role)
 						});
 					});
 			});
@@ -91,7 +106,8 @@ module.exports = function (app) {
 	app.get('/user', function (req, res) {
 		db.User.findAll({}).then(function (dbUser) {
 			res.render('user', {
-				user: dbUser
+				user: dbUser,
+				role: parseInt(roleVal.role)
 			});
 		});
 	});
