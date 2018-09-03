@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	var instances = M.FloatingActionButton.init(elems, {
 		direction: 'left'
 	});
+	console.log(instances);
 });
 // Add event listeners to the submit and delete buttons
 $submitBtn.on('click', handleFormSubmit);
