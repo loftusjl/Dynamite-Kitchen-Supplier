@@ -22,33 +22,33 @@ if (config.use_env_variable) {
 }
 var db = require('../models');
 
-module.exports = function(app) {	
-	app.get('/', function(req, res) {
+module.exports = function (app) {
+	app.get('/', function (req, res) {
 		// If the user already has an account send them to the members page
 		if (req.user) {
-		  res.render('basicuser');
+			res.render('basicuser');
 		}
 		res.render('signup');
 	});
 	//
-	app.get('/login', function(req, res) {
+	app.get('/login', function (req, res) {
 		// If the user already has an account send them to the members page
 		if (req.user) {
-		  res.render('basicuser');
+			res.render('basicuser');
 		}
 		res.render('index');
 	});
-	app.get('/basicuser', isLoggedIn, function(req, res) {
+	app.get('/basicuser', isLoggedIn, function (req, res) {
 		res.render('basicuser', {
-			user : req.user // get the user out of session and pass to template
+			user: req.user // get the user out of session and pass to template
 		});
 	});
 	//
-	  // Here we've add our isAuthenticated middleware to this route.
-	  // If a user who is not logged in tries to access this route they will be 
-	  //redirected to the signup page
-	app.get('/basicuser', isAuthenticated, function(req, res) {
-		db.User.findAll({}).then(function(dbUser) {
+	// Here we've add our isAuthenticated middleware to this route.
+	// If a user who is not logged in tries to access this route they will be 
+	//redirected to the signup page
+	app.get('/basicuser', isAuthenticated, function (req, res) {
+		db.User.findAll({}).then(function (dbUser) {
 			res.render('basicuser', {
 				user: dbUser
 			});
@@ -77,14 +77,16 @@ module.exports = function(app) {
 
 	// Load product page and pass in an product by id
 	app.get('/order', function (req, res) {
-		db.OrderLine.findAll({}).then(function (dbOrderLine) {
-			db.Order.findAll({}).then(function (dbOrder) {
-				res.render('order', {
-					orderline: dbOrderLine,
-					order: dbOrder,
-				});
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+			.then(dbOrderline => {
+				sequelize.query('SELECT orders.id, orders.updatedAt, olTotal FROM orders')
+					.then(dbOrder => {
+						res.render('order', {
+							orderline: dbOrderline[0],
+							order: dbOrder[0]
+						});
+					});
 			});
-		});
 	});
 	app.get('/user', function (req, res) {
 		db.User.findAll({}).then(function (dbUser) {
@@ -101,8 +103,9 @@ module.exports = function(app) {
 
 function isLoggedIn(req, res, next) {
 	// if user is authenticated in the session, carry on
-	if (req.isAuthenticated())
-	{return next();}
+	if (req.isAuthenticated()) {
+		return next();
+	}
 	// if they aren't redirect them to the home page
 	res.redirect('/');
 }
