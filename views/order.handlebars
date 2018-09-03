@@ -6,39 +6,43 @@
     <div class='background z-depth-3'>
       <div class='row padIt'>
         <div class='col-8 offset-2'>
-          <form class='mb-4' action='GET'>
-            <div class='form-group flow-text'>
-              <button id='back' class='btn btn-primary right top-back'><a href='/basicuser'>Back</a></button>
-              <div>
-                <h5>Order Search</h5>
-                <input type='text' id='order-text' class='form-control' aria-describedby='order-text' placeholder='Enter order Text'>
-              </div>
-              <button id='submit' class='btn btn-primary right'>Submit</a></button>
-          </form>
+          <h5>Pending Order</h5>
+           <a href='/basicuser' id='back' class='btn btn-primary right top-back'>Back</a>
           <div>
             <table class='highlight'>
-              <thead id='order-list' class='list-group'>
+              <thead class='list-group'>
                 <tr>
+                  <th>I.D.</th>
                   <th>Unit of Issue</th>
                   <th>Quantity</th>
-                  <th> Delete </th>
-                  <th> Add </th>
+                  <th>Employee</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
-              <tbody data-id='{{this.id}}' class='list-group-item'>
-                {{#each order}}
+              <tbody id='order-list' data-id='{{this.id}}' class='list-group-item'>
+                {{#each orderline}}
                 <tr>
                   <td>{{this.prodID}}</td>
                   <td>{{this.olUnitofIssue}}</td>
                   <td>{{this.olQuantity}}</td>
-                  <td>{{this.rlTitle}}</td>
+                  <td>{{this.usSupervisorID}}</td>
                   <td>{{> delete}}</td>
                   <td>{{> addOne}}</td>
                 </tr>
                 {{/each}}
               </tbody>
             </table>
+            <a id='submit-order' class='btn btn-primary right'>Order</a>
             <br>
+            <form class='mb-4' action='GET'>
+              <div class='form-group flow-text'>
+                <div>
+                  <h5>Order Search</h5>
+                  <input type='text' id='order-text' class='form-control' aria-describedby='order-text' placeholder='Enter order Text'>
+                </div>
+                <button id='submit' class='btn btn-primary right'>Submit</a></button>
+            </form>
             <table class='highlight'>
               <thead id='order-list' class='list-group'>
                 <tr>
@@ -47,21 +51,22 @@
                   <th>Employee</th>
                 </tr>
               </thead>
-              <tbody data-id='{{this.id}}' class='list-group-item'>
+              <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
                 {{#each order}}
                 <tr>
-                  <td>{{this.prodID}}</td>
-                  <td>{{this.usSupervisorID}}</td>
+                  <td id='order-detail{{this.id}}'><a class='waves-effect waves-light modal-trigger' href='#modal{{this.id}}'>{{this.id}}{{> orderHistoryModal}}</a></td>
+                  <td>{{this.updatedAt}}</td>
+                  <td>{{this.usName}}</td>
                 </tr>
                 {{/each}}
               </tbody>
             </table>
-          </div>
-          <br>
-          <div>
-            <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
-            {{> navbuttons}}
-          </div>
+            </div>
+            <br>
+            <div>
+              <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
+              {{> navbuttons}}
+            </div>
           </div>
         </div>
       </div>
@@ -71,4 +76,4 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
   <script src='/js/index.js'></script>
   <script src='/js/products.js'></script>
-  <script src='/js/orderSearch.js'></script>
+  <script src='/js/orderSubmit.js'></script>
