@@ -7,17 +7,51 @@
       <div class='row padIt'>
         <div class='col-8 offset-2'>
           <form class='mb-4 login-form' action='/api/users' method='POST' id='signup' name='signup'>
-            <div class="input-field">
-              <input id="username" type="text" class="validate login-bg" name='username'/>
-              <label for="username">User Name</label>
+            <div class="input-field col s12">
+              <input id="usName" type="text" class="validate signup-bg" name='username'/>
+              <label for="username">First Name and Last Name (i.e. John Doe)</label>
             </div>
             <div class="row">
-              <div class="input-field">
-                <input id="password" type="password" class="validate login-bg" name='password'/>
+                <div class="input-field col s6">
+                    <input id="phoneNumber" type="text" class="validate" name='phoneNumber'/>
+                    <label for="phoneNumber">Phone Number (xxx-xxx-xxx)</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="email" type="text" class="validate" name='email'/>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="address" type="text" class="validate" name='address'/>
+                    <label for="address">Street Address</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="city" type="text" class="validate" name='city'/>
+                    <label for="city">City</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="state" type="text" class="validate" name='state'/>
+                    <label for="state">State</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="zip" type="text" class="validate" name='zip'/>
+                    <label for="zip">Zip</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="usRole" type="text" class="validate" name='role'/>
+                    <label for="role">Role</label>
+                </div>
+              <div class="input-field col s8">
+                <input id="usPassword" type="password" class="validate signup-bg" name='password'/>
                 <label for="password">Password</label>
               </div>
             </div>
-            <button id='submit' type='submit' class='btn btn-primary right login-submit' value='Sign Up'>Sign Up</button>
+            <button id='submit' type='submit' class='btn btn-primary right signup-submit' value='Sign Up'>Sign Up</button>
           </form>
         </div>
       </div>
