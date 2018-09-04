@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	let qtyReq = document.getElementsByClassName('qtyRequested');
 	for (i = 0; i < qtyReq.length; i++) {
 		let ordId = qtyReq[i].id; // ! this is wrong. it's not the order id
-		console.log(qtyReq)
+		console.log(qtyReq); // ! this shows you what the element looks like
 		qtyReq[i].addEventListener('change', function () {
 			defVal = getDefault(ordId);
 			newVal = getVal(ordId);
