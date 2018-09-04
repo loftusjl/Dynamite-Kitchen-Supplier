@@ -12,19 +12,20 @@
 						<th>On Hand</th>
 						<th>PAR</th>
 						<th>QTY to Order</th>
-						<th>Add</th>
+						<th>Unit of Issue</th>
 					</tr>
 				</thead>
-				<tbody data-id='{{this.id}}' class='list-group-item'>
+				<tbody class='list-group-item'>
 					{{#each par}}
 					<tr>
-						<td>{{this.prodName}}</td>
-						<td>{{this.prodCategory}}</td>
+						<td id="order-{{this.id}}" data-prodid="{{this.prodID}}" class="prodName">{{this.prodName}}</td>
+						<td class="prodCategory">{{this.prodCategory}}</td>
 						<td>{{this.prodOnHand}}</td>
 						<td>{{this.prodPAR}}</td>
 						<td>
-							<input id="{{this.id}}qty" type="text" class="input-field">
+							<input id="{{this.id}}" type="text" class="input-field qtyRequested" value="{{this.olQuantity}}">
 						</td>
+						<td>{{this.prodUnitofIssue}}</td>
 						<td>{{> addOne}}</td>
 					</tr>
 					{{/each}}
@@ -33,7 +34,7 @@
 		</div>
 		<br>
 		<div>
-			<a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
+			<a id='logOut' class='btn btn-primary right' href='/logout'>Log out</a>
 			{{> navbuttons}}
 		</div>
 	</div>
@@ -41,4 +42,5 @@
 
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
+<script src='/js/underpar.js'></script>
 <script src='/js/index.js'></script>

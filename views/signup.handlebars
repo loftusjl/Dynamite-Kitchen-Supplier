@@ -8,45 +8,52 @@
         <div class='col-8 offset-2'>
           <form class='mb-4 login-form' action='/api/users' method='POST' id='signup' name='signup'>
             <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
               <input id="usName" type="text" class="validate" name='username'/>
-              <label for="username">First Name and Last Name (i.e. John Doe)</label>
+              <label for="username">First and Last Name (i.e. John Doe)</label>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="phoneNumber" type="text" class="validate" name='phoneNumber'/>
+                    <i class="material-icons prefix">phone</i>
+                    <input id="phoneNumber" type="text" class="validate" name='phoneNumber'/>                    
                     <label for="phoneNumber">Phone Number (xxx-xxx-xxx)</label>
                 </div>
                 <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
                     <input id="email" type="text" class="validate" name='email'/>
                     <label for="email">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
+                    <i class="material-icons prefix">home</i>
                     <input id="address" type="text" class="validate" name='address'/>
                     <label for="address">Street Address</label>
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s4">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">home</i>
                     <input id="city" type="text" class="validate" name='city'/>
                     <label for="city">City</label>
                 </div>
-                <div class="input-field col s4">
+                <div class="input-field col s3">
                     <input id="state" type="text" class="validate" name='state'/>
                     <label for="state">State</label>
                 </div>
-                <div class="input-field col s4">
+                <div class="input-field col s3">
                     <input id="zip" type="text" class="validate" name='zip'/>
                     <label for="zip">Zip</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s4">
+                    <i class="material-icons prefix">supervisor_account</i>
                     <input id="usRole" type="text" class="validate" name='role'/>
                     <label for="role">Role</label>
                 </div>
               <div class="input-field col s8">
+                  <i class="material-icons prefix">vpn_key</i>
                 <input id="usPassword" type="password" class="validate" name='password'/>
                 <label for="password">Password</label>
               </div>
@@ -61,3 +68,4 @@
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script src='/js/index.js'></script>
+

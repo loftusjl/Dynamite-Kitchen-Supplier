@@ -4,11 +4,6 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER,
 			defaultValue: 1
 		},
-		olUnitofIssue: {
-			type: DataTypes.STRING,
-			defaultValue: 'CS',
-			allowNull: false
-		},
 		prodID: {
 			type: DataTypes.INTEGER,
 			allowNull: false
@@ -17,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
 	OrderLine.associate = function(models) {
 		OrderLine.belongsTo(models.User, {
 			foreignKey: {
-				allowNull: false
+				allowNull: true
 			}
 		});
 	};

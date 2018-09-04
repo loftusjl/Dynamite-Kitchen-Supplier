@@ -29,10 +29,10 @@
                 <tr>
                   <td>{{this.prodCategory}}</td>
                   <td>{{this.prodName}}</td>
-                  <td>{{this.olUnitofIssue}}</td>
-                  <td>{{> addOne}}</td>
+                  <td>{{this.prodUnitofIssue}}</td>
+                  <td>{{> updateQuantity}}</td>
                   <td>
-                    <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"value="{{this.olQuantity}}">
+                    <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request" value="{{this.olQuantity}}">
                   </td>
                   <td>{{this.usName}}</td>
                   <td>{{> delete}}</td>
@@ -72,7 +72,7 @@
             </div>
             <br>
             <div>
-              <a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
+              <a id='logOut' class='btn btn-primary right' href='/logout'>Log out</a>
               {{> navbuttons}}
             </div>
           </div>
