@@ -14,6 +14,7 @@
                                 <th>Name</th>
                                 <th>Role</th>
                                 <th>Phone Number</th>
+                                <th>Status</th>
                                 <th></th>
                             </tr>
                             {{#each user}}
@@ -25,6 +26,7 @@
                                 <td>Employee</td>
                                 {{/if}}
                                 <td>{{this.usPhone}}</td>
+                                <td>{{this.usStatus}}</td>
                                 <td>
                                     {{!-- edit info --}}
                                     <a id='{{this.id}}' class="edit btn-floating btn-small red modal-trigger" href='#modalUser{{this.id}}'>
