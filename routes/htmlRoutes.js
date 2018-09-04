@@ -86,7 +86,7 @@ module.exports = function (app) {
 
 	// load page for products under par
 	app.get('/underpar', function (req, res) {
-		sequelize.query('SELECT * FROM products LEFT JOIN (SELECT olQuantity, prodID FROM orderlines WHERE OrderId IS NULL) AS pendingOrder ON products.id=pendingOrder.prodID WHERE prodOnHand < prodPAR;')
+		sequelize.query('SELECT * FROM products LEFT JOIN (SELECT olQuantity, prodID, id AS olID FROM orderlines WHERE OrderId IS NULL) AS pendingOrder ON products.id=pendingOrder.prodID WHERE prodOnHand < prodPAR;')
 			.then(underPAR => {
 				res.render('underpar', {
 					par: underPAR[0],
@@ -98,7 +98,7 @@ module.exports = function (app) {
 
 	// Load product page and pass in an product by id
 	app.get('/order', function (req, res) {
-		sequelize.query('SELECT orderlines.id AS id, prodID, prodCategory, prodName, prodPAR, prodOnHand, olQuantity, prodUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total, usName FROM products, orderlines, users WHERE products.id = prodID AND OrderId IS NULL AND UserId=users.id GROUP BY orderlines.id ORDER BY prodCategory ASC, prodName ASC')
+		sequelize.query('SELECT orderlines.id AS id, prodID, prodCategory, prodName, prodPAR, prodOnHand, olQuantity, prodUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total, usName FROM products, orderlines left join users on UserId=users.id WHERE products.id = prodID AND OrderId IS null GROUP BY orderlines.id ORDER BY prodCategory ASC, prodName ASC')
 			.then(dbOrderline => {
 				sequelize.query('SELECT orders.id, orders.updatedAt, olTotal, usSupervisorID FROM orders')
 					.then(dbOrder => {

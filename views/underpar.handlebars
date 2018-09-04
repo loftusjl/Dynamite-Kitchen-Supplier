@@ -18,15 +18,15 @@
 				<tbody class='list-group-item'>
 					{{#each par}}
 					<tr>
-						<td id="order-{{this.id}}" data-prodid="{{this.prodID}}" class="prodName">{{this.prodName}}</td>
-						<td class="prodCategory center-align">{{this.prodCategory}}</td>
-						<td class='center-align'>{{this.prodOnHand}}</td>
+						<td class="prodName">{{this.prodName}}</td>
+						<td class="prodCategory">{{this.prodCategory}}</td>
+						<td>{{this.prodOnHand}}</td>
 						<td>{{this.prodPAR}}</td>
-						<td class='center-align'>
-							<input id="{{this.id}}" type="text" class="input-field qtyRequested" value="{{this.olQuantity}}">
+						<td>
+							<input id="{{this.id}}" data-olid="{{olID}}" type="text" class="input-field qtyRequested" value="{{this.olQuantity}}">
 						</td>
-						<td class='center-align'>{{this.prodUnitofIssue}}</td>
-						<td class='center-align'>{{> addOne}}</td>
+						<td>{{this.prodUnitofIssue}}</td>
+						<td>{{> addOne}}</td>
 					</tr>
 					{{/each}}
 				</tbody>
