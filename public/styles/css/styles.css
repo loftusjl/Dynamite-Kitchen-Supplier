@@ -38,7 +38,7 @@ h5 {
   background: rgba(68, 68, 68, 0.808);
   border-radius: 5px;
   border: 3px solid rgba(233, 233, 233, 0.808);
-  max-width: 35vw; }
+  max-width: 50vw; }
 
 .splash-bg {
   background: url("../../images/chef-hands-steak-plate.jpg") no-repeat center fixed;
@@ -51,6 +51,28 @@ h5 {
   border: 5px solid rgba(109, 109, 109, 0.808);
   border-radius: 5px; }
 
+@media screen and (max-width: 992px) {
+  .splashBtns {
+    margin-top: 10px; }
+
+  .splash-bg {
+    min-height: 75vh;
+    min-width: 65vw; }
+
+  .header-background {
+    min-width: 90vw; }
+    .header-background .header {
+      font-size: 25px; }
+
+  table {
+    max-width: 95vw; }
+    table th {
+      font-size: 12px; }
+    table td {
+      font-size: 12px; }
+
+  #signup {
+    font-size: 8px; } }
 .jumbo {
   background: url("../../images/market-601580_1280.jpg") no-repeat center fixed;
   -webkit-background-size: cover;
@@ -69,12 +91,6 @@ h5 {
 
 .page {
   background-color: rgba(58, 58, 255, 0.281); }
-
-.active {
-  background-color: #3e3eff !important; }
-
-#logOut {
-  margin: 10px; }
 
 .top-back {
   margin-top: 10px; }
@@ -95,8 +111,15 @@ tr {
 .login-form {
   padding-top: 20px; }
 
+.active {
+  background-color: none !important;
+  color: #bae2e4; }
+
 .submit {
   margin-bottom: 20px; }
+
+table {
+  margin-bottom: 10px; }
 
 .login-bg {
   background-color: rgba(226, 226, 229, 0.712); }

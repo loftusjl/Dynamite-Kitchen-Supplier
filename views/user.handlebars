@@ -13,7 +13,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th class='center-align'>Role</th>
-                                <th class='center-align'>Phone Number</th>
+                                <th class='center-align'>Phone #</th>
                                 <th class='center-align'>Status</th>
                                 <th class='center-align'></th>
                             </tr>
@@ -37,10 +37,12 @@
                             {{/each}}
                         </tbody>
                     </table>
-
                 </div>
-                <a id='logOut' class='btn btn-primary right' href='/logout'>Log out</a>
-                {{> navbuttons}}
+                <div class='row'>
+                    <div class='nav-style'>
+                        {{> navbuttons}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
