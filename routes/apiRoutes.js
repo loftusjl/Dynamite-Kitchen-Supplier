@@ -69,7 +69,7 @@ module.exports = function (app) {
 	});
 	// Get all products under PAR
 	app.get('/api/products/up', (req, res) => {
-		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
+		sequelize.query('SELECT * FROM products LEFT JOIN (SELECT olQuantity, prodID FROM orderlines WHERE OrderId IS NULL) AS pendingOrder ON products.id=pendingOrder.prodID WHERE prodOnHand < prodPAR;')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// get historical order summary

@@ -79,7 +79,7 @@ module.exports = function (app) {
 
 	// load page for products under par
 	app.get('/underpar', function (req, res) {
-		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
+		sequelize.query('SELECT * FROM products LEFT JOIN (SELECT olQuantity, prodID FROM orderlines WHERE OrderId IS NULL) AS pendingOrder ON products.id=pendingOrder.prodID WHERE prodOnHand < prodPAR;')
 			.then(underPAR => {
 				res.render('underpar', {
 					par: underPAR[0],

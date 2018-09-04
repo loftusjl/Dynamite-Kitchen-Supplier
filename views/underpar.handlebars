@@ -11,21 +11,21 @@
 						<th>Category</th>
 						<th>On Hand</th>
 						<th>PAR</th>
+						<th></th>
 						<th>QTY to Order</th>
-						<th>Add</th>
 					</tr>
 				</thead>
-				<tbody data-id='{{this.id}}' class='list-group-item'>
+				<tbody class='list-group-item'>
 					{{#each par}}
 					<tr>
 						<td>{{this.prodName}}</td>
 						<td>{{this.prodCategory}}</td>
 						<td>{{this.prodOnHand}}</td>
 						<td>{{this.prodPAR}}</td>
-						<td>
-							<input id="{{this.id}}qty" type="text" class="input-field">
-						</td>
 						<td>{{> addOne}}</td>
+						<td>
+							<input id="{{this.id}}" type="text" class="input-field" value="{{this.olQuantity}}">
+						</td>
 					</tr>
 					{{/each}}
 				</tbody>
@@ -41,4 +41,5 @@
 
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
+<script src='/js/underpar.js'></script>
 <script src='/js/index.js'></script>
