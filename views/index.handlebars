@@ -1,31 +1,16 @@
 <div id='home'>
-  <div>
-    {{!-- call header partial --}}
-    {{> header}}
-  </div>
-  <div class='container'>
-    <div class='login z-depth-3'>
-      <div class='row padIt'>
-        <div class='col-8 offset-2'>
-          <form class='mb-4 login-form' action='/api/login' method='POST'>
-            <div class="input-field">
-              {{!-- login input --}}
-              <input id="first_name" type="text" class="validate" name='username'>
-              <label for="first_name">User Name</label>
-            </div>
-            <div class="row">
-              <div class="input-field">
-                <input id="password" type="password" class="validate" name='password'>
-                <label for="password">Password</label>
-              </div>
-            </div>
-            {{!-- login button --}}
-            <input type="submit" value="Log In" class='btn btn-primary right login-submit'/>
-          </form>
-        </div>
-      </div>
+    <div>
+        {{!-- call header partial --}} {{> header}}
     </div>
-  </div>
+    <div class='container'>
+        <div class='z-depth-3 splash-bg'>
+            <div class='row padIt center'>
+                <a class='btn btn-primary splashBtns' href='/login'>Login</a>
+                <a class='btn btn-primary splashBtns' href='/signup'>Create Account</a>
+            </div>
+
+        </div>
+    </div>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>

@@ -1,6 +1,8 @@
 .btn {
-  background: #0026ff;
-  color: #e9e7e7d7; }
+  background: rgba(68, 68, 68, 0.808);
+  color: #e9e7e7d7;
+  border: 1px solid rgba(233, 233, 233, 0.808);
+  border-radius: 5px; }
 
 .background {
   background: rgba(204, 204, 204, 0.575);
@@ -14,13 +16,16 @@
 
 /* universal */
 body {
-  background: rgba(245, 244, 244, 0.89); }
+  background: rgba(239, 239, 240, 0.979); }
 
 .list-group-item {
   line-height: 2.5; }
 
 .clear {
   margin-right: 5px; }
+
+.navBtns {
+  margin-left: 5px; }
 
 h2 {
   margin-top: 0px;
@@ -30,10 +35,21 @@ h5 {
   margin-top: 10px; }
 
 .header-background {
-  background-color: rgba(255, 255, 255, 0.644);
+  background: rgba(68, 68, 68, 0.808);
   border-radius: 5px;
-  border: 1px solid rgba(109, 109, 109, 0.808);
+  border: 3px solid rgba(233, 233, 233, 0.808);
   max-width: 35vw; }
+
+.splash-bg {
+  background: url("../../images/chef-hands-steak-plate.jpg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 75vh;
+  margin: 30px;
+  border: 5px solid rgba(109, 109, 109, 0.808);
+  border-radius: 5px; }
 
 .jumbo {
   background: url("../../images/market-601580_1280.jpg") no-repeat center fixed;
@@ -58,8 +74,7 @@ h5 {
   background-color: #3e3eff !important; }
 
 #logOut {
-  margin-top: 60px;
-  margin-bottom: 10px; }
+  margin: 10px; }
 
 .top-back {
   margin-top: 10px; }
@@ -80,7 +95,7 @@ tr {
 .login-form {
   padding-top: 20px; }
 
-.login-submit {
+.submit {
   margin-bottom: 20px; }
 
 .login-bg {
