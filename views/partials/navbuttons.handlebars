@@ -1,13 +1,28 @@
  {{!-- if user is a supervisor these buttons will render for navigation --}}
-<div class='row'>
-	{{#if role}}
-	<ul id='nav-buttons' class='list-group navBtns'>
-		<li>
-			<a class='btn btn-primary ordersPage' href='/basicuser'>Products</a>
-			<a class='btn btn-primary ordersPage' href='/order'>Orders</a>
-			<a class='btn btn-primary ordersPage' href='/underpar'>Products under PAR</a>
-			<a class='btn btn-primary ordersPage' href='/user'>Users</a>
-		</li>
-	</ul>
-	{{/if}}
-</div>
+
+<a id='logOut' class='btn btn-primary right' href='/logout'>Log out</a>
+
+{{#if role}}
+<ul id='nav-buttons' class='list-group navBtns hide-on-med-and-down'>
+	<li>
+		<a class='btn btn-primary ordersPage' href='/basicuser'>Products</a>
+		<a class='btn btn-primary ordersPage' href='/order'>Orders</a>
+		<a class='btn btn-primary ordersPage' href='/underpar'>Products under PAR</a>
+		<a class='btn btn-primary ordersPage' href='/user'>Users</a>
+	</li>
+</ul>
+{{/if}} 
+{{!-- dropdown for mobile --}}
+{{#if role}}
+<a class='dropdown-trigger btn show-on-medium-and-down col s4 hide-on-large-only left' data-target='dropdownNav'>Navigation</a>
+<!-- Dropdown Structure -->
+<ul id='dropdownNav' class='dropdown-content'>
+	<li><a class='ordersPage' href='/basicuser'>Products</a></li>
+	<li class="divider"></li>
+	<li><a class='ordersPage' href='/order'>Orders</a></li>
+	<li class="divider"></li>
+	<li><a class='ordersPage' href='/underpar'>Products under PAR</a></li>
+	<li class="divider"></li>
+	<li><a class='ordersPage' href='/user'>Users</a></li>
+</ul>
+{{/if}}

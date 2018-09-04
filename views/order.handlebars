@@ -53,7 +53,7 @@
                 <tr>
                   <th class='center-align'>Order #</th>
                   <th class='center-align'>Submitted</th>
-                  <th class='center-align'>Employee</th>
+              
                 </tr>
               </thead>
               <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
@@ -62,7 +62,7 @@
                   <td class='center-align'>{{this.id}}{{> orderHistoryModal}}
                   </td>
                   <td class='center-align'>{{this.updatedAt}}</td>
-                  <td class='center-align'>{{this.usSupervisorID}}</td>
+                 
                   <td>
                     {{!-- edit info --}}
                     <a id='{{this.id}}' class="edit btn-floating btn-small red modal-trigger" href='#modalOrderHistory{{this.id}}'>
@@ -74,8 +74,10 @@
               </tbody>
             </table>
             </div>
-            <a id='logOut' class='btn btn-primary right' href='/logout'>Log out</a>
-            {{> navbuttons}}
+            <div class='row'>
+            
+              {{> navbuttons}}
+            </div>
           </div>
         </div>
       </div>
