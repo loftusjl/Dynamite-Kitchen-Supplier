@@ -2,13 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	// listen for textbox change
 	let qtyReq = document.getElementsByClassName('qtyRequested');
 	for (i = 0; i < qtyReq.length; i++) {
-		let ordId = qtyReq[i].id;
+		let ordId = qtyReq[i].id; // ! this is wrong. it's not the order id
+		console.log(qtyReq)
 		qtyReq[i].addEventListener('change', function () {
 			defVal = getDefault(ordId);
 			newVal = getVal(ordId);
 			prodID = getProdID(ordId);
 			olID = getOlID(ordId);
-			if (typeof defVal !== 'undefined') {
+			console.log(`defval ${defVal}, newval ${newVal}, prodid ${prodID}, orderlineID ${olID}`);
+			if (defVal > 0) {
 				$.ajax({
 					headers: {
 						'Content-Type': 'application/json'
@@ -31,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					url: '/api/order/lineitem/',
 					data: JSON.stringify({
 						olQuantity: newVal,
-						prodID: prodID
+						prodID: this.id
 					})
 				})
 					.then(function () {
