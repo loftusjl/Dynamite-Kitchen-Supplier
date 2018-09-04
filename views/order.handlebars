@@ -15,9 +15,9 @@
                   <th>Category</th>
                   <th>Product</th>
                   <th>Unit of Issue</th>
+                  <th></th>
                   <th>Quantity</th>
                   <th>Employee</th>
-                  <th></th>
                   <th></th>
                 </tr>
               </thead>
@@ -27,12 +27,12 @@
                   <td>{{this.prodCategory}}</td>
                   <td>{{this.prodName}}</td>
                   <td>{{this.olUnitofIssue}}</td>
+                  <td>{{> addOne}}</td>
                   <td>
-                    <input id="{{this.id}}" type="text" class="input-field qtyRequested" value="{{this.olQuantity}}">
+                    <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"value="{{this.olQuantity}}">
                   </td>
                   <td>{{this.usName}}</td>
                   <td>{{> delete}}</td>
-                  <td>{{> addOne}}</td>
                 </tr>
                 {{/each}}
               </tbody>
