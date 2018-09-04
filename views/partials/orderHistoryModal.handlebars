@@ -4,17 +4,17 @@
         <table class='highlight'>
             <thead id='order-list' class='list-group'>
                 <tr>
-                    <th>Product #</th>
-                    <th>Qty.</th>
-                    <th>Total</th>
-                    <th>Employee</th>
+                    <th class='center-align'>Product #</th>
+                    <th class='center-align'>Qty.</th>
+                    <th class='center-align'>Total</th>
+                    <th class='center-align'>Employee</th>
                 </tr>
             </thead>
             <tbody id='{{this.id}}' data-id='{{this.id}}' class='list-group-item'>
                {{#each orderline}}
                     <tr>
-                        <td>{{this.prodName}}</td>
-                        <td>{{this.olQuantity}}</td>
+                        <td class='center-align'>{{this.prodName}}</td>
+                        <td class='center-align'>{{this.olQuantity}}</td>
                     </tr>
                {{/each}}
             </tbody>

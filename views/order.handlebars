@@ -12,28 +12,28 @@
             <table class='highlight'>
               <thead class='list-group'>
                 <tr>
-                  <th>Category</th>
-                  <th>Product</th>
-                  <th>Unit of Issue</th>
-                  <th></th>
-                  <th>Quantity</th>
-                  <th>Employee</th>
-                  <th></th>
+                  <th class='center-align'>Category</th>
+                  <th class='center-align'>Product</th>
+                  <th class='center-align'>Unit of Issue</th>
+                  <th class='center-align'></th>
+                  <th class='center-align'>Quantity</th>
+                  <th class='center-align'>Employee</th>
+                  <th class='center-align'></th>
                 </tr>
               </thead>
               <tbody id='order-list' class='list-group-item'>
                 {{#each orderline}}
                 <tr>
-                  <td>{{this.prodCategory}}</td>
-                  <td>{{this.prodName}}</td>
-                  <td>{{this.prodUnitofIssue}}</td>
-                  <td>{{> updateQuantity}}</td>
+                  <td class='center-align'>{{this.prodCategory}}</td>
+                  <td class='center-align'>{{this.prodName}}</td>
+                  <td class='center-align'>{{this.prodUnitofIssue}}</td>
+                  <td class='center-align'>{{> updateQuantity}}</td>
                   <td>
                     <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"
                       value="{{this.olQuantity}}">
                   </td>
-                  <td>{{this.usName}}</td>
-                  <td>{{> delete}}</td>
+                  <td class='center-align'>{{this.usName}}</td>
+                  <td class='center-align'>{{> delete}}</td>
                 </tr>
                 {{/each}}
               </tbody>
@@ -51,18 +51,18 @@
             <table class='highlight'>
               <thead id='old-order-list' class='list-group'>
                 <tr>
-                  <th>Order #</th>
-                  <th>Submitted</th>
-                  <th>Employee</th>
+                  <th class='center-align'>Order #</th>
+                  <th class='center-align'>Submitted</th>
+                  <th class='center-align'>Employee</th>
                 </tr>
               </thead>
               <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
                 {{#each order}}
                 <tr id='orderInfo'>
-                  <td>{{this.id}}{{> orderHistoryModal}}
+                  <td class='center-align'>{{this.id}}{{> orderHistoryModal}}
                   </td>
-                  <td>{{this.updatedAt}}</td>
-                  <td>{{this.usSupervisorID}}</td>
+                  <td class='center-align'>{{this.updatedAt}}</td>
+                  <td class='center-align'>{{this.usSupervisorID}}</td>
                   <td>
                     {{!-- edit info --}}
                     <a id='{{this.id}}' class="edit btn-floating btn-small red modal-trigger" href='#modalOrderHistory{{this.id}}'>

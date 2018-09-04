@@ -12,22 +12,22 @@
                         <tbody data-id='{{this.id}}' class='list-group-item'>
                             <tr>
                                 <th>Name</th>
-                                <th>Role</th>
-                                <th>Phone Number</th>
-                                <th>Status</th>
-                                <th></th>
+                                <th class='center-align'>Role</th>
+                                <th class='center-align'>Phone Number</th>
+                                <th class='center-align'>Status</th>
+                                <th class='center-align'></th>
                             </tr>
                             {{#each user}}
                             <tr id='userInfo'>
                                 <td>{{this.usName}}{{> userEdit}}</td>
                                 {{#if this.usRole}}
-                                <td>Supervisor</td>
+                                <td class='center-align'>Supervisor</td>
                                 {{else}}
-                                <td>Employee</td>
+                                <td class='center-align'>Employee</td>
                                 {{/if}}
-                                <td>{{this.usPhone}}</td>
-                                <td>{{this.usStatus}}</td>
-                                <td>
+                                <td class='center-align'>{{this.usPhone}}</td>
+                                <td class='center-align'>{{this.usStatus}}</td>
+                                <td class='center-align'>
                                     {{!-- edit info --}}
                                     <a id='{{this.id}}' class="edit btn-floating btn-small red modal-trigger" href='#modalUser{{this.id}}'>
                                         <i class="large material-icons">mode_edit</i>
