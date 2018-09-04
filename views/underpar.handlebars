@@ -11,21 +11,21 @@
 						<th>Category</th>
 						<th>On Hand</th>
 						<th>PAR</th>
-						<th></th>
 						<th>QTY to Order</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody class='list-group-item'>
 					{{#each par}}
 					<tr>
-						<td>{{this.prodName}}</td>
-						<td>{{this.prodCategory}}</td>
+						<td id="order-{{this.id}}" data-prodid="{{this.prodID}}" class="prodName">{{this.prodName}}</td>
+						<td class="prodCategory">{{this.prodCategory}}</td>
 						<td>{{this.prodOnHand}}</td>
 						<td>{{this.prodPAR}}</td>
-						<td>{{> addOne}}</td>
 						<td>
-							<input id="{{this.id}}" type="text" class="input-field" value="{{this.olQuantity}}">
+							<input id="{{this.id}}" type="text" class="input-field qtyRequested" value="{{this.olQuantity}}">
 						</td>
+						<td>{{> addOne}}</td>
 					</tr>
 					{{/each}}
 				</tbody>
