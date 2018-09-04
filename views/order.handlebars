@@ -29,7 +29,8 @@
                   <td>{{this.prodUnitofIssue}}</td>
                   <td>{{> updateQuantity}}</td>
                   <td>
-                    <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request" value="{{this.olQuantity}}">
+                    <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"
+                      value="{{this.olQuantity}}">
                   </td>
                   <td>{{this.usName}}</td>
                   <td>{{> delete}}</td>
@@ -57,11 +58,18 @@
               </thead>
               <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
                 {{#each order}}
-                <tr>
-                  <td id='order-detail{{this.id}}'><a class='waves-effect waves-light modal-trigger' href='#modal{{this.id}}'>{{this.id}}{{>
-                      orderHistoryModal}}</a></td>
+                <tr id='orderInfo'>
+                  <td>{{this.id}}{{>
+                      orderHistoryModal}}
+                  </td>
                   <td>{{this.updatedAt}}</td>
                   <td>{{this.usSupervisorID}}</td>
+                  <td>
+                    {{!-- edit info --}}
+                    <a id='{{this.id}}' class="edit btn-floating btn-small red modal-trigger" href='#modalOrderHistory{{this.id}}'>
+                      <i class="large material-icons">mode_edit</i>
+                    </a>
+                  </td>
                 </tr>
                 {{/each}}
               </tbody>

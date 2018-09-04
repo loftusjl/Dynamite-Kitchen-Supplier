@@ -6,24 +6,21 @@
                     <div>
                         <h5>Edit {{this.usName}}</h5>
                         <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"
-                            value="{{this.usName}}"> 
-                            {{#if usRole}}
-                                <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"
-                                value="Supervisor"> 
-                            {{else}}
-                                <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"
-                                value="Employee">
-                            {{/if}}
+                            value="{{this.usName}}"> {{#if usRole}}
                         <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"
-                            value="{{this.usPhone}}"> 
+                            value="Supervisor"> {{else}}
+                        <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"
+                            value="Employee"> {{/if}}
+                        <input id="{{this.id}}" type="text" class="input-field qtyRequested tooltipped" data-position="top" data-tooltip="Enter new quantity to request"
+                            value="{{this.usPhone}}">
                     </div>
-                    <a id='{{this.id}}' class=" add right btn-floating btn-small waves-effect waves-light red tooltipped" data-id='{{this.id}}'
-                        data-position="top" data-tooltip="Apply chnages"><i class="material-icons">update</i></a>
+
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            <a href="#!" id='{{this.id}}' class="modal-close add right btn-floating btn-small waves-effect waves-light red tooltipped" data-id='{{this.id}}'
+                data-position="top" data-tooltip="Apply changes"><i class="material-icons">update</i></a>
         </div>
     </div>
 </div>
