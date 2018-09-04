@@ -12,7 +12,7 @@
 						<th>On Hand</th>
 						<th>PAR</th>
 						<th>QTY to Order</th>
-						<th></th>
+						<th>Unit of Issue</th>
 					</tr>
 				</thead>
 				<tbody class='list-group-item'>
@@ -25,6 +25,7 @@
 						<td>
 							<input id="{{this.id}}" type="text" class="input-field qtyRequested" value="{{this.olQuantity}}">
 						</td>
+						<td>{{this.prodUnitofIssue}}</td>
 						<td>{{> addOne}}</td>
 					</tr>
 					{{/each}}
@@ -33,7 +34,7 @@
 		</div>
 		<br>
 		<div>
-			<a id='logOut' class='btn btn-primary right' href='/'>Log out</a>
+			<a id='logOut' class='btn btn-primary right' href='/logout'>Log out</a>
 			{{> navbuttons}}
 		</div>
 	</div>
