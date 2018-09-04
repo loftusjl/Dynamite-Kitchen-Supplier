@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
 	// listen for textbox change
-	let prodName = document.getElementsByClassName('prodName');
-	for (i=0; i < prodName.length; i++) {
-		if (prodName) {console.log('Product ID ', prodName[i].dataset.prodid);}
-	}
 	let qtyReq = document.getElementsByClassName('qtyRequested');
 	for (i=0; i < qtyReq.length; i++) {
 		let ordId = qtyReq[i].id;
 		qtyReq[i].addEventListener('change', function() {
 			newVal = getVal(ordId);
-			console.log('prodID: ', getElementById(`order-${this.id}`).dataset.prodid);
+			prodID = getProdID(ordId);
+			console.log('prodID: ', prodID);
 			// $.ajax({
 			// 	headers: {'Content-Type':'application/json'},
 			// 	type: 'PUT',
@@ -28,4 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 function getVal(id) {
 	return document.getElementById(`${id}`).value;
+}
+function getProdID(id) {
+	return document.getElementById(`${id}`).dataset.prodid;
 }
