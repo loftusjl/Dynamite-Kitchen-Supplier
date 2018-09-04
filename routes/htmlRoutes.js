@@ -31,6 +31,13 @@ module.exports = function (app) {
 		if (req.user) {
 			res.render('basicuser');
 		}
+		res.render('index');
+	});
+	app.get('/signup', function (req, res) {
+		// If the user already has an account send them to the members page
+		if (req.user) {
+			res.render('basicuser');
+		}
 		res.render('signup');
 	});
 	//
@@ -39,7 +46,7 @@ module.exports = function (app) {
 		if (req.user) {
 			res.render('basicuser');
 		}
-		res.render('index');
+		res.render('login');
 	});
 	app.get('/basicuser', isLoggedIn, function (req, res) {
 		roleCookie = cookie.serialize('role', req.user.usRole, 'UserId', req.user.usName, {
