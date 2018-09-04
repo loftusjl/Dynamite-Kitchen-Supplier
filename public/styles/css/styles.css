@@ -19,12 +19,21 @@ body {
 .list-group-item {
   line-height: 2.5; }
 
+.clear {
+  margin-right: 5px; }
+
 h2 {
   margin-top: 0px;
   padding-top: 15px; }
 
 h5 {
   margin-top: 10px; }
+
+.header-background {
+  background-color: rgba(255, 255, 255, 0.644);
+  border-radius: 5px;
+  border: 1px solid rgba(109, 109, 109, 0.808);
+  max-width: 35vw; }
 
 .jumbo {
   background: url("../../images/market-601580_1280.jpg") no-repeat center fixed;
@@ -76,9 +85,5 @@ tr {
 
 .login-bg {
   background-color: rgba(226, 226, 229, 0.712); }
-
-  .signup-submit {
-    margin-bottom: 20px;
-  }
 
 /*# sourceMappingURL=styles.css.map */

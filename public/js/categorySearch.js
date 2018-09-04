@@ -33,6 +33,7 @@ $(document).ready(function () {
 		let search = $(this).attr('id');
 		
 		window.location.replace('/api/products/category/' + search);
+		
 	});
 });
 

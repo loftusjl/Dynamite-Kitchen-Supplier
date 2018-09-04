@@ -1,0 +1,37 @@
+<div class="modal" id="modalUser{{this.id}}">
+    <div class="modal-content">
+        <div class='container'>
+            <form class='mb-4' action='GET'>
+                <div class='form-group flow-text'>
+                    <div>
+                        <h5>Edit {{this.usName}}</h5>
+                        <div class='container'>
+                            <div class='row'>
+                                <h6>Name: <input id="{{this.id}}" type="text" class="input-field nameEdit tooltipped"
+                                        data-position="top" data-tooltip="Edit Name" value="{{this.usName}}"></h6>
+                                {{#if usRole}}
+                                <h6>Role: <input id="{{this.id}}" type="text" class="input-field roleEdit tooltipped"
+                                        data-position="top" data-tooltip="Edit Role" value="Supervisor"></h6>
+                                {{else}}
+                                <h6>Role: <input id="{{this.id}}" type="text" class="input-field roleEdit tooltipped"
+                                        data-position="top" data-tooltip="Edit Role" value="Employee"></h6>
+                                {{/if}}
+                                <h6>Phone: <input id="{{this.id}}" type="text" class="input-field phoneEdit tooltipped"
+                                        data-position="top" data-tooltip="Edit Phone Number" value="{{this.usPhone}}"></h6>
+                                <h6>Email: <input id="{{this.id}}" type="text" class="input-field emailEdit tooltipped"
+                                        data-position="top" data-tooltip="Edit Email" value="{{this.usEmail}}"></h6>
+                                <h6>Password: <input id="{{this.id}}" type="text" class="input-field passwordEdit tooltipped" data-position="top" data-tooltip="Edit Password" value="{{this.usPassword}}"></h6>
+                                <h6>Status: <input id="{{this.id}}" type="text" class="input-field statusEdit tooltipped"
+                                        data-position="top" data-tooltip="Edit Status" value="{{this.usStatus}}"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id='{{this.id}}' class="modal-close add right btn-floating btn-small waves-effect waves-light red tooltipped"
+                data-id='{{this.id}}' data-position="top" data-tooltip="Apply changes"><i class="material-icons">update</i></a>
+        </div>
+    </div>
+</div>

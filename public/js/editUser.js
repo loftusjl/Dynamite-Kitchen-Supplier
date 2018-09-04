@@ -1,30 +1,31 @@
-$(document).ready(function () {
+// $(document).ready(function () {
 
-	edits = [];
+// 	edits = [];
 
-	function editUsers() {
-		event.preventDefault();
+// 	function editUsers() {
+// 		event.preventDefault();
 
 
-		console.log('edit', this);
-		$('#userInfo').empty();
+// 		console.log('edit', this);
+// 		$('#userInfo').empty();
 
-		$.ajax({
-			url: 'api/users',
-			type: 'GET'
-		}).then(function () {
+// 		$.ajax({
+// 			url: 'api/users',
+// 			type: 'GET'
+// 		}).then(function () {
 			
-			for (let i = 0; i < edits.length; i++) {
-				// let a = $('<td>');
-				let b = $('<input>');
-				b.attr('id', `${edit.id}`);
+// 			for (let i = 0; i < edits.length; i++) {
+// 				// let a = $('<td>');
+// 				let b = $('<input>');
+// 				b.attr('id', `${edit.id}`);
 
+				
 
-			}
-		});
+// 			}
+// 		});
 
-	}
+// 	}
 
-	$('.edit').on('click', editUsers);
+// 	$('.edit').on('click', editUsers);
 
-});
+// });
