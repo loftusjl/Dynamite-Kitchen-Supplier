@@ -1,22 +1,22 @@
 <!-- Modal Structure -->
-<div id="modal{{this.id}}" class="modal">
+<div id="modalOrderHistory{{this.id}}" class="modal">
     <div class="modal-content">
         <table class='highlight'>
             <thead id='order-list' class='list-group'>
                 <tr>
-                    <th>Order #</th>
-                    <th>Submitted</th>
-                    <th>Total</th>
-                    <th>Employee</th>
+                    <th class='center-align'>Product #</th>
+                    <th class='center-align'>Qty.</th>
+                    <th class='center-align'>Total</th>
+                    <th class='center-align'>Employee</th>
                 </tr>
             </thead>
-            <tbody data-id='{{this.id}}' class='list-group-item'>
-                <tr>
-                    <td>{{this.id}}</td>
-                    <td>{{this.updatedAt}}</td>
-                    <td>{{this.olTotal}}</td>
-                    <td>{{this.usSupervisorID}}</td>
-                </tr>
+            <tbody id='{{this.id}}' data-id='{{this.id}}' class='list-group-item'>
+               {{#each orderline}}
+                    <tr>
+                        <td class='center-align'>{{this.prodName}}</td>
+                        <td class='center-align'>{{this.olQuantity}}</td>
+                    </tr>
+               {{/each}}
             </tbody>
         </table>
         <div class="modal-footer">

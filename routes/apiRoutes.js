@@ -84,7 +84,7 @@ module.exports = function (app) {
 	});
 	// get order breakdown
 	app.get('/api/orders/summary/:id', (req, res) => {
-		sequelize.query('SELECT prodName, olQuantity, prodUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {
+		sequelize.query('SELECT prodName, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total, usName FROM products, orderlines, users WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {
 			replacements: [req.params.id]
 		})
 			.then(dbOrder => res.json(dbOrder));
@@ -187,6 +187,19 @@ module.exports = function (app) {
 		})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
+	// Update product by id
+	app.put('/api/products/:id', function (req, res) {
+		sequelize.query('UPDATE products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {
+			replacements: [req.body.prodCategory, req.body.prodName, req.body.prodOnHand, req.body.prodPAR, req.body.prodPrice, req.body.prodPhoto, req.params.id]
+		})
+			.then(dbProduct => res.json(dbProduct));
+	});
+	app.put('/api/users/edit/:id', function (req, res) {
+		sequelize.query('UPDATE users SET usName=?, usPhone=?, usStreet=?, usCity=?, usState=?, usZip=?, usRole=?, usEmail=?, usPassword=?, usStatus=? WHERE id=?',{
+			replacements: [req.body.usName, req.body.usPhone, req.body.usStreet, req.body.usCity, req.body.usState, req.body.usZip, req.body.usRole, req.body.usEmail, req.body.usPassword, req.body.usStatus, req.params.id]
+		})
+			.then(dbUser => res.json(dbUser));
+	});
 	// Delete an product by id
 	app.delete('/api/supervisor/products/:id', function (req, res) {
 		db.Product.destroy({
@@ -205,11 +218,5 @@ module.exports = function (app) {
 		})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
-	// Update product by id
-	app.put('/api/products/:id', function (req, res) {
-		sequelize.query('UPDATE products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {
-			replacements: [req.body.prodCategory, req.body.prodName, req.body.prodOnHand, req.body.prodPAR, req.body.prodPrice, req.body.prodPhoto, req.params.id]
-		})
-			.then(dbProduct => res.json(dbProduct));
-	});
+
 };
