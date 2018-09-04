@@ -77,4 +77,8 @@ tr {
 .login-bg {
   background-color: rgba(226, 226, 229, 0.712); }
 
+  .signup-submit {
+    margin-bottom: 20px;
+  }
+
 /*# sourceMappingURL=styles.css.map */
