@@ -18,7 +18,7 @@
                             </tr>
                             {{#each user}}
                             <tr id='userInfo'>
-                                <td>{{this.usName}}</td>
+                                <td>{{this.usName}}{{> userEdit}}</td>
                                 {{#if this.usRole}}
                                 <td>Supervisor</td>
                                 {{else}}
@@ -27,7 +27,7 @@
                                 <td>{{this.usPhone}}</td>
                                 <td>
                                     {{!-- edit info --}}
-                                    <a id='{{this.id}}' class="edit btn-floating btn-small red">
+                                    <a id='{{this.id}}' class="edit btn-floating btn-small red modal-trigger" href='#modalUser{{this.id}}'>
                                         <i class="large material-icons">mode_edit</i>
                                     </a>
                                 </td>
@@ -35,6 +35,7 @@
                             {{/each}}
                         </tbody>
                     </table>
+                   
                     <a id='logOut' class='btn btn-primary right' href='/logout'>Log out</a>
                     {{> navbuttons}}
                 </div>
