@@ -34,7 +34,7 @@ module.exports = function (app) {
 			// The user is not logged in, send back an empty object
 			res.json({});
 		} else {
-			// Otherwise send back the user's email and id
+			// Otherwise send back the user's usernameand id
 			// Sending back a password, even a hashed password, isn't a good idea
 			res.json({
 				username: req.user.username,
@@ -174,26 +174,16 @@ module.exports = function (app) {
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
-	// Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-	// how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-	// otherwise send back an error
-	app.post('/api/signup', function (req, res) {
-		console.log(req.body);
-		db.User.create({
-			username: req.body.usName,
-			password: req.body.usPassword
-		}).then(function () {
-			res.redirect(307, '/api/login');
-		}).catch(function (err) {
-			console.log(err);
-			res.json(err);
-			// res.status(422).json(err.errors[0].message);
-		});
-	});
+	// process the signup form
+	app.post('/api/users', passport.authenticate('local-signup', {
+		successRedirect: '/basicuser', // redirect to the secure profile section
+		failureRedirect: '/', // redirect back to the signup page if there is an error
+		failureFlash: true // allow flash messages
+	}));
 	// update order line
 	app.put('/api/order/lineitem/:id', (req, res) => {
-		sequelize.query('UPDATE orderlines SET olQuantity=?, UserId=? WHERE id=?', {
-			replacements: [req.body.olQuantity, req.body.UserId, req.params.id]
+		sequelize.query('UPDATE orderlines SET olQuantity=? WHERE id=?', {
+			replacements: [req.body.olQuantity, req.params.id]
 		})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
@@ -220,6 +210,6 @@ module.exports = function (app) {
 		sequelize.query('UPDATE products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {
 			replacements: [req.body.prodCategory, req.body.prodName, req.body.prodOnHand, req.body.prodPAR, req.body.prodPrice, req.body.prodPhoto, req.params.id]
 		})
-		 .then(dbProduct => res.json(dbProduct));
+			.then(dbProduct => res.json(dbProduct));
 	});
 };
