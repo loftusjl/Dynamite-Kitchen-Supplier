@@ -69,7 +69,7 @@ module.exports = function (app) {
 	});
 	// Get all products under PAR
 	app.get('/api/products/up', (req, res) => {
-		sequelize.query('SELECT * FROM products WHERE prodOnHand < prodPAR')
+		sequelize.query('SELECT * FROM products LEFT JOIN (SELECT olQuantity, prodID FROM orderlines WHERE OrderId IS NULL) AS pendingOrder ON products.id=pendingOrder.prodID WHERE prodOnHand < prodPAR;')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// get historical order summary
@@ -84,7 +84,7 @@ module.exports = function (app) {
 	});
 	// get order breakdown
 	app.get('/api/orders/summary/:id', (req, res) => {
-		sequelize.query('SELECT prodName, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {
+		sequelize.query('SELECT prodName, olQuantity, prodUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {
 			replacements: [req.params.id]
 		})
 			.then(dbOrder => res.json(dbOrder));
@@ -130,17 +130,17 @@ module.exports = function (app) {
 	});
 	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/employee/picklist', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/employee/picklist', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// supervisor pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/supervisor/picklist', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// Create a new product

@@ -12,6 +12,11 @@ module.exports = function (sequelize, DataTypes) {
 		},
 		prodOnHand: DataTypes.INTEGER,
 		prodPAR: DataTypes.INTEGER,
+		prodUnitofIssue: {
+			type: DataTypes.STRING,
+			defaultValue: 'CS',
+			allowNull: true
+		},
 		prodPrice: DataTypes.DECIMAL(10,2),
 		prodPhoto: DataTypes.TEXT
 	});
