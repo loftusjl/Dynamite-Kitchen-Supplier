@@ -8,8 +8,8 @@ let roleVal;
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require('../config/middleware/isAuthenticated');
 
-if (process.env.JAWSDB_URL) {
-	var sequelize = new Sequelize(process.env[JAWSEB_URL], {
+if (config.use_env_variable) {
+	var sequelize = new Sequelize(process.env[config.use_env_variable], {
 		define: {
 			charset: 'utf8',
 			collate: 'utf8_general_ci'

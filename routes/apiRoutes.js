@@ -4,8 +4,8 @@ var config = require(__dirname + '/../config/config.json')[env];
 var db = {};
 var passport = require('passport');
 
-if (process.env.JAWSDB_URL) {
-	var sequelize = new Sequelize(process.env[JAWSEB_URL], {
+if (config.use_env_variable) {
+	var sequelize = new Sequelize(process.env[config.use_env_variable], {
 		define: {
 			charset: 'utf8',
 			collate: 'utf8_general_ci'
