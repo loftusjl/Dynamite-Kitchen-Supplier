@@ -167,9 +167,7 @@ module.exports = function (app) {
 		db.OrderLine.create(req.body)
 			.then(dbOrder => res.json(dbOrder));
 	});
-	// Using the passport.authenticate middleware with our local strategy.
-	// If the user has valid login credentials, send them to the members page.
-	// Otherwise the user will be sent an error
+	// process the login form
 	app.post('/api/login', passport.authenticate('local-login', {
 		successRedirect: '/basicuser',
 		failureRedirect: '/login',
