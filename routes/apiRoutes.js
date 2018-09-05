@@ -69,12 +69,12 @@ module.exports = function (app) {
 	});
 	// Get all products under PAR
 	app.get('/api/products/up', (req, res) => {
-		sequelize.query('SELECT * FROM products LEFT JOIN (SELECT olQuantity, prodID FROM orderlines WHERE OrderId IS NULL) AS pendingOrder ON products.id=pendingOrder.prodID WHERE prodOnHand < prodPAR;')
+		sequelize.query('SELECT * FROM Products LEFT JOIN (SELECT olQuantity, prodID FROM OrderLines WHERE OrderId IS NULL) AS pendingOrder ON Products.id=pendingOrder.prodID WHERE prodOnHand < prodPAR;')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// get historical order summary
 	app.get('/api/orders', (req, res) => {
-		sequelize.query('SELECT orders.id, usName, orders.updatedAt, olTotal FROM orders, users WHERE usSupervisorID = users.id')
+		sequelize.query('SELECT Orders.id, usName, Orders.updatedAt, olTotal FROM Orders, Users WHERE usSupervisorID = Users.id')
 			.then(dbOrder => {
 				// res.json(dbProduct);
 				res.render('order', {
@@ -84,7 +84,7 @@ module.exports = function (app) {
 	});
 	// get order breakdown
 	app.get('/api/orders/summary/:id', (req, res) => {
-		sequelize.query('SELECT prodName, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total, usName FROM products, orderlines, users WHERE products.id=prodID AND OrderId=? GROUP BY orderlines.id', {
+		sequelize.query('SELECT prodName, olQuantity, olUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total, usName FROM Products, OrderLines, Users WHERE Products.id=prodID AND OrderId=? GROUP BY OrderLines.id', {
 			replacements: [req.params.id]
 		})
 			.then(dbOrder => res.json(dbOrder));
@@ -131,17 +131,17 @@ module.exports = function (app) {
 	});
 	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/employee/picklist', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue FROM Products, OrderLines WHERE Products.id = prodID AND OrderId IS NULL GROUP BY OrderLines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// employee pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/employee/picklist', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue FROM Products, OrderLines WHERE Products.id = prodID AND OrderId IS NULL GROUP BY OrderLines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// supervisor pick list view. shows only the items being requested that have not been added to an order yet. (OrderId IS NULL)
 	app.get('/api/supervisor/picklist', function (req, res) {
-		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM products, orderlines WHERE products.id = prodID AND OrderId IS NULL GROUP BY orderlines.id')
+		sequelize.query('SELECT prodName,prodPAR, prodOnHand, olQuantity, prodUnitofIssue, prodPrice, SUM(prodPrice*olQuantity) AS Total FROM Products, OrderLines WHERE Products.id = prodID AND OrderId IS NULL GROUP BY OrderLines.id')
 			.then(dbProduct => res.json(dbProduct));
 	});
 	// Create a new product
@@ -151,11 +151,11 @@ module.exports = function (app) {
 	});
 	// create order. must post UserId in request body.
 	app.post('/api/supervisor/order', (req, res) => {
-		sequelize.query('INSERT INTO orders(usSupervisorID, olTotal, createdAt, updatedAt) SELECT ? AS usSupervisorID, SUM(orderlines.olQuantity*products.prodPrice) AS olTotal, NOW() AS createdAt, NOW() AS updatedAt FROM products, orderlines WHERE products.id = orderlines.prodID AND OrderId IS NULL;', {
+		sequelize.query('INSERT INTO Orders(usSupervisorID, olTotal, createdAt, updatedAt) SELECT ? AS usSupervisorID, SUM(OrderLines.olQuantity*Products.prodPrice) AS olTotal, NOW() AS createdAt, NOW() AS updatedAt FROM Products, OrderLines WHERE Products.id = OrderLines.prodID AND OrderId IS NULL;', {
 			replacements: [req.body.UserId]
 		})
 			.then(dbOrder => {
-				sequelize.query('UPDATE orderlines SET orderlines.OrderId=? WHERE OrderId IS NULL;', {
+				sequelize.query('UPDATE OrderLines SET OrderLines.OrderId=? WHERE OrderId IS NULL;', {
 					replacements: [dbOrder[0]] // set OrderId to the new orderID generated
 				});
 				res.json(dbOrder);
@@ -183,20 +183,20 @@ module.exports = function (app) {
 	}));
 	// update order line
 	app.put('/api/order/lineitem/:id', (req, res) => {
-		sequelize.query('UPDATE orderlines SET olQuantity=? WHERE id=?', {
+		sequelize.query('UPDATE OrderLines SET olQuantity=? WHERE id=?', {
 			replacements: [req.body.olQuantity, req.params.id]
 		})
 			.then(dbOrderLine => res.json(dbOrderLine));
 	});
 	// Update product by id
 	app.put('/api/products/:id', function (req, res) {
-		sequelize.query('UPDATE products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {
+		sequelize.query('UPDATE Products SET prodCategory=?,prodName=?,prodOnHand=?,prodPAR=?,prodPrice=?,prodPhoto=? WHERE id=?', {
 			replacements: [req.body.prodCategory, req.body.prodName, req.body.prodOnHand, req.body.prodPAR, req.body.prodPrice, req.body.prodPhoto, req.params.id]
 		})
 			.then(dbProduct => res.json(dbProduct));
 	});
 	app.put('/api/users/edit/:id', function (req, res) {
-		sequelize.query('UPDATE users SET usName=?, usPhone=?, usStreet=?, usCity=?, usState=?, usZip=?, usRole=?, usEmail=?, usPassword=?, usStatus=? WHERE id=?',{
+		sequelize.query('UPDATE Users SET usName=?, usPhone=?, usStreet=?, usCity=?, usState=?, usZip=?, usRole=?, usEmail=?, usPassword=?, usStatus=? WHERE id=?',{
 			replacements: [req.body.usName, req.body.usPhone, req.body.usStreet, req.body.usCity, req.body.usState, req.body.usZip, req.body.usRole, req.body.usEmail, req.body.usPassword, req.body.usStatus, req.params.id]
 		})
 			.then(dbUser => res.json(dbUser));
