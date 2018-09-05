@@ -46,14 +46,13 @@
                   <h5>Order Search</h5>
                   <input type='text' id='order-text' class='form-control' aria-describedby='order-text' placeholder='Enter order Text'>
                 </div>
-                <button id='submit' class='btn btn-primary right'>Submit</a></button>
+                <button id='submitOrderSearch' class='btn btn-primary right'>Submit</a></button>
             </form>
             <table class='highlight'>
               <thead id='old-order-list' class='list-group'>
                 <tr>
                   <th class='center-align'>Order #</th>
                   <th class='center-align'>Submitted</th>
-
                 </tr>
               </thead>
               <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
@@ -76,6 +75,9 @@
             <div id="modalOrderHistory" class="modal">
               <div class="modal-content">
                 <div class='container'>
+                  <div id='order-placed-by'>
+
+                  </div>
                   <table class='highlight'>
                     <thead id='order-list' class='list-group'>
                       <tr>
@@ -83,7 +85,6 @@
                         <th class='center-align'>Qty.</th>
                         <th class='center-align'>Price</th>
                         <th class='center-align'>Total</th>
-                        <th class='center-align'>Employee</th>
                       </tr>
                     </thead>
                     <tbody id='order-table'>
@@ -92,7 +93,7 @@
                   </table>
                 </div>
                 <div class="modal-footer">
-                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                 </div>
               </div>
             </div>

@@ -1,10 +1,8 @@
 let $orderTable = $('#order-table');
+let $employee = $('#order-placed-by');
 document.addEventListener('DOMContentLoaded', function () {
     // When btn pressed call function to display an old order by id
     $('.btnPressed').on('click', function () {
-        // get the buttons id which matches the order id
-        let btnPressed = this.id
-
         // call an ajax get.api to grab details of the order 
         $.ajax({
                 headers: {
@@ -31,17 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     let $td3 = $('<td>')
                         .addClass('center-align')
                         .text(order.Total)
-                    let $td4 = $('<td>')
-                        .addClass('center-align')
-                        .text(order.usName)
+                        console.log('total', typeof order.Total)
                     // chain the table data to a row for each object
-                    $tr.append($td0, $td1, $td2, $td3, $td4)
-
+                    $tr.append($td0, $td1, $td2, $td3)
+                    
                     return $tr
                 })
                 // empty table if full
                 $orderTable.empty();
                 // render data to screen
+                
                 $orderTable.append($orderArray);
 
             });
