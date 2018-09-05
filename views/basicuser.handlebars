@@ -72,7 +72,7 @@
             <tbody id='listingTable' data-id='{{this.id}}' class='list-group-item'>
               {{#each product}}
               <tr>
-                <td>{{this.prodName}}</td>
+                <td>{{this.prodName}}{{> addProduct}}</td>
                 <td class='center-align'>{{this.prodCategory}}</td>
                 <td class='center-align'>{{this.prodOnHand}}</td>
                 <td class='center-align'>{{this.prodPAR}}</td>

@@ -1,23 +1,50 @@
 <div class="modal" id="addProduct{{this.id}}">
     <div class="modal-content">
         <div class='container'>
-            <form class='mb-4' action='GET'>
-                <div class='form-group flow-text'>
-                    <div>
-                        <h5>Add {{this.prodName}} to Order</h5>
-                        <div class='container'>
-                            <div class='row'>
-                                <h6>Name: <input id="{{this.id}}" type="text" class="input-field nameEdit tooltipped"
-                                        data-position="top" data-tooltip="Edit Name" value="{{this.prodName}}"></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            <table class='highlight'>
+                <thead id='product-list' class='list-group'>
+                    <tr>
+                        <th>Name</th>
+                        {{!-- <th>Category</th> --}}
+                        <th>Amount to Order</th>
+                        {{!-- <th></th> --}}
+                        {{!-- <th>Add</th> --}}
+                    </tr>
+                </thead>
+                <tbody data-id='{{this.id}}' class='list-group-item'>
+                    <tr>
+                        <td>{{this.prodName}}</td>
+                        {{!-- <td>{{this.prodCategory}}</td> --}}
+                        <td class="input-field col s10">
+                            <input id="amtOrder" type="number" class="validate center-align">
+                            {{!-- <label for="first_name2">Amount to Order</label> --}}
+                        </td>
+                        <td>{{this.prodUnitofIssue}}</td>
+                        {{!-- <td>{{> addOne}}</td> --}}
+                    </tr>
+                </tbody>
+                <thead id='subProduct-list' class='list-group'>
+                    <tr>
+                        <th class='center-align'>Product on Hand</th>
+                        {{!-- <th>Category</th> --}}
+                        <th class='center-align'>Product PAR</th>
+                        {{!-- <th></th> --}}
+                        {{!-- <th>Add</th> --}}
+                    </tr>
+                </thead>
+                <tbody data-id='{{this.id}}' class='list-group-item'>
+                    <tr>
+                        <td class='center-align'>{{this.prodOnHand}}{{this.prodUnitofIssue}}</td>
+                        <td class='center-align'>{{this.prodPAR}}{{this.prodUnitofIssue}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="modal-footer">
-            <a href="#!" id='{{this.id}}' class="modal-close add right btn-floating btn-small waves-effect waves-light red tooltipped"
-                data-id='{{this.id}}' data-position="top" data-tooltip="Apply changes"><i class="material-icons">update</i></a>
-        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href='#!' class='modal-close waves effect waves-green btn-flat'>Submit</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
 </div>
