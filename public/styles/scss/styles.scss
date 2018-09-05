@@ -1,174 +1,207 @@
 //function to change color of text based on color of background
 @function set-text-color($color) {
-    @if (lightness($color) > 50) {
-        @return #000000; //lighter background, return dark color
-    } @else {
-        @return #e9e7e7d7; //darker background, return light color
-    }
+  @if (lightness($color) > 50) {
+    @return #000000; //lighter background, return dark color
+  }
+
+  @else {
+    @return #e9e7e7d7; //darker background, return light color
+  }
 }
+
 //all button styles
 $btn: rgba(68, 68, 68, 0.808); //btn background color
 
 .btn {
-    @extend %btn !optional;
+  @extend %btn !optional;
 }
 
 .btn {
-    background: $btn;
-    color: set-text-color($btn);
-    border: 1px solid rgba(233, 233, 233, 0.808);
-    border-radius: 5px;
+  background: $btn;
+  color: set-text-color($btn);
+  border: 1px solid rgba(233, 233, 233, 0.808);
+  border-radius: 5px;
 }
+
 // main background
 $background: rgba(204, 204, 204, 0.575); // background color
 
 .background {
-    @extend %background !optional;
+  @extend %background !optional;
 }
 
 .background {
-    background: $background;
-    color: set-text-color($background);
+  background: $background;
+  color: set-text-color($background);
+  min-height: 75vh;
 }
 
 // modal style
 .modal {
-    min-width: 85vw;
-    border: rgb(174, 174, 247) solid 5px;
-    border-radius: 5px;
-    font-size: 15px;
+  min-width: 85vw;
+  border: rgb(174, 174, 247) solid 5px;
+  border-radius: 5px;
+  font-size: 15px;
 }
-
 
 /* universal */
 body {
-    background: rgba(239, 239, 240, 0.979);
-  }
-  
-  .list-group-item {
-    line-height: 2.5;
-  }
-  .clear{
-    margin-right: 5px;
-  }
-  .navBtns {
-    margin-left: 5px;
-  }
-  h2 {
-    margin-top: 0px;
-    padding-top: 15px;
-  }
-  
-  h5 {
+  background: rgba(239, 239, 240, 0.979);
+}
+
+.list-group-item {
+  line-height: 2.5;
+}
+
+.clear {
+  margin-right: 5px;
+}
+
+.navBtns {
+  margin-left: 5px;
+}
+
+h2 {
+  margin-top: 0px;
+  padding-top: 15px;
+}
+
+h5 {
+  margin-top: 10px;
+}
+
+.header-background {
+  background: rgba(68, 68, 68, 0.808);
+  border-radius: 5px;
+  border: 3px solid rgba(233, 233, 233, 0.808);
+  max-width: 50vw;
+}
+
+.splash-bg {
+  background: url('../../images/chef-hands-steak-plate.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 75vh;
+  margin: 30px;
+  border: 5px solid rgba(109, 109, 109, 0.808);
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 992px) {
+
+  // styles for medium screens and down
+  .splashBtns {
     margin-top: 10px;
   }
-  .header-background{
-    background: rgba(68, 68, 68, 0.808);
-    border-radius: 5px;
-    border: 3px solid rgba(233, 233, 233, 0.808);
-    max-width: 50vw;
-  }
+
   .splash-bg {
-    background: url('../../images/chef-hands-steak-plate.jpg') no-repeat center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     min-height: 75vh;
-    margin: 30px;
-    border: 5px solid rgba(109, 109, 109, 0.808);
-    border-radius: 5px;
-  }
- 
-  @media screen and (max-width: 992px) {
-    
-    // styles for medium screens and down
-    .splashBtns {
-      margin-top: 10px;
-    }
-    .splash-bg {
-      min-height: 75vh;
-      min-width: 65vw;
-    }
-    .header-background{
-      min-width: 90vw;
-      .header {
-        font-size: 25px;
-      }
-    }
-
-    table {
-      max-width: 95vw;
-      th {
-        font-size: 12px;
-      }
-      td{
-        font-size: 12px;
-      }
-    }
-    #signup{
-      font-size: 8px;
-    }
-
-  }
-  
-  .jumbo {
-    background: url('../../images/market-601580_1280.jpg') no-repeat center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    z-index: 5;
-    min-height: 15vh;
-  }
-  
-  .padIt {
-    margin: 10px;
-  }
-  
-  .list-group-item {
-    background-color: rgba(255, 255, 255, 0.808);
-    border-radius: 4px;
-  }
-  
-  .page {
-    background-color: rgba(58, 58, 255, 0.281);
-  }
- 
-  .top-back {
-    margin-top: 10px;
-  }
-  #submit-order {
-    margin-top: 20px;
-  }
-  #back {
-    margin-right: 10px;
-  }
-  .top-back {
-    margin-bottom: 20px;
-  }
-  tr {
-    font-size: 18px;
-  }
-  /* login page styles */
-  .login-form {
-    padding-top: 20px;
-  }
-  .active {
-    background-color: none !important;
-    color: rgb(186, 226, 228);
+    min-width: 65vw;
   }
 
-  .submit {
-   margin-bottom: 20px;
+  .header-background {
+    min-width: 90vw;
+
+    .header {
+      font-size: 25px;
+    }
   }
+
   table {
-    margin-bottom: 10px;
-  }
-  .login-bg {
-    background-color: rgba(226, 226, 229, 0.712);
-  }
-  // modal style
- 
-  
+    max-width: 95vw;
 
+    th {
+      font-size: 12px;
+    }
+
+    td {
+      font-size: 12px;
+    }
+  }
+
+  #signup {
+    font-size: 8px;
+  }
+}
+
+.jumbo {
+  background: url('../../images/market-601580_1280.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 5;
+  min-height: 15vh;
+}
+
+.padIt {
+  margin: 10px;
+}
+
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.808);
+  border-radius: 4px;
+}
+
+.page {
+  background-color: rgba(58, 58, 255, 0.281);
+}
+
+.top-back {
+  margin-top: 10px;
+}
+
+#submit-order {
+  margin-top: 20px;
+}
+
+#back {
+  margin-right: 10px;
+}
+
+.top-back {
+  margin-bottom: 20px;
+}
+
+tr {
+  font-size: 18px;
+}
+
+/* login page styles */
+.login-form {
+  padding-top: 20px;
+}
+
+.active {
+  background-color: none !important;
+  color: rgb(186, 226, 228);
+}
+
+.progress {
+    max-width: 35vh;
+    display: none;
+    display: flex !important;
+    align-items: start;
+    position: absolute !important;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  
+}
+
+.submit {
+  margin-bottom: 20px;
+}
+
+table {
+  margin-bottom: 10px;
+}
+
+.login-bg {
+  background-color: rgba(226, 226, 229, 0.712);
+}

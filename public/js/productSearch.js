@@ -5,13 +5,26 @@ document.addEventListener('DOMContentLoaded', function () {
 		event.preventDefault();
 		// get search text value
 		let search = document.getElementById('product-text').value;
+		$('tbody').empty()
+		$('.progress1').addClass('progress');
+		$('.indeterminate1').addClass('indeterminate');
 
 		if (!search) {
 			// if search form is empty query search all
-			window.location.replace('/api/products/');
+			setTimeout(function() {
+				$('.progress1').removeClass('progress');
+				$('.indeterminate1').removeClass('interminate');
+				window.location.replace('/api/products/');
+				
+			},2000);
 		} else {
 			// run the search api
+			setTimeout(function() {
+			$('.progress1').removeClass('progress');
+			$('.indeterminate1').removeClass('interminate');
 			window.location.replace('/api/products/search/' + search);
+			
+		},2000);
 		}
 
 		return false;
@@ -24,3 +37,4 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 });
+	

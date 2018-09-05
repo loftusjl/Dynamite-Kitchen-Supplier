@@ -29,11 +29,17 @@ $(document).ready(function () {
 	// jquery event listener to call search based on category selected
 	$('.category').on('click', function (event) {
 		event.preventDefault();
-
+		$('tbody').empty()
 		let search = $(this).attr('id');
 		
-		window.location.replace('/api/products/category/' + search);
+		$('.progress1').addClass('progress');
+		$('.indeterminate1').addClass('indeterminate');
 		
+		setTimeout(function() {
+			$('.progress1').removeClass('progress');
+			$('.indeterminate1').removeClass('interminate');
+			window.location.replace('/api/products/category/' + search);
+		},3000);
 	});
 });
 
