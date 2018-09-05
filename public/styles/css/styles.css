@@ -10,10 +10,13 @@
   min-height: 75vh; }
 
 .modal {
-  min-width: 85vw;
+  min-width: 20vw;
   border: #aeaef7 solid 5px;
   border-radius: 5px;
   font-size: 15px; }
+
+.modal .modal-content {
+  padding: 0px; }
 
 /* universal */
 body {
@@ -48,7 +51,7 @@ h5 {
   -o-background-size: cover;
   background-size: cover;
   min-height: 75vh;
-  margin: 30px;
+  margin-top: 30px;
   border: 5px solid rgba(109, 109, 109, 0.808);
   border-radius: 5px; }
 
@@ -58,7 +61,7 @@ h5 {
 
   .splash-bg {
     min-height: 75vh;
-    min-width: 65vw; }
+    min-width: 80vw; }
 
   .header-background {
     min-width: 90vw; }

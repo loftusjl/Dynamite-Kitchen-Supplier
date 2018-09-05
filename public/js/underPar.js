@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	let qtyReq = document.getElementsByClassName('qtyRequested');
 	for (i = 0; i < qtyReq.length; i++) {
 		let ordId = qtyReq[i].id; // ! this is wrong. it's not the order id
-		console.log(qtyReq); // ! this shows you what the element looks like
+		//console.log(qtyReq); // ! this shows you what the element looks like
 		qtyReq[i].addEventListener('change', function () {
 			defVal = getDefault(ordId);
 			newVal = getVal(ordId);
 			prodID = getProdID(ordId);
 			olID = getOlID(ordId);
-			console.log(`defval ${defVal}, newval ${newVal}, prodid ${prodID}, orderlineID ${olID}`);
+			//console.log(`defval ${defVal}, newval ${newVal}, prodid ${prodID}, orderlineID ${olID}`);
 			if (defVal > 0) {
 				$.ajax({
 					headers: {

@@ -53,37 +53,59 @@
                 <tr>
                   <th class='center-align'>Order #</th>
                   <th class='center-align'>Submitted</th>
-              
+
                 </tr>
               </thead>
               <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
                 {{#each order}}
                 <tr id='orderInfo'>
-                  <td class='center-align'>{{this.id}}{{> orderHistoryModal}}
+                  <td class='view-order center-align getOrder'>{{this.id}}
                   </td>
                   <td class='center-align'>{{this.updatedAt}}</td>
-                 
                   <td>
                     {{!-- edit info --}}
-                    <a id='{{this.id}}' class="edit btn-floating btn-small red modal-trigger" href='#modalOrderHistory{{this.id}}'>
-                      <i class="large material-icons">mode_edit</i>
+                    <a id='{{this.id}}' class="btnPressed edit btn-floating btn-small red modal-trigger" href='#modalOrderHistory'>
+                      <i class=" large material-icons">mode_edit</i>
                     </a>
                   </td>
                 </tr>
                 {{/each}}
               </tbody>
             </table>
+            <!-- Modal Structure -->
+            <div id="modalOrderHistory" class="modal">
+              <div class="modal-content">
+                <div class='container'>
+                  <table class='highlight'>
+                    <thead id='order-list' class='list-group'>
+                      <tr>
+                        <th class='center-align'>Product #</th>
+                        <th class='center-align'>Qty.</th>
+                        <th class='center-align'>Price</th>
+                        <th class='center-align'>Total</th>
+                        <th class='center-align'>Employee</th>
+                      </tr>
+                    </thead>
+                    <tbody id='order-table'>
+
+                    </tbody>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+              </div>
             </div>
-            <div class='row'>
-            
-              {{> navbuttons}}
+              <div class='row'>
+
+                {{> navbuttons}}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
-  <script src='/js/index.js'></script>
-  <script src='/js/orderSubmit.js'></script>
+      <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
+      <script src='/js/index.js'></script>
+      <script src='/js/orderSubmit.js'></script>
+      <script src='/js/getOrderHistory.js'></script>
