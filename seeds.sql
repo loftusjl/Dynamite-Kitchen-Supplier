@@ -48,6 +48,7 @@ insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, us
 insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, usEmail, usPassword, lastLogin, usStatus, createdAt, updatedAt) values ('Elsey Ollarenshaw', '407-268-6725', '9 Beilfuss Circle', 'Orlando', 'FL', '32868', 1, 'eollarenshaw9@nba.com', 'p4q5Z4', '2018-07-05 00:16:26', 'inactive', '2018-01-19 01:08:55', '2017-12-13 02:55:15');
 
 -- orderLine table
+use restaurantdb;
 insert into orderLines (olQuantity, prodID, userID, createdAt, updatedAt) values (13, 27, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 insert into orderLines (olQuantity, prodID, userID, createdAt, updatedAt) values (4, 4, 2, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 insert into orderLines (olQuantity, prodID, userID, createdAt, updatedAt) values (17, 22, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
