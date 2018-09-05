@@ -1,4 +1,4 @@
-USE restaurantdb;
+USE rftox3712nxmwuxn;
 -- products table
 insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodUnitofIssue, prodPrice, createdAt, updatedAt) values ('Alcohol', 'Wine - Zinfandel California 2002', 10, 2, 'CS', 8.69, '2018-08-05 17:54:52', '2017-09-08 02:27:42');
 insert into products (prodCategory, prodName, prodOnHand, prodPAR, prodUnitofIssue, prodPrice, createdAt, updatedAt) values ('Alcohol', 'Beer - Mcauslan Apricot', 5, 5, 'CS', 25.87, '2017-11-08 09:43:32', '2017-12-08 16:24:36');
@@ -48,7 +48,7 @@ insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, us
 insert into users (usName, usPhone, usStreet, usCity, usState, usZip, usRole, usEmail, usPassword, lastLogin, usStatus, createdAt, updatedAt) values ('Elsey Ollarenshaw', '407-268-6725', '9 Beilfuss Circle', 'Orlando', 'FL', '32868', 1, 'eollarenshaw9@nba.com', 'p4q5Z4', '2018-07-05 00:16:26', 'inactive', '2018-01-19 01:08:55', '2017-12-13 02:55:15');
 
 -- orderLine table
-use restaurantdb;
+use rftox3712nxmwuxn;
 insert into orderLines (olQuantity, prodID, userID, createdAt, updatedAt) values (13, 27, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 insert into orderLines (olQuantity, prodID, userID, createdAt, updatedAt) values (4, 4, 2, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
 insert into orderLines (olQuantity, prodID, userID, createdAt, updatedAt) values (17, 22, 4, '2018-08-19 19:20:02', '2018-04-03 20:55:09');
