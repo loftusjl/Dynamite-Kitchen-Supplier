@@ -6,7 +6,8 @@
 
 .background {
   background: rgba(204, 204, 204, 0.575);
-  color: #000000; }
+  color: #000000;
+  min-height: 75vh; }
 
 .modal {
   min-width: 85vw;
@@ -114,6 +115,19 @@ tr {
 .active {
   background-color: none !important;
   color: #bae2e4; }
+
+.progress {
+  max-width: 35vh;
+  display: none;
+  display: flex !important;
+  align-items: start;
+  position: absolute !important;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto; }
 
 .submit {
   margin-bottom: 20px; }
