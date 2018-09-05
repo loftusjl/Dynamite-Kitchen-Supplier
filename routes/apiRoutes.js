@@ -99,7 +99,8 @@ module.exports = function (app) {
 			.then(dbProduct => {
 				// res.json(dbProduct);
 				res.render('basicuser', {
-					product: dbProduct
+					product: dbProduct,
+					
 				});
 			});
 	});

@@ -39,7 +39,7 @@ $(document).ready(function () {
 			$('.progress1').removeClass('progress');
 			$('.indeterminate1').removeClass('interminate');
 			window.location.replace('/api/products/category/' + search);
-		},3000);
+		},2000);
 	});
 });
 
