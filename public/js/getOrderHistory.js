@@ -2,6 +2,8 @@ let $orderTable = $('#order-table');
 document.addEventListener('DOMContentLoaded', function () {
     // When btn pressed call function to display an old order by id
     $('.btnPressed').on('click', function () {
+        // get the buttons id which matches the order id
+        let btnPressed = this.id
 
         // call an ajax get.api to grab details of the order 
         $.ajax({
@@ -14,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(function (data) {
                 // assign the array a varible
                 let $orderArray = data[0].map(function (order) {
+                    console.log(order)
                     // create table row
                     let $tr = $('<tr>')
                     // create table data
