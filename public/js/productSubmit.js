@@ -1,4 +1,8 @@
-
+data = [{
+	olQuantity: , 
+	prodID: , 
+	OrderId:
+}]
 $('#submit-product').on('click', submitProduct);
 
 function submitProduct(data) {
