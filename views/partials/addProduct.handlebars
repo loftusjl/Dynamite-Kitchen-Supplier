@@ -1,0 +1,23 @@
+<div class="modal" id="addProduct{{this.id}}">
+    <div class="modal-content">
+        <div class='container'>
+            <form class='mb-4' action='GET'>
+                <div class='form-group flow-text'>
+                    <div>
+                        <h5>Add {{this.prodName}} to Order</h5>
+                        <div class='container'>
+                            <div class='row'>
+                                <h6>Name: <input id="{{this.id}}" type="text" class="input-field nameEdit tooltipped"
+                                        data-position="top" data-tooltip="Edit Name" value="{{this.prodName}}"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id='{{this.id}}' class="modal-close add right btn-floating btn-small waves-effect waves-light red tooltipped"
+                data-id='{{this.id}}' data-position="top" data-tooltip="Apply changes"><i class="material-icons">update</i></a>
+        </div>
+    </div>
+</div>
