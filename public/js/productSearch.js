@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		event.preventDefault();
 		// get search text value
 		let search = document.getElementById('product-text').value;
-		$('tbody').empty()
+		$('tbody').empty();
 		$('.progress1').addClass('progress');
 		$('.indeterminate1').addClass('indeterminate');
 
@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else {
 			// run the search api
 			setTimeout(function() {
-			$('.progress1').removeClass('progress');
-			$('.indeterminate1').removeClass('interminate');
-			window.location.replace('/api/products/search/' + search);
+				$('.progress1').removeClass('progress');
+				$('.indeterminate1').removeClass('interminate');
+				window.location.replace('/api/products/search/' + search);
 			
-		},2000);
+			},2000);
 		}
 
 		return false;

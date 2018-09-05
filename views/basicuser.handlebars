@@ -63,17 +63,25 @@
               <tr>
                 <th>Name</th>
                 <th class='center-align'>Category</th>
-                <th class='center-align'>Quantity</th>
+                <th class='center-align'>In Stock</th>
+                <th class='center-align'>Par</th>
+                <th></th>
                 <th class='center-align'>Add</th>
               </tr>
             </thead>
             <tbody id='listingTable' data-id='{{this.id}}' class='list-group-item'>
               {{#each product}}
               <tr>
-                <td>{{this.prodName}}</td>
+                <td>{{this.prodName}}{{> addProduct}}</td>
                 <td class='center-align'>{{this.prodCategory}}</td>
                 <td class='center-align'>{{this.prodOnHand}}</td>
-                <td class='center-align'>{{> addOne}}</td>
+                <td class='center-align'>{{this.prodPAR}}</td>
+                <td>{{this.prodUnitofIssue}}</td>
+                <td class='center-align'>
+                  <button data-target='addProduct{{this.id}}' class='btn-floating btn-small red modal-trigger'>
+                    <i class='material-icons'>add</i>
+                  </button>
+                </td>
               </tr>
               {{/each}}
             </tbody>
