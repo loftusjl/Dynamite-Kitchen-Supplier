@@ -28,11 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     let $td3 = $('<td>')
                         .addClass('center-align')
                         .text(order.Total)
-                    let $td4 = $('<td>')
-                        .addClass('center-align')
-                        .text(order.usName)
                     // chain the table data to a row for each object
-                    $tr.append($td0, $td1, $td2, $td3, $td4)
+                    $tr.append($td0, $td1, $td2, $td3)
 
                     return $tr
                 })
