@@ -59,14 +59,14 @@
               <tbody id='order-history' data-id='{{this.id}}' class='list-group-item'>
                 {{#each order}}
                 <tr id='orderInfo'>
-                  <td class='center-align'>{{this.id}}{{> orderHistoryModal}}
+                  <td class='view-order center-align getOrder'>{{this.id}}
                   </td>
                   <td class='center-align'>{{this.updatedAt}}</td>
                  
                   <td>
                     {{!-- edit info --}}
-                    <a id='{{this.id}}' class="edit btn-floating btn-small red modal-trigger" href='#modalOrderHistory{{this.id}}'>
-                      <i class="large material-icons">mode_edit</i>
+                    <a id='{{this.id}}' class="btnPressed edit btn-floating btn-small red">
+                      <i class=" large material-icons">mode_edit</i>
                     </a>
                   </td>
                 </tr>
@@ -87,3 +87,4 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>
   <script src='/js/index.js'></script>
   <script src='/js/orderSubmit.js'></script>
+  <script src='/js/getOrderHistory.js'></script>

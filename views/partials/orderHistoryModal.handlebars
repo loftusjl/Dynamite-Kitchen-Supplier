@@ -1,6 +1,8 @@
 <!-- Modal Structure -->
 <div id="modalOrderHistory{{this.id}}" class="modal">
     <div class="modal-content">
+        <div class='container'>
+             <h5>Order #: {{this.id}}</h5>
         <table class='highlight'>
             <thead id='order-list' class='list-group'>
                 <tr>
@@ -11,15 +13,17 @@
                 </tr>
             </thead>
             <tbody id='{{this.id}}' data-id='{{this.id}}' class='list-group-item'>
-               {{#each orderline}}
                     <tr>
-                        <td class='center-align'>{{this.prodName}}</td>
+                        <td class='center-align'>{{this.OrderLine:prodID}}</td>
                         <td class='center-align'>{{this.olQuantity}}</td>
+                        <td class='center-align'>{{this.olTotal}}</td>
+                        <td class='center-align'>{{this.user.usName}}</td>
                     </tr>
-               {{/each}}
             </tbody>
         </table>
+        </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
     </div>
+    
