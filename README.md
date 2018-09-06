@@ -2,6 +2,8 @@
 
 Dynamite Kitchen Supplier (DkS) is a full-stack web-app that will allow for role based users to input orders for purchase using a restaurant kitchen as its model. The app allow's for a seperation of roles each with their own set of privileges and access. Users will need to login or create a new user which will be stored in the database.
 
+![DkS](/public/images/DKS_scrnsht.png)
+
 ## Getting Started
 
 * Visit the live [Heroku Site](https://serene-forest-68972.herokuapp.com/)
@@ -26,4 +28,7 @@ Dynamite Kitchen Supplier (DkS) is a full-stack web-app that will allow for role
 
 ## Authors
 
-* **Jesse Loftus** - *JLL* - [Loftusjl](https://github.com/loftusjl)
+* **Jesse Loftus** - [Loftusjl](https://loftusjl.github.io)
+* **Adam Funk** - [funkaj](https://funkaj.github.io)
+* **Armando Silva** - [conecked](https://conecked.github.io)
+* **Justin Campbell** - [jjcam619](https://jjcam619.github.io)
