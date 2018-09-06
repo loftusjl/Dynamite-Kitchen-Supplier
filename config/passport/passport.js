@@ -1,7 +1,5 @@
-// var bcrypt = require('bcrypt-nodejs');
 var db = require('../../models');
 var LocalStrategy = require('passport-local').Strategy;
-// var flash = require('connect-flash');
 
 // expose this function to our app using module.exports
 module.exports = function (passport) {
@@ -23,8 +21,6 @@ module.exports = function (passport) {
 		// we are checking to see if the user trying to login already exists
 		db.User.findOne({where: {usName: username}})
 			.then(function(dbUser, err) {
-				// console.log('DB Response: ', username);
-				// console.log('DB Response2: ', req.body);
 				if (err){return next(err);}
 				console.log('err: ', err);			
 				if (dbUser) {return next(null, false, { message: 'User already exists' });
@@ -65,12 +61,8 @@ module.exports = function (passport) {
 	function(req, username, password, next) { // callback with username and password from our form
 		db.User.findOne({where: {usName: username, usPassword: password}})
 			.then(function(dbUser, err) {
-				// console.log('DB RESPONSE', dbUser);
 				if (err) { return next(err); }
-				// console.log('err: ', err);
 				if (!dbUser) { return next(null, false, { message: 'Incorrect username or password.' });}
-				// console.log('username: ', username);
-				// console.log('password:', password);
 				return next(null, dbUser);
 			});
 	})

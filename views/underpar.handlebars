@@ -8,24 +8,24 @@
 				<thead id='product-list' class='list-group'>
 					<tr>
 						<th>Name</th>
-						<th>Category</th>
-						<th>On Hand</th>
-						<th>PAR</th>
-						<th>QTY to Order</th>
-						<th>Unit of Issue</th>
+						<th class='center-align'>Category</th>
+						<th class='center-align'>On Hand</th>
+						<th class='center-align'>PAR</th>
+						<th class='center-align'>QTY to Order</th>
+						<th class='center-align'>Unit of Issue</th>
 					</tr>
 				</thead>
 				<tbody class='list-group-item'>
 					{{#each par}}
 					<tr>
-						<td class="prodName">{{this.prodName}}</td>
-						<td class="prodCategory">{{this.prodCategory}}</td>
-						<td>{{this.prodOnHand}}</td>
-						<td>{{this.prodPAR}}</td>
+						<td class='prodName'>{{this.prodName}}</td>
+						<td class='prodCategory center-align'>{{this.prodCategory}}</td>
+						<td class='center-align'>{{this.prodOnHand}}</td>
+						<td class='center-align'>{{this.prodPAR}}</td>
 						<td>
-							<input id="{{this.id}}" data-olid="{{olID}}" type="text" class="input-field qtyRequested" value="{{this.olQuantity}}">
+							<input id="{{this.id}}" data-olid="{{olID}}" type="text" class="input-field qtyRequested center-align" value="{{this.olQuantity}}">
 						</td>
-						<td>{{this.prodUnitofIssue}}</td>
+						<td class='center-align'>{{this.prodUnitofIssue}}</td>
 						<td>{{> addOne}}</td>
 					</tr>
 					{{/each}}
