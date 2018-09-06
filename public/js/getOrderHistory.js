@@ -1,4 +1,5 @@
 let $orderTable = $('#order-table');
+
 document.addEventListener('DOMContentLoaded', function () {
 	// When btn pressed call function to display an old order by id
 	$('.btnPressed').on('click', function () {
