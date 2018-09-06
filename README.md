@@ -21,12 +21,12 @@ Dynamite Kitchen Supplier (DkS) is a full-stack web-app that will allow for role
 * [jQuery](https://jquery.com/) - The JavaScript Framework used
 * [Visual Studio Code](https://code.visualstudio.com/) - The text editor used
 * [CSS: Cascading Style Sheets](https://developer.mozilla.org/en-US/docs/Web/CSS) - The stylesheet language used
-* [Google Fonts](http://google.com/fonts) - Font Scripts
+* [SASS](https://sass-lang.com) - CSS with Superpowers!
 * [Passport.js](http://www.passportjs.org/) - The authentication middleware for Node.js used
 * [Travis CI](https://travis-ci.org/) - Great resource to help ensure you can deploy with confidence!
 * [ESLint](https://eslint.org/) - JavaScript liniting utility used 
 
-## Authors
+## Authors 
 
 * **Jesse Loftus** - [Loftusjl](https://loftusjl.github.io)
 * **Adam Funk** - [funkaj](https://funkaj.github.io)
