@@ -8,7 +8,8 @@ Dynamite Kitchen Supplier (DkS) is a full-stack web-app that will allow for role
 
 * Visit the live [Heroku Site](https://serene-forest-68972.herokuapp.com/)
     * Please be patient. If no one has visited it recently it takes a second to spin up the server.
-* You will either need to create a new user or log in if you currently have one. 
+* You will either need to create a new user or log in if you currently have one.
+    * To preview a supervisor role: Username: supervisor, Password: password
 * Depending on your role, you will be able to either view products with relative information i.e. Quantity on Hand, Par Levels, Unit of Issue/Measure or a view showing orders already placed, current orders pending and user data.
 
 ## Built With
